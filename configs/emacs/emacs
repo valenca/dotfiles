@@ -33,7 +33,9 @@
 ;; cursor is moved past the end of it:
 (setq next-line-add-newlines nil)
 ;; Flash instead of that annoying bell
-(setq visible-bell nil) ;; Remove icons toolbar
+(setq visible-bell nil)
+;; Follow symlinks by default
+(setq vc-follow-symlinks t)
 ;;jump between windows
 (global-set-key [M-left] 'windmove-left)
 (global-set-key [M-right] 'windmove-right)
