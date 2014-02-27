@@ -1,0 +1,9 @@
+#SUBTLE
+wmname LG3D &
+dropboxd &
+nm-applet --sm-disable &
+xmodmap ~/.Xmodmap &
+urxvt &
+pidgin &
+xrdb -merge ~/.Xdefaults &
+exec subtle 

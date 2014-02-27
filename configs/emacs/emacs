@@ -1,0 +1,194 @@
+
+;;Default font size
+(set-face-attribute 'default nil :height 80)
+
+(set-background-color "black")
+(set-foreground-color "white")
+
+(setq buffer-file-coding-system 'utf-8-unix)
+(setq default-file-name-coding-system 'utf-8-unix)
+(setq default-keyboard-coding-system 'utf-8-unix)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+(setq default-sendmail-coding-system 'utf-8-unix)
+(setq default-terminal-coding-system 'utf-8-unix)
+
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
+(require 'slime)
+(slime-setup)
+;; Text and the such
+;; Use colors to highlight commands, etc.
+(global-font-lock-mode t)
+;; Disable the welcome message
+(setq inhibit-startup-message t)
+;; Format the title-bar to always include the buffer name
+(setq frame-title-format "emacs - %b")
+;; Display time
+(display-time)
+;; Make the mouse wheel scroll Emacs
+(mouse-wheel-mode t)
+;; Always end a file with a newline
+(setq require-final-newline t)
+;; Stop emacs from arbitrarily adding lines to the end of a file when the
+;; cursor is moved past the end of it:
+(setq next-line-add-newlines nil)
+;; Flash instead of that annoying bell
+(setq visible-bell nil) ;; Remove icons toolbar
+;;jump between windows
+(global-set-key [M-left] 'windmove-left)
+(global-set-key [M-right] 'windmove-right)
+(global-set-key [M-up] 'windmove-up)
+(global-set-key [M-down] 'windmove-down)
+
+(setq tab-width 4)
+
+(ido-mode t)
+
+(if (> emacs-major-version 20)
+(tool-bar-mode -1)) ;; Use y or n instead of yes or not
+
+;;questions answered with y or n
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(add-hook 'c-mode-hook
+       (lambda ()
+   (unless (or (file-exists-p "makefile")
+		     (file-exists-p "Makefile"))
+	   (set (make-local-variable 'compile-command)
+		(concat (concat "gcc -Wall -ansi -pedantic -lm -o "(file-name-sans-extension buffer-file-name))
+			(concat " " buffer-file-name))))))
+
+;;rightside scrollbar
+(set-scroll-bar-mode 'right)
+
+;;fulscreen
+(defun toggle-fullscreen ()
+	(interactive)
+	(x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+					'(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+	(x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+					'(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+)
+
+(if window-system	  
+    (progn
+    (toggle-fullscreen)
+    (global-linum-mode 1)
+    )
+  )
+
+(line-number-mode 1)
+(column-number-mode 1)
+;;scroll
+(setq scroll-step 1)
+
+;;copypastecut done right
+
+(global-set-key "\C-w" 'clipboard-kill-region)
+(global-set-key "\M-w" 'clipboard-kill-ring-save)
+(global-set-key "\C-Y" 'clipboard-yank)
+
+;;erc default server
+
+(setq erc-server "irc.ptnet.org:6667")
+
+;;color theme
+(defun faces_x ()
+;; these are used when in X
+  (custom-set-faces'
+'(default ((t (:background "#000000" :foreground "#ffffff"))))
+   '(cursor ((t (:background "#ffffff" :foreground "#000000"))))
+   '(region ((t (:background "#595959"))))
+   '(mode-line ((t (:background "#383838" :foreground "#e3e3e3"))))
+   '(mode-line-inactive ((t (:background "#222222" :foreground "#bbbbbb"))))
+   '(fringe ((t (:background "#3b3b3b"))))
+   '(minibuffer-prompt ((t (:foreground "#85c0ff" :bold t))))
+   '(font-lock-builtin-face ((t (:foreground "#85c0ff"))))
+   '(font-lock-comment-face ((t (:foreground "#8f8f8f"))))
+   '(font-lock-constant-face ((t (:foreground "#aa00ff"))))
+   '(font-lock-function-name-face ((t (:foreground "#ffe71a"))))
+   '(font-lock-keyword-face ((t (:foreground "#2575d4"))))
+   '(font-lock-string-face ((t (:foreground "#e01c00"))))
+   '(font-lock-type-face ((t (:foreground "#51ca21"))))
+   '(font-lock-variable-name-face ((t (:foreground "#a0b7cf"))))
+   '(font-lock-warning-face ((t (:foreground "#ff0000"))))
+   '(isearch ((t (:background "#ce5c00" :foreground "#ffffff"))))
+   '(lazy-highlight ((t (:background "#8f5902"))))
+   '(link ((t (:foreground "#729fcf" :underline t))))
+   '(link-visited ((t (:foreground "#3465a4" :underline t))))
+   '(button ((t (:foreground "#729fcf" :underline t :weight bold))))
+   '(header-line ((t (:background "#222222" :foreground "#ffffff")))))
+  )
+
+(defun faces_nox ()
+  ;; these are used when in terminal
+  (custom-set-faces
+   '(default ((t (:foreground "#ffffff" :background "#000000"))))
+   '(font-lock-comment-face ((t (:foreground "brightblack"))))
+   '(font-lock-function-name-face ((t (:foreground "yellow"))))
+   '(font-lock-keyword-face ((t (:foreground "brightblue"))))
+   '(font-lock-type-face ((t (:foreground "green"))))
+   '(font-lock-string-face ((t (:foreground "red"))))
+   '(font-lock-variable-name-face ((t (:foreground "blue"))))
+   '(font-lock-builtin-face ((t (:foreground "blue"))))
+   '(menu ((((type x-toolkit)) (:background "white" :foreground "black" :box (:line-width 2 :color "grey75" :style released-button)))))
+   '(modeline ((t (:foreground "blue" :background "white")))))
+  (set-cursor-color "blue")
+  (set-foreground-color "white")
+  (set-background-color "color-16")
+  (set-face-foreground 'default "white")
+  (set-face-background 'default "color-16")
+)
+
+(if window-system
+    (faces_x)
+  (faces_nox)
+)
+
+;;(provide-theme 'jv)
+
+;;case-sensitive autocomplete
+(add-to-list 'load-path "~/.emacs.d/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+(ac-config-default)
+
+(setq ac-ignore-case nil)
+(set-face-background 'ac-candidate-face "#888888")
+(set-face-underline 'ac-candidate-face "#888888")
+(set-face-background 'ac-selection-face "#333333")
+(put 'narrow-to-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((encoding . utf-8)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(button ((t (:foreground "#729fcf" :underline t :weight bold))))
+ '(cursor ((t (:background "#ffffff" :foreground "#000000"))))
+ '(font-lock-builtin-face ((t (:foreground "#85c0ff"))))
+ '(font-lock-comment-face ((t (:foreground "#8f8f8f"))))
+ '(font-lock-constant-face ((t (:foreground "#aa00ff"))))
+ '(font-lock-function-name-face ((t (:foreground "#ffe71a"))))
+ '(font-lock-keyword-face ((t (:foreground "#2575d4"))))
+ '(font-lock-string-face ((t (:foreground "#e01c00"))))
+ '(font-lock-type-face ((t (:foreground "#51ca21"))))
+ '(font-lock-variable-name-face ((t (:foreground "#a0b7cf"))))
+ '(font-lock-warning-face ((t (:foreground "#ff0000"))))
+ '(fringe ((t (:background "#3b3b3b"))))
+ '(header-line ((t (:background "#222222" :foreground "#ffffff"))))
+ '(isearch ((t (:background "#ce5c00" :foreground "#ffffff"))))
+ '(lazy-highlight ((t (:background "#8f5902"))))
+ '(link ((t (:foreground "#729fcf" :underline t))))
+ '(link-visited ((t (:foreground "#3465a4" :underline t))))
+ '(minibuffer-prompt ((t (:foreground "#85c0ff" :bold t))))
+ '(mode-line ((t (:background "#383838" :foreground "#e3e3e3"))))
+ '(mode-line-inactive ((t (:background "#222222" :foreground "#bbbbbb"))))
+ '(quote (default ((t (:background "#000000" :foreground "#ffffff")))))
+ '(region ((t (:background "#595959")))))

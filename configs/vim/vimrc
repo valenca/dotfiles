@@ -19,13 +19,13 @@ set wildmenu " cool tab completion
 set incsearch " incremental searching /
 set mouse=a " enable mouse support in console
 "NAO MOSTRA OUTPUT au FileType c set makeprg=gcc\ -ansi\ -lm\ -Wall\ -o\ %<\ %
-command! W  write
-command! WL  w | !rubber -d %; rubber --clean %
+command! W write
+command! WL w | !rubber -d %; rubber --clean %
 command! SW w !sudo tee %
 nmap <C-V> "+gP
 imap <C-V> <ESC><C-V>i
 vmap <C-C> "+y
 set t_Co=256
 if has("gui_running")
-	set lines=40 columns=75
+set lines=40 columns=75
 endif

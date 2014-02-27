@@ -1,0 +1,26 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+alias pacman='sudo pacman'
+alias ls='ls -B --color=auto'
+alias tree='tree -C'
+alias alsa='alsamixer'
+alias ping='ping -c 5'
+alias vlock='vlock -a'
+#alias ncmpcpp='urxvt -name ncmpcpp -e ncmpcpp &'
+#alias mocp='urxvt -name mocp -e mocp &'
+alias shutdown='sudo shutdown -hP now'
+alias suspend='sudo pm-suspend'
+alias reboot='sudo reboot'
+alias matlab='matlab -desktop'
+alias rm='rm -Iv'
+alias cal='cal -3'
+
+export EDITOR='emacs'
+
+C_0="\[\e[0;37m\]"
+C_1="\[\e[1;34m\]"
+PS1="${C_1}[${C_0}\u@\h \W${C_1}]${C_0}\$ "
