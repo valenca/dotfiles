@@ -4,6 +4,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+alias sl='ls'
 alias pacman='sudo pacman'
 alias ls='ls -B --color=auto'
 alias tree='tree -C'
