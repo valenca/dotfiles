@@ -1,41 +1,22 @@
+if [ "$#" != 2 ];then
+echo -e "Usage: sh import.sh <type> <file/folder>\n";
+echo -e "This tool will *move* your config file to the dotfiles manager and also add the command to install.sh as a comment, so you need to manualy uncomment the lines.\n"
+echo -e "Example: sh import.sh bash ~/.bashrc";
+exit 0;
+fi
+
 homerepo="$HOME/.dotfiles/configs"
+dir="$HOME/.dotfiles/"
+cd $homerepo
 
-# [Vim]
-mkdir -p $homerepo/vim
-cp -p $HOME/.vimrc                         $homerepo/vim/vimrc
+tname=$1
+fname=${2##*/}
+fname=${fname#.}
 
-# [Emacs]
-mkdir -p  $homerepo/emacs
-cp -p $HOME/.emacs                         $homerepo/emacs/emacs
-cp -r $HOME/.emacs.d/                      $homerepo/emacs/emacs.d
+mkdir -p $homerepo/$tname
+mv $2 $homerepo/$tname/$fname
 
-# [Bash]
-mkdir -p  $homerepo/bash
-cp -p $HOME/.bashrc                        $homerepo/bash/bashrc
+exp=$(echo "s/\/home\/$USER/\$HOME/g")
+lname=$(echo $2 | sed -e $exp)
 
-# [Xorg]
-mkdir -p  $homerepo/xorg
-cp -p $HOME/.xinitrc                       $homerepo/xorg/xinitrc
-cp $HOME/.Xdefaults                        $homerepo/xorg/Xdefaults
-
-# [Subtle]
-mkdir -p  $homerepo/subtle
-cp -p $HOME/.config/subtle/subtle.rb       $homerepo/subtle/subtle.rb
-
-# [Moc]
-mkdir -p  $homerepo/moc
-cp -p $HOME/.moc/config                    $homerepo/moc/mocconfig
-cp -p $HOME/.moc/themes/theme              $homerepo/moc/moctheme
-
-# [Conky]
-mkdir -p  $homerepo/conky
-cp -p $HOME/.conkyrc                       $homerepo/conky/conkyrc
-
-# [Bashrun2]
-mkdir -p  $homerepo/bashrun
-cp -p $HOME/.config/bashrun2/bashrun2.rc   $homerepo/bashrun/bashrun2.rc
-
-# [dunstrc]
-mkdir -p  $homerepo/dunst
-cp -p $HOME/.config/dunstrc                $homerepo/dunst/dunstrc
-
+echo -e "\n# [$tname]\n#ln -sf \$homerepo/$tname/$fname $lname" >> $dir/install.sh
