@@ -34,3 +34,4 @@ ln -sf $homerepo/bashrun/bashrun2.rc $HOME/.config/bashrun2/bashrun2.rc
 # [dunstrc]
 mkdir -p $HOME/.config/
 ln -sf $homerepo/dunst/dunstrc $HOME/.config/dunstrc
+
