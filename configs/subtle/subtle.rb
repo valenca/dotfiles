@@ -477,8 +477,8 @@ grab "C-A-Down",  [ :bottom_right, :bottom_right66, :bottom_right33 ]
 
 # Exec programs
 grab "W-t", "urxvt"
-#grab "W-f", "chromium"
-grab "W-f", "firefox"
+grab "W-f", "chromium"
+#grab "W-f", "firefox"
 grab "W-e", "emacs"
 grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
 grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
