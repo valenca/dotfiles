@@ -252,8 +252,8 @@ gravity :center33,       [  33,  33,  33,  33 ]
 
 # Right
 gravity :right,          [  50,   0,  50, 100 ]
-gravity :right66,        [  33,   0,  66, 100 ]
-gravity :right33,        [  66,  50,  33, 100 ]
+gravity :right66,        [  33,   0,  67, 100 ]
+gravity :right33,        [  66,  50,  34, 100 ]
 
 # Bottom left
 gravity :bottom_left,    [   0,  50,  50,  50 ]
@@ -703,26 +703,26 @@ tag "menu" do
 end
 
 
-
-tag "pidgin_main" do
-  match :role =>"buddy_list"
-  gravity :pidgin_main
-  fixed true
-end
-
-
 tag "pidgin_small" do
   match :role =>"conversation"
+  match :role =>"chat"
   gravity :pidgin_small
   stick true
 end
 
 tag "pidgin_conv" do
   match :role =>"conversation"
+  match :role =>"chat"
   gravity :pidgin_conv
   fixed true
 end
 
+tag "pidgin_main" do
+  match :role =>"buddy_list"
+  match :role =>"contact_list"
+  gravity :pidgin_main
+  fixed true
+end
 
 #Placement
 tag "fixed" do

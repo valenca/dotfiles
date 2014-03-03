@@ -7,3 +7,5 @@ urxvt &
 pidgin &
 xrdb -merge ~/.Xdefaults &
 exec subtle 
+
+#exec openbox
