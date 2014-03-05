@@ -225,69 +225,69 @@ end
 #
 
 # Top left
-gravity :top_left,       [   0,   0,  50,  50 ]
-gravity :top_left66,     [   0,   0,  50,  66 ]
-gravity :top_left33,     [   0,   0,  50,  34 ]
+gravity :top_left,       [  0,  0, 50, 50]
+gravity :top_left66,     [  0,  0, 50, 66]
+gravity :top_left33,     [  0,  0, 50, 34]
 
 # Top
-gravity :top,            [   0,   0, 100,  50 ]
-gravity :top66,          [   0,   0, 100,  66 ]
-gravity :top33,          [   0,   0, 100,  33 ]
+gravity :top,            [  0,  0,100, 50]
+gravity :top66,          [  0,  0,100, 66]
+gravity :top33,          [  0,  0,100, 33]
 
 # Top right
-gravity :top_right,      [  50,   0,  50,  50 ]
-gravity :top_right66,    [  50,   0,  50,  66 ]
-gravity :top_right33,    [  50,   0,  50,  33 ]
+gravity :top_right,      [ 50,  0, 50, 50]
+gravity :top_right66,    [ 50,  0, 50, 66]
+gravity :top_right33,    [ 50,  0, 50, 33]
 
 # Left
-gravity :left,           [   0,   0,  50, 100 ]
-gravity :left66,         [   0,   0,  66, 100 ]
-gravity :left33,         [   0,   0,  33, 100 ]
-
+gravity :left,           [  0,  0, 50,100]
+gravity :left66,         [  0,  0, 66,100]
+gravity :left33,         [  0,  0, 33,100]
 
 # Center
-gravity :center,         [   0,   0, 100, 100 ]
-gravity :center66,       [  17,  17,  66,  66 ]
-gravity :center33,       [  33,  33,  33,  33 ]
+gravity :center,         [  0,  0,100,100]
+gravity :center66,       [ 17, 17, 66, 66]
+gravity :center33,       [ 33, 33, 33, 33]
 
 # Right
-gravity :right,          [  50,   0,  50, 100 ]
-gravity :right66,        [  33,   0,  67, 100 ]
-gravity :right33,        [  66,  50,  34, 100 ]
+gravity :right,          [ 50,  0, 50,100]
+gravity :right66,        [ 33,  0, 67,100]
+gravity :right33,        [ 66, 50, 34,100]
 
 # Bottom left
-gravity :bottom_left,    [   0,  50,  50,  50 ]
-gravity :bottom_left66,  [   0,  33,  50,  66 ]
-gravity :bottom_left33,  [   0,  66,  50,  33 ]
+gravity :bottom_left,    [  0, 50, 50, 50]
+gravity :bottom_left66,  [  0, 33, 50, 66]
+gravity :bottom_left33,  [  0, 66, 50, 33]
 
 # Bottom
-gravity :bottom,         [   0,  50, 100,  50 ]
-gravity :bottom66,       [   0,  34, 100,  66 ]
-gravity :bottom33,       [   0,  67, 100,  33 ]
+gravity :bottom,         [  0, 50,100, 50]
+gravity :bottom66,       [  0, 34,100, 66]
+gravity :bottom33,       [  0, 67,100, 33]
 
 # Bottom right
-gravity :bottom_right,   [  50,  50,  50,  50 ]
-gravity :bottom_right66, [  50,  33,  50,  67 ]
-gravity :bottom_right33, [  50,  66,  50,  34 ]
+gravity :bottom_right,   [ 50, 50, 50, 50]
+gravity :bottom_right66, [ 50, 33, 50, 67]
+gravity :bottom_right33, [ 50, 66, 50, 34]
 
 # Pidgin
-gravity :pidgin_main,    [  80,  50,   20, 100]
-gravity :pidgin_conv,    [   0,   0,   80, 100]
+gravity :pidgin_main,    [ 80, 50, 20,100]
+gravity :pidgin_conv,    [  0,  0, 80,100]
 
 # Gimp
-gravity :gimp_image,     [  10,   0,  80, 100 ]
-gravity :gimp_toolbox,   [   0,   0,  10, 100 ]
-gravity :gimp_dock,      [  90,   0,  10, 100 ]
+gravity :gimp_image,     [ 10,  0, 80,100]
+gravity :gimp_toolbox,   [  0,  0, 10,100]
+gravity :gimp_dock,      [ 90,  0, 10,100]
 
 #mocp
-gravity :mocp,           [  10,  18,  80, 55 ]
-gravity :ncmpcpp,        [  15,  18,  70, 55 ]
+gravity :mocp,           [ 10, 18, 80, 55]
+gravity :ncmpcpp,        [ 15, 18, 70, 55]
 
 #pidgin small convo
-gravity :pidgin_small,           [80,50,20,50]
+gravity :pidgin_small,   [ 80, 50, 20, 50]
+gravity :video_small,    [ 71,  0, 29, 30]
 
 #pidgin small convo
-gravity :bashrun,                [0,0,20,2]
+gravity :bashrun,        [  0,  0, 20,  2]
 
 #
 # == Grabs
@@ -703,6 +703,17 @@ tag "menu" do
 end
 
 
+tag "video_small" do
+  match "vlc"
+  gravity :video_small
+  stick true
+end
+
+tag "video" do
+  match "vlc"
+  gravity :center
+end
+
 tag "pidgin_small" do
   match :role =>"conversation"
   match :role =>"chat"
@@ -860,7 +871,7 @@ view "messages" do
 end
 
 view "extra" do
-  match "extra|default"
+  match "extra|default|video"
   #icon Subtlext::Icon.new("#{iconpath}/simple1/box_plus.xbm")
   #icon_only true
   dynamic true
