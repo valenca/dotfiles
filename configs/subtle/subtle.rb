@@ -187,8 +187,8 @@ end
 
 # Style for active/inactive windows
 style :clients do
-  active      blue2,3
-  inactive    gray3,3
+  active      blue2,2
+  inactive    gray3,2
   border      3,0,0,0
   width       50
 end
@@ -651,7 +651,7 @@ end
 
 
 tag "browser" do
-  match  "uzbl|opera|firefox|navigator|chrom[e|ium]|plugin-container"
+  match  "opera|firefox|navigator|chrom[e|ium]|plugin-container"
 end
 
 tag "editor" do
@@ -894,6 +894,7 @@ view "pdf" do
   match "pdf"
   dynamic true
 end
+
 #view "dev", "editor"
 #view "gimp",  "gimp_.*"
 
