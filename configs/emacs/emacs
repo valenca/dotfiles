@@ -36,6 +36,8 @@
 (setq visible-bell nil)
 ;; Follow symlinks by default
 (setq vc-follow-symlinks t)
+;;no menu bar
+(menu-bar-mode -99)
 ;;jump between windows
 (global-set-key [M-left] 'windmove-left)
 (global-set-key [M-right] 'windmove-right)
@@ -166,7 +168,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((encoding . utf-8)))))
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
