@@ -130,8 +130,8 @@ red2   = "#cc0000"
 
 style :all do
   background  black1
-  #font "xft:Inconsolata:size=11"
-  font "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
+  #font "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
+  font "xft:ohsnap:size=11"
   padding     0, 5
 end
 
@@ -180,7 +180,6 @@ end
 
 # Style for focus window title
 style :title do
-  font "xft:ohsnap:size=11"
   padding     0, 5, 0, 5
   foreground  gray2
 end
@@ -189,7 +188,6 @@ end
 style :clients do
   active      blue2,2
   inactive    gray3,2
-  border      3,0,0,0
   width       50
 end
 
