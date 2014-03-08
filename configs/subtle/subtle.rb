@@ -388,11 +388,6 @@ grab "A-S-Tab", :ViewPrev
 # Move mouse to screen1, screen2, ...
 grab "W-A-1", :ScreenJump1
 grab "W-A-2", :ScreenJump2
-grab "W-A-3", :ScreenJump3
-grab "W-A-4", :ScreenJump4
-grab "W-A-5", :ScreenJump5
-grab "W-A-6", :ScreenJump6
-grab "W-A-7", :ScreenJump7
 
 # Force reload of config and sublets
 grab "W-C-r", :SubtleReload
@@ -436,15 +431,29 @@ grab "W-Right", :WindowRight
 # Kill current window
 #grab "W-S-k", :WindowKill
 grab "A-F4", :WindowKill
+grab "A-XF86Display", :WindowKill
+
 # Lock Screen
-grab "C-A-l", "xscreensaver-command --lock"
-# Sound shortcuts
+grab "C-A-l", "slock"
+
+# Fn shortcuts
 grab "XF86AudioMute", "amixer -q set Master toggle"
 grab "XF86AudioLowerVolume","amixer set Master 5%- unmute"
 grab "XF86AudioRaiseVolume","amixer set Master 5%+ unmute"
-
 grab "XF86MonBrightnessDown","xbacklight -dec 10"
 grab "XF86MonBrightnessUp","xbacklight -inc 10"
+
+# Exec programs
+grab "W-t", "urxvt"
+grab "W-f", "chromium"
+#grab "W-f", "firefox"
+grab "W-e", "emacs"
+grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
+grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
+#grab "A-F2", "dmenu_run"
+grab "A-F2", "bashrun2 smart"
+grab "A-XF86MonBrightnessDown", "bashrun2 smart"
+#grab "A-F1", "tilda"
 
 # Cycle between given gravities
 #grab "W-KP_7", [ :top_left,     :top_left66,     :top_left33     ]
@@ -475,16 +484,6 @@ grab "C-A-Down",  [ :bottom_right, :bottom_right66, :bottom_right33 ]
 #grab "W-x", [ :bottom,       :bottom66,       :bottom33       ]
 #grab "W-c", [ :bottom_right, :bottom_right66, :bottom_right33 ]
 
-# Exec programs
-grab "W-t", "urxvt"
-grab "W-f", "chromium"
-#grab "W-f", "firefox"
-grab "W-e", "emacs"
-grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
-grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
-#grab "A-F2", "dmenu_run"
-grab "A-F2", "bashrun2 smart"
-#grab "A-F1", "tilda"
 
 # Run Ruby lambdas
 grab "S-F2" do |c|
