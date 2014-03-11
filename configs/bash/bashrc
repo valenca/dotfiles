@@ -22,6 +22,8 @@ alias cal='cal -3'
 
 export EDITOR='emacs'
 
+relaunch(){ pkill -9 $1;$1 & }
+
 C_0="\[\e[0;37m\]"
 C_1="\[\e[1;34m\]"
 PS1="${C_1}[${C_0}\u@\h \W${C_1}]${C_0}\$ "

@@ -3,7 +3,7 @@ urxvt.background: Black
 
 URxvt.scrollBar: false
 URxvt.font: xft:Monospace:size=9
-!!URxvt.termName:xrvt-256color
+URxvt*termName:linux
 
 Rxvt.perl-ext-common:  default,tabbedex
 URxvt.tabbed.tabbar-fg: 4
