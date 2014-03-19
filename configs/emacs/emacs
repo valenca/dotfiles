@@ -62,6 +62,12 @@
 		(concat (concat "gcc -Wall -ansi -pedantic -lm -o "(file-name-sans-extension buffer-file-name))
 			(concat " " buffer-file-name))))))
 
+(add-hook 'python-mode-hook
+      (lambda ()
+        (setq indent-tabs-mode t)
+        (setq tab-width 4)
+        (setq python-indent 4)))
+
 ;;rightside scrollbar
 (set-scroll-bar-mode 'right)
 
