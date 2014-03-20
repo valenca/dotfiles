@@ -8,6 +8,6 @@ pidgin &
 xrdb -merge ~/.Xdefaults &
 exec subtle 
 
-
+#OPENBOX
 #exec openbox
 
