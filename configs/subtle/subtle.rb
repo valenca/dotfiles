@@ -282,7 +282,7 @@ gravity :ncmpcpp,        [ 15, 18, 70, 55]
 
 #pidgin small convo
 gravity :pidgin_small,   [ 80, 50, 20, 50]
-gravity :video_small,    [ 71,  0, 29, 30]
+gravity :video_small,    [ 66,  0, 34, 35]
 
 #pidgin small convo
 gravity :bashrun,        [  0,  0, 20,  2]
