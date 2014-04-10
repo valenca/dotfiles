@@ -116,6 +116,7 @@
                       # "ls" in a new terminal
 		+rule run
 			--match 'emacs'
+			--match 'psppire'
     # Run any commandline beginning with '/etc/rc.d' or '/etc/init.d'
     # as root and show it's output in the 'notify' terminal, closing
     # the terminal after two seconds:

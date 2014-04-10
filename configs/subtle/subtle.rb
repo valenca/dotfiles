@@ -451,7 +451,7 @@ grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
 #grab "A-F2", "dmenu_run"
 grab "A-F2", "bashrun2 smart"
 grab "A-XF86MonBrightnessDown", "bashrun2 smart"
-#grab "A-F1", "tilda"
+grab "W-F5", "pkill pidgin && pidgin"
 
 # Cycle between given gravities
 #grab "W-KP_7", [ :top_left,     :top_left66,     :top_left33     ]
@@ -653,7 +653,10 @@ end
 
 tag "editor" do
   match "emacs|[g]?vim|gedit|subl[ime]?"
+  match :name =>"Fig*|fig*"
 end
+
+
 
 tag "extra" do 
   match "nautilus|thunar"
@@ -995,5 +998,5 @@ end
 
 on :start do
    system("hsetroot -fill ~/Dropbox/.omni/Background.jpg")
-   system("conky -d")
+   system("pkill conky && conky -d")
 end
