@@ -16,35 +16,35 @@ URxvt.tabbed.title-bg:    0
 URxvt.autohide:  yes
 URxvt.new-button:  no
 
-!! black dark/light
+! black dark/light
 *color0: #000000
 *color8: #444444
 
-!! red dark/light
+! red dark/light
 *color1: #B10000
 *color9: #CC0000
 
-!! green dark/light
+! green dark/light
 *color2: #6CB100
 *color10: #7CCC00
 
-!! yellow dark/light
+! yellow dark/light
 *color3: #B15C00
 *color11: #CC6A00
 
-!! blue dark/light
+! blue dark/light
 *color4: #005577
 *color12: #0075A3
 
-!! magenta dark/light
+! magenta dark/light
 *color5: #9400d3
 *color13: #ba55d3
 
-!! cyan dark/light
+! cyan dark/light
 *color6: #007177
 *color14: #009199
 
-!! white dark/light
+! white dark/light
 *color7: #eeeeee
 *color15: #ffffff 
 
