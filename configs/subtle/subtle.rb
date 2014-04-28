@@ -441,6 +441,13 @@ grab "XF86AudioRaiseVolume","amixer set Master 5%+ unmute"
 grab "XF86MonBrightnessDown","xbacklight -dec 10"
 grab "XF86MonBrightnessUp","xbacklight -inc 10"
 
+# Fn-off shortcuts
+grab "F6", "amixer -q set Master toggle"
+grab "F7","amixer set Master 5%- unmute"
+grab "F8","amixer set Master 5%+ unmute"
+grab "F2","xbacklight -dec 10"
+grab "F3","xbacklight -inc 10"
+
 # Exec programs
 grab "W-t", "urxvt"
 grab "W-f", "chromium"
