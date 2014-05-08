@@ -283,6 +283,7 @@ gravity :ncmpcpp,        [ 15, 18, 70, 55]
 #pidgin small convo
 gravity :pidgin_small,   [ 80, 50, 20, 50]
 gravity :video_small,    [ 66,  0, 34, 35]
+gravity :video_small2,   [ 80,  0, 20, 21]
 
 #pidgin small convo
 gravity :bashrun,        [  0,  0, 20,  2]
@@ -426,6 +427,9 @@ grab "W-Down",  :WindowDown
 grab "W-Up",    :WindowUp
 grab "W-Right", :WindowRight
 
+grab "W-a", :WindowLeft
+grab "W-d", :WindowRight
+
 # Kill current window
 #grab "W-S-k", :WindowKill
 grab "A-F4", :WindowKill
@@ -476,6 +480,7 @@ grab "C-A-Left",  [ :center,       :left,           :left66,         :left33]
 grab "C-A-Right", [ :right,        :right66,        :right33        ]
 grab "C-A-Up",    [ :top_right,    :top_right66,    :top_right33    ]
 grab "C-A-Down",  [ :bottom_right, :bottom_right66, :bottom_right33 ]
+grab "C-W-Up",    [ :video_small,  :video_small2    ]
 
 #grab "W-s", [ :center,       :center66,       :center33       ]
 #grab "W-d", [ :right,        :right66,        :right33        ]

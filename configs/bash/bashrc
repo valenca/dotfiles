@@ -19,7 +19,7 @@ alias reboot='sudo reboot'
 alias matlab='matlab -desktop'
 alias rm='rm -Iv'
 alias cal='cal -3'
-alias please='sudo !!'
+alias please='sudo $(history -p !!)'
 
 export EDITOR='emacs'
 

@@ -6,8 +6,8 @@ xmodmap ~/.Xmodmap &
 urxvt &
 pidgin &
 xrdb -merge ~/.Xdefaults &
+unclutter -idle 5 &
 exec subtle 
-
 #OPENBOX
 #exec openbox
 
