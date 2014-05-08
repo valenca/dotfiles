@@ -480,7 +480,7 @@ grab "C-A-Left",  [ :center,       :left,           :left66,         :left33]
 grab "C-A-Right", [ :right,        :right66,        :right33        ]
 grab "C-A-Up",    [ :top_right,    :top_right66,    :top_right33    ]
 grab "C-A-Down",  [ :bottom_right, :bottom_right66, :bottom_right33 ]
-grab "C-W-Up",    [ :video_small,  :video_small2    ]
+grab "C-W-Up",    [ :video_small,  :video_small2,   :top_right      ]
 
 #grab "W-s", [ :center,       :center66,       :center33       ]
 #grab "W-d", [ :right,        :right66,        :right33        ]
