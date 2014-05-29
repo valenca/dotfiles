@@ -666,7 +666,7 @@ end
 
 tag "editor" do
   match "emacs|[g]?vim|gedit|subl[ime]?"
-  match :name =>"Fig*|fig*"
+  match :name =>"Fig*|fig*|Python*|python*"
 end
 
 
