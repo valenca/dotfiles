@@ -270,7 +270,10 @@ gravity :bottom_right33, [ 50, 66, 50, 34]
 # Pidgin
 gravity :pidgin_main,    [ 80, 50, 20,100]
 gravity :pidgin_conv,    [ 15,  0, 65,100]
-gravity :mail,           [  0,  0, 80,100]
+
+#Sylpheed
+gravity :sylpheed_main,  [ 15,  0, 65,100]
+gravity :sylpheed_fold,  [  0,  0, 15,100]
 
 # Gimp
 gravity :gimp_image,     [ 10,  0, 80,100]
@@ -734,9 +737,25 @@ tag "pidgin_small" do
   gravity :pidgin_small
   stick true
 end
+
 tag "mail" do
   match "thunderbird|geary"
   gravity :mail
+  fixed true
+end
+
+tag "sylph_main" do
+  match "sylpheed"
+  match :role => "main_window"
+  gravity :sylpheed_main
+  urgent true
+  fixed true
+end
+
+tag "sylph_fold" do
+  match "folder_view"
+  gravity :sylpheed_fold
+  urgent true
   fixed true
 end
 
@@ -884,7 +903,7 @@ view "internet" do
 end
 
 view "messages" do
-  match "chat|pidgin_main|pidgin_conv|mail"
+  match "chat|pidgin_main|pidgin_conv|mail|sylph_main|sylph_fold"
   #icon Subtlext::Icon.new("#{iconpath}/simple1/balloon.xbm")
   #icon_only true
 end
