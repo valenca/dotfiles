@@ -269,7 +269,8 @@ gravity :bottom_right33, [ 50, 66, 50, 34]
 
 # Pidgin
 gravity :pidgin_main,    [ 80, 50, 20,100]
-gravity :pidgin_conv,    [  0,  0, 80,100]
+gravity :pidgin_conv,    [ 15,  0, 65,100]
+gravity :mail,           [  0,  0, 80,100]
 
 # Gimp
 gravity :gimp_image,     [ 10,  0, 80,100]
@@ -733,6 +734,11 @@ tag "pidgin_small" do
   gravity :pidgin_small
   stick true
 end
+tag "mail" do
+  match "thunderbird|geary"
+  gravity :mail
+  fixed true
+end
 
 tag "pidgin_conv" do
   match :role =>"conversation"
@@ -878,7 +884,7 @@ view "internet" do
 end
 
 view "messages" do
-  match "chat|pidgin_main|pidgin_conv"
+  match "chat|pidgin_main|pidgin_conv|mail"
   #icon Subtlext::Icon.new("#{iconpath}/simple1/balloon.xbm")
   #icon_only true
 end
@@ -1008,8 +1014,10 @@ end
 # http://subforge.org/projects/subtle/wiki/Hooks
 #
 
+on :reload do 
+  system("feh --bg-fill ~/Dropbox/.omni/Background.jpg")
+end
 
 on :start do
-   system("hsetroot -fill ~/Dropbox/.omni/Background.jpg")
-   system("pkill conky && conky -d")
+  system("pkill conky && conky -d")
 end

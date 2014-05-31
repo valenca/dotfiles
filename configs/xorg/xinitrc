@@ -1,12 +1,17 @@
 #SUBTLE
-wmname LG3D &
 dropboxd &
 nm-applet --sm-disable &
+
+wmname LG3D &
 xmodmap ~/.Xmodmap &
-urxvt &
-pidgin &
 xrdb -merge ~/.Xdefaults &
 unclutter -idle 5 &
+
+urxvt &
+pidgin &
+thunderbird &
+
+feh --bg-fill ~/Dropbox/.omni/Background.jpg &
 exec subtle 
 #OPENBOX
 #exec openbox
