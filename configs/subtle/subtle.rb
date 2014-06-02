@@ -269,7 +269,7 @@ gravity :bottom_right33, [ 50, 66, 50, 34]
 
 # Pidgin
 gravity :pidgin_main,    [ 80, 50, 20,100]
-gravity :pidgin_conv,    [ 15,  0, 65,100]
+gravity :pidgin_conv,    [  0,  0, 80,100] #[ 15,  0, 65,100]
 
 #Sylpheed
 gravity :sylpheed_main,  [ 15,  0, 65,100]
