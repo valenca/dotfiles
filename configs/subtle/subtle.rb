@@ -679,7 +679,7 @@ tag "extra" do
   match "nautilus|thunar"
 end
 tag "torrent" do
-  match "transmission-gtk"
+  match "transmission-gtk|deluge"
 end
 tag "pdf" do 
   match "evince|mirage|zathura"

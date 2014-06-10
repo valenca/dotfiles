@@ -20,11 +20,11 @@ alias matlab='matlab -desktop'
 alias rm='rm -Iv'
 alias cal='cal -3'
 alias please='sudo $(history -p !!)'
+alias unrarall='find -name "*.rar" | parallel unrar x {}'
 
 export EDITOR='emacs'
 
 relaunch(){ pkill -9 $1;$1 & }
-xemacs(){ emacs $1 2> /dev/null & }
 
 C_0="\[\e[0;37m\]"
 C_1="\[\e[1;34m\]"
