@@ -270,6 +270,7 @@ gravity :bottom_right33, [ 50, 66, 50, 34]
 # Pidgin
 gravity :pidgin_main,    [ 80, 50, 20,100]
 gravity :pidgin_conv,    [  0,  0, 80,100] #[ 15,  0, 65,100]
+gravity :mail_main,      [  0,  0, 80,100]
 
 #Sylpheed
 gravity :sylpheed_main,  [ 15,  0, 65,100]
@@ -740,7 +741,7 @@ end
 
 tag "mail" do
   match "thunderbird|geary"
-  gravity :mail
+  gravity :mail_main
   fixed true
 end
 
@@ -1034,7 +1035,7 @@ end
 #
 
 on :reload do 
-  system("feh --bg-fill ~/Dropbox/.omni/Background.jpg")
+  system("feh --bg-fill ~/Dropbox/.omni/backgrounds/active/*")
 end
 
 on :start do
