@@ -683,7 +683,7 @@ tag "torrent" do
   match "transmission-gtk|deluge"
 end
 tag "pdf" do 
-  match "evince|mirage|zathura"
+  match "evince|mirage|zathura|comix"
 end
 
 #Separate console based apps from consoles
@@ -1035,7 +1035,7 @@ end
 #
 
 on :reload do 
-  system("feh --bg-fill ~/Dropbox/.omni/backgrounds/active/*")
+  system("feh --bg-fill ~/Dropbox/.omni/wallpapers/active/*")
 end
 
 on :start do
