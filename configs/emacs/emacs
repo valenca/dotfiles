@@ -1,4 +1,9 @@
 
+;;blasphemy
+
+(require 'evil)
+(evil-mode 1)
+
 ;;Default font size
 (set-face-attribute 'default nil :height 80)
 
@@ -12,10 +17,10 @@
 (setq default-sendmail-coding-system 'utf-8-unix)
 (setq default-terminal-coding-system 'utf-8-unix)
 
-(setq inferior-lisp-program "/usr/bin/sbcl")
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
-(require 'slime)
-(slime-setup)
+;;(setq inferior-lisp-program "/usr/bin/sbcl")
+;;(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
+;;(require 'slime)
+;;(slime-setup)
 ;; Text and the such
 ;; Use colors to highlight commands, etc.
 (global-font-lock-mode t)

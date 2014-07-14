@@ -970,7 +970,7 @@ end
 # options in subtle:
 
 sublet :clock2 do
-  interval      30
+  interval 10
   foreground    gray1 
   time_format   "%H:%M"
   #time_format  "%l:%M %p"

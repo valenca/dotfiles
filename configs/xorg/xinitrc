@@ -5,7 +5,7 @@ nm-applet --sm-disable &
 wmname LG3D &
 xmodmap ~/.Xmodmap &
 xrdb -merge ~/.Xdefaults &
-unclutter -idle 5 &
+unclutter -idle 3 &
 
 urxvt &
 pidgin &
