@@ -69,7 +69,7 @@
 	  BROWSER='firefox'
 
 	  HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bashrun2/history"
-	  PS1='>>'
+	  PS1=''
 
 	  stty -ixon       # disable flow control, allows to bind C-Q
 	  set -o ignoreeof # prevent C-d on an empty line from exiting	  
