@@ -3,6 +3,7 @@ dropboxd &
 nm-applet --sm-disable &
 
 wmname LG3D &
+setxkbmap -layout pt
 xmodmap ~/.Xmodmap &
 xrdb -merge ~/.Xdefaults &
 unclutter -idle 3 &
@@ -11,7 +12,7 @@ urxvt &
 pidgin &
 #sylpheed &
 
-feh --bg-fill ~/Dropbox/.omni/Background.jpg &
+conky &
 exec subtle 
 #OPENBOX
 #exec openbox

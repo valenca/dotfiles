@@ -131,7 +131,7 @@ red2   = "#cc0000"
 style :all do
   background  black1
   #font "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*"
-  font "xft:ohsnap:size=11"
+  font "xft:ohsnap:size=10"
   padding     0, 5
 end
 
@@ -139,7 +139,7 @@ end
 style :views do
   # Style for the active views
   padding     0, 5,0,5
-  font "xft:ohsnap:size=11"
+  font "xft:ohsnap:size=10"
   style :focus do
     foreground blue1
     background gray3
@@ -287,7 +287,7 @@ gravity :ncmpcpp,        [ 15, 18, 70, 55]
 
 #pidgin small convo
 gravity :pidgin_small,   [ 80, 50, 20, 50]
-gravity :video_small,    [ 66,  0, 34, 35]
+gravity :video_small,    [ 68,  0, 32, 33]
 gravity :video_small2,   [ 80,  0, 20, 21]
 
 #pidgin small convo
@@ -1039,5 +1039,5 @@ on :reload do
 end
 
 on :start do
-  system("pkill conky && conky -d")
+  system("feh --bg-fill ~/Dropbox/.omni/wallpapers/active/*")
 end

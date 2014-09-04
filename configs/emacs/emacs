@@ -1,8 +1,8 @@
 
 ;;blasphemy
 
-(require 'evil)
-(evil-mode 1)
+;;(require 'evil)
+;;(evil-mode 1)
 
 ;;Default font size
 (set-face-attribute 'default nil :height 80)
@@ -16,6 +16,8 @@
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 (setq default-sendmail-coding-system 'utf-8-unix)
 (setq default-terminal-coding-system 'utf-8-unix)
+
+(setq message-log-max nil)
 
 ;;(setq inferior-lisp-program "/usr/bin/sbcl")
 ;;(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
@@ -64,7 +66,7 @@
    (unless (or (file-exists-p "makefile")
 		     (file-exists-p "Makefile"))
 	   (set (make-local-variable 'compile-command)
-		(concat (concat "gcc -Wall -ansi -pedantic -lm -o "(file-name-sans-extension buffer-file-name))
+		(concat (concat "gcc -Wall -lm -o "(file-name-sans-extension buffer-file-name))
 			(concat " " buffer-file-name))))))
 
 (add-hook 'python-mode-hook

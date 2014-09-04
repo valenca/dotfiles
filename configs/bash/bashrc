@@ -23,6 +23,7 @@ alias please='sudo $(history -p !!)'
 alias unrarall='find -name "*.rar" | parallel unrar x {}'
 
 export EDITOR='emacs'
+export HISTCONTROL=ignoreboth
 
 relaunch(){ pkill -9 $1;$1 & }
 
