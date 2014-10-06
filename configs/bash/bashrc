@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 alias sl='ls'
 alias pacman='sudo pacman'
+alias aura='sudo aura'
 alias ls='ls -B --color=auto'
 alias tree='tree -C'
 alias alsa='alsamixer'

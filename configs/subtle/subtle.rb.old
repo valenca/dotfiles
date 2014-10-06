@@ -682,7 +682,7 @@ end
 
 
 tag "browser" do
-  match "opera|firefox|chrom[e|ium]|navigator|plugin-container"
+  match "opera|firefox|*chrom[e|ium]*|navigator|plugin-container"
   match "Google-chrome-unstable"
 end
 
@@ -782,14 +782,14 @@ end
 tag "pidgin_conv" do
   match :role =>"conversation"
   match :role =>"chat"
+  match :role =>"pop-up"
   gravity :pidgin_conv
-  fixed true
+  #fixed true
 end
 
 tag "pidgin_main" do
   match :role =>"buddy_list"
   match :role =>"contact_list"
-  match :role =>"pop-up"
   gravity :pidgin_main
   fixed true
 end
