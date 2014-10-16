@@ -1,10 +1,5 @@
-
-;;blasphemy
-
-;;(require 'evil)
-;;(evil-mode 1)
-
 ;;Default font size
+
 (set-face-attribute 'default nil :height 80)
 
 (set-background-color "black")
