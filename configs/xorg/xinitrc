@@ -1,8 +1,25 @@
 #SUBTLE
+#dropboxd &
+#nm-applet --sm-disable &
+
+#wmname LG3D &
+#setxkbmap -layout pt
+#xmodmap ~/.Xmodmap &
+#xrdb -merge ~/.Xdefaults &
+#unclutter -idle 3 &
+
+#urxvt &
+#pidgin &
+
+#conky &
+#exec subtle 
+
+#QTile
+
 dropboxd &
 nm-applet --sm-disable &
 
-wmname LG3D &
+#wmname LG3D &
 setxkbmap -layout pt
 xmodmap ~/.Xmodmap &
 xrdb -merge ~/.Xdefaults &
@@ -10,7 +27,6 @@ unclutter -idle 3 &
 
 urxvt &
 pidgin &
-#sylpheed &
 
 conky &
-exec subtle 
+exec qtile

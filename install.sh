@@ -19,6 +19,10 @@ ln -sf $homerepo/xorg/Xdefaults $HOME/.Xdefaults
 mkdir -p $HOME/.config/subtle
 ln -sf $homerepo/subtle/subtle.rb $HOME/.config/subtle/subtle.rb      
 
+# [Qtile]
+mkdir -p $HOME/.config/qtile
+ln -sf $homerepo/qtile/config.py $HOME/.config/qtile/config.py      
+
 # [Moc]
 mkdir -p $HOME/.moc/themes
 ln -sf $homerepo/moc/mocconfig $HOME/.moc/config
