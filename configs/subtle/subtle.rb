@@ -771,7 +771,6 @@ tag "sylph_fold" do
 end
 
 tag "pidgin_small" do
-  match :role =>"pop-up"
   match :role =>"conversation"
   match :role =>"chat"
   gravity :pidgin_small
@@ -789,7 +788,6 @@ end
 tag "pidgin_main" do
   match :role =>"buddy_list"
   match :role =>"contact_list"
-  match :role =>"pop-up"
   gravity :pidgin_main
   fixed true
 end

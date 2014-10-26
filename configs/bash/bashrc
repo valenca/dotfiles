@@ -23,6 +23,7 @@ alias cal='cal -3'
 alias please='sudo $(history -p !!)'
 alias unrarall='find -name "*.rar" | parallel unrar x {}'
 alias chrome='google-chrome-unstable'
+alias nmpls='sudo systemctl restart NetworkManager'
 
 export EDITOR='emacs'
 export HISTCONTROL=ignoreboth

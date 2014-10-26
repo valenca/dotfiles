@@ -1,6 +1,9 @@
 from libqtile.config import Key, Screen, Group, Drag, Click, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
+from libqtile import hook
+
+import subprocess,re
 
 sup = "mod4"
 alt = "mod1"
@@ -56,16 +59,17 @@ keys = [
 ]
 
 #matches
-m_default = Match(wm_class=["Thunar"],title=["MATLAB R013a"])
+m_default = Match(wm_class=["Thunar|Deluge"],title=["MATLAB R013a"])
 m_music   = Match(title=["mocp"])
 m_browser = Match(wm_class=["Google-chrome-unstable|Firefox"])
 m_terms   = Match(wm_class=["URxvt|XTerm"])
 m_editor  = Match(title=["emacs|[g]?vim|gedit|subl[ime]?"])
 m_pidgin  = Match(wm_class=["Pidgin"])
 
-l_pidginl=layout.Slice(side="right",width=300,wname="pidgin",role="buddy_list",
-fallback=layout.Slice(side="left",width=1298,wname="pidgin",role="conversation",
-fallback=layout.Max()))
+#l_pidginl=layout.Slice(side="right",width=300,wname="pidgin",role="buddy_list",
+#fallback=layout.Slice(side="left",width=1298,wname="pidgin",role="conversation",
+#fallback=layout.Max()))
+l_pidginl=layout.Slice(side="right",width=300,wname="pidgin",role="buddy_list",fallback=layout.Stack(num_stacks=1,border_focus="#000000"))
 
 groups = [
 	Group("arch",
@@ -112,18 +116,24 @@ screens = [
                 widget.GroupBox(
 					borderwidth=1,
 					active="#999999",
-					this_current_screen_border="#336699"
+					this_current_screen_border="#336699",
+					highlight_method="block",
+					rounded=False,
+					padding_x=2
+					
 				),
                 widget.TextBox(" >> ", 
 							   name="default",
 							   foreground="#336699"
 				),
-                widget.WindowName(foreground="#555555"),
+                widget.WindowName(
+					foreground="#555555",
+				),
                 widget.Prompt(),
                 widget.Systray(),
                 widget.Clock(format='%I:%M'), #'%Y-%m-%d %a %I:%M %p'
             ],
-            20,
+            15,
         ),
     ),
 ]
@@ -136,6 +146,13 @@ mouse = [
         start=lazy.window.get_size()),
     Click([sup], "Button2", lazy.window.bring_to_front())
 ]
+
+
+@hook.subscribe.startup
+def runner():
+    import subprocess
+    subprocess.Popen(['xsetroot', '-cursor_name', 'left_ptr'])
+	#subprocess.Popen(['feh','--bg-fill','/home/valenca/Dropbox/.omni/wallpapers/active/*'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []
