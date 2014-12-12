@@ -471,7 +471,7 @@ grab "F3","xbacklight -inc 10"
 
 # Exec programs
 grab "W-t", "urxvt"
-grab "W-f", "google-chrome-unstable"
+grab "W-f", "chromium"
 #grab "W-f", "firefox"
 grab "W-e", "emacs"
 grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
@@ -772,6 +772,7 @@ end
 
 tag "pidgin_small" do
   match :role =>"conversation"
+  match :role =>"app"
   match :role =>"chat"
   gravity :pidgin_small
   stick true
@@ -790,6 +791,11 @@ tag "pidgin_main" do
   match :role =>"contact_list"
   gravity :pidgin_main
   fixed true
+end
+
+tag "hangs" do
+#  match :role =>"app"
+  stick true
 end
 
 #Placement
