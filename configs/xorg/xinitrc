@@ -1,32 +1,13 @@
 #SUBTLE
 dropboxd &
-nm-applet --sm-disable &
 
 wmname LG3D &
 setxkbmap -layout pt
 xmodmap ~/.Xmodmap &
 xrdb -merge ~/.Xdefaults &
-unclutter -idle 3 &
 
 urxvt &
-pidgin &
+chromium &
 
-conky &
+/usr/bin/VBoxClient-all &
 exec subtle 
-
-#QTile
-
-#dropboxd &
-#nm-applet --sm-disable &
-
-#wmname LG3D &
-#setxkbmap -layout pt
-#xmodmap ~/.Xmodmap &
-#xrdb -merge ~/.Xdefaults &
-#unclutter -idle 3 &
-
-#urxvt &
-#pidgin &
-
-#conky &
-#exec qtile

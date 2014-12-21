@@ -198,6 +198,7 @@ end
 
 # Style for active/inactive windows
 style :clients do
+  margin      6, 0, 0, 6
   active      blue2,2
   inactive    gray3,2
   width       50

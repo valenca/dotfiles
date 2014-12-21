@@ -5,6 +5,9 @@ URxvt.scrollBar: false
 URxvt.font: xft:Monospace:size=9
 URxvt*termName:linux
 
+URxvt*transparent: true
+URxvt*shading:30
+
 Rxvt.perl-ext-common:  default,tabbedex
 URxvt.tabbed.tabbar-fg: 4
 URxvt.tabbed.tabbar-bg: 0
