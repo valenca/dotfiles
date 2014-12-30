@@ -739,13 +739,13 @@ end
 
 
 tag "video_small" do
-  match "vlc"
+  match "vlc|[s]?mplayer"
   gravity :video_small
   stick true
 end
 
 tag "video" do
-  match "vlc"
+  match "vlc|[s]?mplayer"
   gravity :center
 end
 
