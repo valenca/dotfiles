@@ -17,7 +17,7 @@ alignment bottom_left
 gap_x 25
 gap_y 25
 
-update_interval 3
+update_interval 1
 double_buffer yes
 
 border_inner_margin 5
@@ -32,6 +32,8 @@ default_outline_color white
 # default_shade_color black
 
 TEXT
-${wireless_link_bar 8,200 wlp1s0}    ${wireless_link_qual_perc wlp1s0} % - ${font Terminus:italic:size=9} ${wireless_essid wlp1s0} ${font Terminus:size=9}
+${color #666666}
+${voffset  50}${offset -45}${font Inconsolata:bold:italic:size=70} ${time %H.%M} ${font Terminus:size=9} 
+${voffset -50}${offset 280}${wireless_link_bar 8,200 wlp1s0}    ${wireless_link_qual_perc wlp1s0} % - ${font Terminus:italic:size=9} ${wireless_essid wlp1s0} ${font Terminus:size=9}
 
-${battery_bar 8,200 BAT1}    ${battery_short BAT1}  ${battery_time BAT1}
+${offset 270}${battery_bar 8,200 BAT1}    ${battery_short BAT1}  ${battery_time BAT1}

@@ -299,8 +299,17 @@ gravity :ncmpcpp,        [ 15, 18, 70, 55]
 
 #pidgin small convo
 gravity :pidgin_small,   [ 80, 50, 20, 50]
+
+#video gravs
+
+gravity :vid_center1,    [ 10,  10, 80, 82]
+gravity :vid_center2,    [ 25,  25, 50, 51]
+gravity :vid_center3,    [ 33,  33, 32, 33]
+gravity :vid_center4,    [ 40,  40, 20, 20]
+
 gravity :video_small,    [ 68,  0, 32, 33]
 gravity :video_small2,   [ 80,  0, 20, 21]
+gravity :video_sq,       [ 70,  0, 30, 40]
 
 #pidgin small convo
 gravity :bashrun,        [  0,  0, 20,  2]
@@ -424,7 +433,7 @@ grab "W-B3", :WindowResize
 grab "W-u", :WindowFloat
 
 # Toggle fullscreen mode of window
-grab "W-space", :WindowFull
+grab "A-F1", :WindowFull
 
 # Toggle sticky mode of window (will be visible on all views)
 grab "W-s", :WindowStick
@@ -477,12 +486,11 @@ grab "W-e", "emacs"
 grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
 grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
 #grab "A-F2", "dmenu_run  -hist ~/.dmenu.hist -l 5"
-grab "A-F2", "dmenu_run -l 5 -hist ~/.dmenu.hist -fn \"ohsnap:size=12\" -nf \"" + gray1 + "\" -nb \"" + black1 + "\" -sb \"" + gray3 + "\" -sf \""+blue1+"\""
-#grab "A-F2", "dmenu_run -w 210 -h 18 -l 5 -fn \"ohsnap:size=12\" -nf \"" + gray1 + "\" -nb \"" + black1 + "\" -sb \"" + gray3 + "\" -sf \""+blue1+"\""
-#grab "A-F2", "bashrun2 smart"
-#grab "A-F2" do  Subtle::Contrib::Launcher.run; end
+#grab "A-F2", "dmenu_run -l 5 -hist ~/.dmenu.hist -fn \"ohsnap:size=12\" -nf \"" + gray1 + "\" -nb \"" + black1 + "\" -sb \"" + gray3 + "\" -sf \""+blue1+"\""
 
+grab "A-F2", "bashrun2 smart"
 grab "A-XF86MonBrightnessDown", "bashrun2 smart"
+
 grab "W-F5", "pkill pidgin && pidgin"
 
 # Cycle between given gravities
@@ -502,7 +510,7 @@ grab "C-A-Right", [ :right,        :right66,        :right33        ]
 grab "C-A-Up",    [ :top_right,    :top_right66,    :top_right33    ]
 grab "C-A-Down",  [ :bottom_right, :bottom_right66, :bottom_right33 ]
 grab "C-W-Up",    [ :video_small,  :video_small2,   :top_right      ]
-grab "C-W-Down",  [ :top_right,    :video_small2,   :video_small    ]
+grab "C-W-Down",  [ :vid_center3,    :vid_center2,   :vid_center1   ] #   :vid_center4]
 
 #grab "W-s", [ :center,       :center66,       :center33       ]
 #grab "W-d", [ :right,        :right66,        :right33        ]
@@ -691,16 +699,11 @@ tag "editor" do
   match :name =>"Fig*|fig*|Python*|python*"
 end
 
-
-
-tag "extra" do 
-  match "nautilus|thunar"
-end
 tag "torrent" do
   match "transmission-gtk|deluge"
 end
 tag "pdf" do 
-  match "evince|mirage|zathura|comix"
+  match "evince|mirage|zathura|comix|texstudio|ktikz"
 end
 
 #Separate console based apps from consoles
@@ -934,7 +937,7 @@ view "messages" do
 end
 
 view "extra" do
-  match "extra|default|video"
+  match "default|video"
   #icon Subtlext::Icon.new("#{iconpath}/simple1/box_plus.xbm")
   #icon_only true
   dynamic true

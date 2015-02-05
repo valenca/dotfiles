@@ -5,14 +5,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 alias sl='ls'
-alias pacman='pacaur'
 alias ls='ls -B --color=auto'
 alias tree='tree -C'
+alias grep='grep --color=auto'
+
+alias pacman='pacaur'
 alias alsa='alsamixer'
 alias ping='ping -c 5'
-alias vlock='vlock -a'
-#alias ncmpcpp='urxvt -name ncmpcpp -e ncmpcpp &'
-#alias mocp='urxvt -name mocp -e mocp &'
 alias shutdown='sudo shutdown -hP now'
 alias suspend='sudo pm-suspend'
 alias reboot='sudo reboot'
@@ -20,9 +19,9 @@ alias matlab='matlab -desktop -nosplash'
 alias rm='rm -Iv'
 alias cal='cal -3'
 alias please='sudo $(history -p !!)'
-alias unrarall='find -name "*.rar" | parallel unrar x {}'
 alias nmpls='sudo systemctl restart NetworkManager'
-
+alias slock='i3lock -f'
+alias moff='xset dpms force off'
 export EDITOR='emacs'
 export HISTCONTROL=ignoreboth
 

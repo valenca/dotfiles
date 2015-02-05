@@ -12,7 +12,9 @@ urxvt &
 pidgin &
 
 conky &
-exec subtle 
+exec subtle
+
+#exec openbox
 
 #QTile
 
