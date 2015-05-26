@@ -4,9 +4,11 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-alias sl='ls'
 alias ls='ls -B --color=auto'
+alias ll='ls -l -B --color=auto'
+alias sl='ls'
 alias tree='tree -C'
+
 alias grep='grep --color=auto'
 
 alias pacman='pacaur'

@@ -1,5 +1,4 @@
 #SUBTLE
-dropboxd &
 nm-applet --sm-disable &
 
 wmname LG3D &
@@ -7,6 +6,7 @@ setxkbmap -layout pt
 xmodmap ~/.Xmodmap &
 xrdb -merge ~/.Xdefaults &
 unclutter -idle 3 &
+QT_STYLE_OVERRIDE=gtk dropbox &
 
 urxvt &
 pidgin &
@@ -14,21 +14,17 @@ pidgin &
 conky &
 exec subtle
 
-#exec openbox
+
 
 #QTile
-
-#dropboxd &
 #nm-applet --sm-disable &
-
 #wmname LG3D &
 #setxkbmap -layout pt
 #xmodmap ~/.Xmodmap &
 #xrdb -merge ~/.Xdefaults &
+#QT_STYLE_OVERRIDE=gtk dropbox &
 #unclutter -idle 3 &
-
 #urxvt &
 #pidgin &
-
 #conky &
 #exec qtile

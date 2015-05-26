@@ -151,7 +151,6 @@ end
 style :views do
   # Style for the active views
   padding     0, 5,0,5
-  font "xft:ohsnap:size=10"
   style :focus do
     foreground blue1
     background gray3
@@ -200,7 +199,7 @@ end
 style :clients do
   active      blue2,2
   inactive    gray3,2
-  width       50
+  width       100
 end
 
 # Style for subtle 
@@ -309,6 +308,11 @@ gravity :vid_center4,    [ 40,  40, 20, 20]
 
 gravity :video_small,    [ 68,  0, 32, 33]
 gravity :video_small2,   [ 80,  0, 20, 21]
+
+gravity :video_smallb,   [ 68,  0, 32, 25]
+gravity :video_small2b,  [ 80,  0, 20, 16]
+gravity :top_rightb,     [ 50,  0, 50, 39]
+
 gravity :video_sq,       [ 70,  0, 30, 40]
 
 #pidgin small convo
@@ -462,7 +466,7 @@ grab "A-F4", :WindowKill
 grab "A-XF86Display", :WindowKill
 
 # Lock Screen
-grab "C-A-l", "slock"
+grab "C-A-l", "i3lock -f"
 
 # Fn shortcuts
 grab "XF86AudioMute", "amixer -q set Master toggle"
@@ -481,7 +485,7 @@ grab "F3","xbacklight -inc 10"
 # Exec programs
 grab "W-t", "urxvt"
 grab "W-f", "chromium"
-#grab "W-f", "firefox"
+grab "W-g", "thunar"
 grab "W-e", "emacs"
 grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
 grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
@@ -509,7 +513,9 @@ grab "C-A-Left",  [ :center,       :left,           :left66,        :left33]
 grab "C-A-Right", [ :right,        :right66,        :right33        ]
 grab "C-A-Up",    [ :top_right,    :top_right66,    :top_right33    ]
 grab "C-A-Down",  [ :bottom_right, :bottom_right66, :bottom_right33 ]
+
 grab "C-W-Up",    [ :video_small,  :video_small2,   :top_right      ]
+grab "C-S-W-Up",  [ :video_smallb,  :video_small2b, :top_rightb     , :video_sq]
 grab "C-W-Down",  [ :vid_center3,    :vid_center2,   :vid_center1   ] #   :vid_center4]
 
 #grab "W-s", [ :center,       :center66,       :center33       ]
