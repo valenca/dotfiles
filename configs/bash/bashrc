@@ -24,6 +24,10 @@ alias please='sudo $(history -p !!)'
 alias nmpls='sudo systemctl restart NetworkManager'
 alias slock='i3lock -f'
 alias moff='xset dpms force off'
+
+
+alias unrarall='find -name "*.rar" | parallel unrar x {}'
+
 export EDITOR='emacs'
 export HISTCONTROL=ignoreboth
 
@@ -32,4 +36,3 @@ relaunch(){ pkill -9 $1;$1 & }
 C_0="\[\e[0;37m\]"
 C_1="\[\e[1;34m\]"
 PS1="${C_1}[${C_0}\u@\h \W${C_1}]${C_0}\$ "
-

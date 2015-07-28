@@ -8,6 +8,9 @@ xrdb -merge ~/.Xdefaults &
 unclutter -idle 3 &
 QT_STYLE_OVERRIDE=gtk dropbox &
 
+rofi -key-run mod1+F2 -key-ssh mod1+F3 -key-window mod1-Tab -fuzzy -lines 5 -bg "#101010" -fg "#CCCCCC" -bc "#1d284f" -bw 0 -hlbg "#336699" -bg-active "#000000" -fg-active "#AAAAFF" -location 1 -width 30 -terminal urxvt -font ohsnap\ 10 &
+
+
 urxvt &
 pidgin &
 
