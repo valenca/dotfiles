@@ -30,6 +30,8 @@ alias unrarall='find -name "*.rar" | parallel unrar x {}'
 
 export EDITOR='emacs'
 export HISTCONTROL=ignoreboth
+HISTSIZE=50000
+HISTFILESIZE=1048576
 
 relaunch(){ pkill -9 $1;$1 & }
 

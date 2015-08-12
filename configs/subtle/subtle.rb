@@ -472,6 +472,9 @@ grab "A-XF86Display", :WindowKill
 # Lock Screen
 grab "C-A-l", "i3lock -f"
 
+# Connect via synergy
+grab "W-q", "synergyc jvdt"
+
 # Fn shortcuts
 grab "XF86AudioMute", "amixer -q set Master toggle"
 grab "XF86AudioLowerVolume","amixer set Master 5%- unmute"
@@ -498,7 +501,7 @@ grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
 
 #grab "A-F2", "bashrun2 smart"
 #grab "A-F2", "rofi -show run"
-grab "A-XF86MonBrightnessDown", "bashrun2 smart"
+#grab "A-XF86MonBrightnessDown", "bashrun2 smart"
 
 grab "W-F5", "pkill pidgin && pidgin"
 
@@ -1027,7 +1030,7 @@ end
 #sublet :battery do
 #  interval      30
 #  colors 10 => "#ff0000", 30 => "#fff000"
-#  path "/sys/class/power_supply/"
+#  path "/sys/class/power_supply/BAT1/"
 #  color_text    true
 #end
 
