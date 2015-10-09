@@ -105,8 +105,8 @@ set :wmname, "LG3D"
 #
 
 screen 1 do
-  top    [ :views,:separator,:title, :spacer,:tray,:sublets]
-  #bottom [ :spacer, :tray]
+  top    [ :views,:separator,:title, :spacer,:tray,:multibattery,:clock2]
+  #abottom [ :spacer,:sublets]
 end
 
 # Example for a second screen:
@@ -474,6 +474,7 @@ grab "C-A-l", "i3lock -f"
 
 # Connect via synergy
 grab "W-q", "synergyc jvdt"
+grab "W-S-q", "pkill synergyc"
 
 # Fn shortcuts
 grab "XF86AudioMute", "amixer -q set Master toggle"
@@ -1013,9 +1014,12 @@ end
 # The syntax of the sublet configuration is similar to other configuration
 # options in subtle:
 
+sublet :ipaddr do
+  interval 1
+end
+
 sublet :clock2 do
   interval 1
-  foreground    gray1 
   time_format   "%H:%M"
   #time_format  "%l:%M %p"
   date_format   ""
@@ -1027,12 +1031,12 @@ end
 #  step 5
 #end
 
-#sublet :battery do
-#  interval      30
-#  colors 10 => "#ff0000", 30 => "#fff000"
-#  path "/sys/class/power_supply/BAT1/"
-#  color_text    true
-#end
+sublet :multibattery do
+  interval      30
+  colors 10 => "#ff0000", 30 => "#fff000"
+  path "/sys/class/power_supply/BAT1/"
+  color_text    true
+end
 
 #  === Link
 #

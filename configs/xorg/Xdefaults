@@ -17,6 +17,11 @@ URxvt.tabbed.title-bg:    0
 URxvt.autohide:  yes
 URxvt.new-button:  no
 
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
+
 ! black dark/light
 *color0: #000000
 *color8: #444444
