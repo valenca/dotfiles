@@ -14,8 +14,8 @@ xftalpha 0.8
 override_utf8_locale yes
 
 alignment bottom_left
-gap_x 25
-gap_y 25
+gap_x 10
+gap_y 10
 
 update_interval 1
 double_buffer yes
