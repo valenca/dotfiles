@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="./thumbs/favicon.ico">
+
+	<title>Dashboard</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/dashboard.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Dashboard</a>
+			</div>
+        <!--
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+    -->
+		</div>
+	</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#">Main <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Reports</a></li>
+				<li><a href="#">Analytics</a></li>
+				<li><a href="#">Export</a></li>
+			</ul>
+          <!--
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item</a></li>
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+            <li><a href="">More navigation</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul>
+      -->
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  	<h3 class="page-header">Search</h3>
+  	<div class="row placeholders">
+  		<div class="col-xs-2 col-sm-2 col-sm-offset-1 placeholder">
+  			<a href="https://www.google.com/">
+  				<img src="./thumbs/google.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Google</h4>
+  			<form class="navbar-form" name="google" action="https://www.google.com/search">
+  				<input name="q" type="text" size="20" />
+  			</form>
+
+  			<span class="text-muted">www.google.com</span>
+  		</div>
+  		<div class="col-xs-2 col-sm-2 placeholder">
+  			<a href="https://www.youtube.com/feed/subscriptions/">
+  				<img src="./thumbs/youtube.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Youtube</h4>
+  			<form class="navbar-form" name="youtube" action="https://www.youtube.com/results">
+  				<input name="q" type="text" size="20" />
+  			</form>
+  			<span class="text-muted">www.youtube.com</span>
+  		</div>
+  		<div class="col-xs-6 col-sm-2 placeholder">
+  			<a href="https://en.wikipedia.org/wiki/Main_Page">
+  				<img src="./thumbs/wikipedia.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Wikipedia</h4>
+  			<form class="navbar-form" name= "wikipedia" action="http://www.wikipedia.org/search-redirect.php">
+  				<input name="language" type="hidden" value="en" />
+  				<input name="search"   type="text"   size="20"/>
+  			</form>
+  			<span class="text-muted">www.wikipedia.org</span>
+  		</div>
+  		<div class="col-xs-6 col-sm-2 placeholder">
+  			<a href="https://wiki.archlinux.org/">
+  				<img src="./thumbs/archwiki.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Arch Wiki</h4>
+  			<form class="navbar-form" name= "archwiki" action="https://wiki.archlinux.org/index.php">
+  				<input type="text" name="search" size="20"/>
+  			</form>
+  			<span class="text-muted">wiki.archlinux.org</span>
+  		</div>
+  		<div class="col-xs-6 col-sm-2 placeholder">
+
+  			<a href="https://kat.cr/">
+  				<img src="./thumbs/kat.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+
+
+  			<h4>Kick Ass</h4>
+  			<form class="navbar-form" name= "kat" onsubmit="return doSearch(this.q.value);">
+  				<input type="text" name="q" size="20"/>
+  			</form>
+  			<span class="text-muted">www.kat.cr</span>
+
+
+  		</div>
+  	</div>
+  	<!--  ROW NUMBER TWO  -->
+  	<h3 class="page-header">Media</h3>
+  	<div class="row placeholders">
+  		<div class="col-xs-2 col-sm-2 col-sm-offset-1 placeholder">
+  			<a href="https://www.reddit.com/">
+  				<img src="./thumbs/reddit.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>reddit</h4>
+  			<span class="text-muted">www.reddit.com</span>
+  		</div>
+  		<div class="col-xs-2 col-sm-2 placeholder">
+  			<a href="https://www.twitter.com/">
+  				<img src="./thumbs/twitter.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Twitter</h4>                                
+  			<span class="text-muted">www.twitter.com</span>
+  		</div>
+  		<div class="col-xs-6 col-sm-2 placeholder">
+  			<a href="https://www.facebook.com/">
+  				<img src="./thumbs/facebook.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Facebook</h4>
+  			<span class="text-muted">www.facebook.com</span>
+  		</div>
+  		<div class="col-xs-6 col-sm-2 placeholder">
+  			<a href="https://drive.google.com/">
+  				<img src="./thumbs/drive.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Google Drive</h4>
+  			<span class="text-muted">drive.google.com</span>
+  		</div>
+  		<div class="col-xs-6 col-sm-2 placeholder">
+  			<a href="https://mail.google.com">
+  				<img src="./thumbs/gmail.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+  			</a>
+  			<h4>Gmail</h4>
+  			<span class="text-muted">mail.google.com</span>
+  		</div>
+  	</div>
+  	<h3 class="sub-header">Subreddits</h3>
+  	<div class="table-responsive">
+  		<table class="table table-striped">
+  			<thead>
+  				<th>General</th>
+  				<th>Reads</th>
+  				<th>Comics</th>
+  				<th>Programming</th>
+  				<th>Podcasts</th>
+  			</thead>
+  			<tbody>
+  				<tr>
+  					<td><a href="http://www.reddit.com/r/portugal">Portugal</a></td>
+  					<td><a href="http://www.reddit.com/r/askreddit">AskReddit</a></td>
+  					<td><a href="http://www.reddit.com/r/marvelstudios">Marvel Studios</a></td>
+  					<td><a href="http://www.reddit.com/r/linux">Linux</a></td>
+  					<td><a href="http://www.reddit.com/r/smartereveryday">Smarter Every Day</a></td>
+  				</tr>
+  				<tr>
+  					<td><a href="http://www.reddit.com/r/pics">Pics</a></td>
+  					<td><a href="http://www.reddit.com/r/todayilearned">TIL</a></td>
+  					<td><a href="http://www.reddit.com/r/marvel">Marvel</a></td>
+  					<td><a href="http://www.reddit.com/r/archlinux">Archlinux</a></td>
+  					<td><a href="http://www.reddit.com/r/cgpgrey">CGPGrey</a></td>
+  				</tr>
+  				<tr>
+  					<td><a href="http://www.reddit.com/r/funny">Funny</a></td>
+  					<td><a href="http://www.reddit.com/r/iama">IAMA</a></td>
+  					<td><a href="http://www.reddit.com/r/movies">Movies</a></td>
+  					<td><a href="http://www.reddit.com/r/algorithms">Algorithms</a></td>
+  					<td><a href="http://redlettermedia.com/half-in-the-bag/">RLM</a></td>
+  				</tr>
+  				<tr>
+  					<td><a href="http://www.reddit.com/r/worldnews">World News</a></td>
+  					<td></td>
+  					<td><a href="http://www.reddit.com/r/shield">SHIELD</a></td>
+  					<td><a href="https://www.github.com">Github</a></td>
+  					<td><a href="http://www.tested.com/podcast/still-untitled-the-adam-savage-project/">Tested</a></td>
+  				</tr>
+  				<tr>
+  					<td></td>
+  					<td></td>
+  					<td><a href="https://boards.4chan.org/co/">/co/</a></td>
+  					<td><a href="https://www.bitbucket.com">Bitbucket</a></td>
+  					<td></td>
+  				</tr>
+  			</tbody>
+  		</table>
+  	</div>
+  </div>
+</div>
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script>
+    	function doSearch(e){
+    		text=e;
+    		text=jQuery.trim(text);
+    		e=encodeURIComponent(text).replace(/!/g,'%21').replace(/'/g,'%27').replace(/\(/g,'%28').replace(/\)/g,'%29').replace(/\*/g,'%2A');
+    		if(!e){
+	    		window.location='https://kat.cr/new/';
+    			return!1
+    		};
+    		window.location='https://kat.cr/usearch/'+e+'/';
+    		return!1
+    	};
+    	$(document).keydown(function(e){
+			if (e.keyCode==71 && e.ctrlKey)
+    			window.location='https://www.google.com/';
+			if (e.keyCode==89 && e.ctrlKey)
+    			window.location='https://www.youtube.com/feed/subscriptions/';
+			if (e.keyCode==82 && e.ctrlKey)
+    			window.location='https://www.reddit.com/';
+   		});
+	</script>
+
+</body>
+</html>
