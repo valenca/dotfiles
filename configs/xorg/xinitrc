@@ -1,4 +1,3 @@
-#SUBTLE
 nm-applet --sm-disable &
 
 wmname LG3D &
@@ -6,28 +5,19 @@ setxkbmap -layout pt &
 xinput set-button-map 11 1 2 3 5 4 6 7 8 9 10 11 12 &
 xrdb -merge ~/.Xdefaults &
 unclutter -idle 3 &
+compton --backend glx --vsync opengl-swc --glx-no-stencil &
 QT_STYLE_OVERRIDE=gtk dropbox &
-
-rofi -key-run mod1+F2 -key-ssh mod1+F3 -key-window mod1-Tab -fuzzy -lines 5 -bg "#101010" -fg "#CCCCCC" -bc "#1d284f" -bw 0 -hlbg "#336699" -bg-active "#000000" -fg-active "#AAAAFF" -location 1 -width 30 -terminal urxvt -font ohsnap\ 10 &
+dunst &
+#rofi -key-run alt+F2 -key-ssh alt+F3 -key-window alt-Tab -fuzzy -lines 5 -bg "#101010" -fg "#CCCCCC" -bc "#1d284f" -bw 0 -hlbg "#336699" -bg-active "#000000" -fg-active "#AAAAFF" -location 1 -width 30 -terminal urxvt -font ohsnap\ 10 &
 
 
 urxvt &
-pidgin &
+#pidgin &
 
 conky &
+
+#SUBTLE
 exec subtle
 
-
-
 #QTile
-#nm-applet --sm-disable &
-#wmname LG3D &
-#setxkbmap -layout pt
-#xmodmap ~/.Xmodmap &
-#xrdb -merge ~/.Xdefaults &
-#QT_STYLE_OVERRIDE=gtk dropbox &
-#unclutter -idle 3 &
-#urxvt &
-#pidgin &
-#conky &
 #exec qtile

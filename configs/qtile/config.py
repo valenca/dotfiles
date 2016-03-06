@@ -43,11 +43,11 @@ keys = [
     Key([sup, "control"], "r", lazy.restart()),
     Key([sup, "control"], "q", lazy.shutdown()),
 
-    Key([alt], "F2", lazy.spawncmd("")),
+    #Key([alt], "F2", lazy.spawncmd("")),
     Key([alt], "F4", lazy.window.kill()),
 
 	Key([sup],"t",lazy.spawn("urxvt")),
-	Key([sup],"f",lazy.spawn("google-chrome-unstable")),
+	Key([sup],"f",lazy.spawn("chromium")),
 	Key([sup],"e",lazy.spawn("emacs")),
 	Key([sup],"m",lazy.spawn("urxvt -name mocp -background black -foreground white -e mocp")),
 

@@ -497,6 +497,9 @@ grab "W-g", "thunar"
 grab "W-e", "emacs"
 grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
 grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
+grab "A-F2", "rofi -show run"
+grab "A-F3", "rofi -show ssh"
+grab "A-Tab", "rofi -show window"
 #grab "A-F2", "dmenu_run  -hist ~/.dmenu.hist -l 5"
 #grab "A-F2", "dmenu_run -l 5 -hist ~/.dmenu.hist -fn \"ohsnap:size=12\" -nf \"" + gray1 + "\" -nb \"" + black1 + "\" -sb \"" + gray3 + "\" -sf \""+blue1+"\""
 
@@ -708,12 +711,13 @@ end
 
 
 tag "browser" do
-  match "opera|firefox|chrom[e|ium]|navigator|plugin-container"
+  match "opera|firefox|navigator|plugin-container"
   match "Google-chrome-unstable"
+  match :role => "browser"
 end
 
 tag "editor" do
-  match "emacs|[g]?vim|gedit|subl[ime]?"
+  match "emacs|[g]?vim|gedit|subl[ime]?|atom"
   match :name =>"Fig*|fig*|Python*|python*"
 end
 
@@ -760,13 +764,13 @@ end
 
 
 tag "video_small" do
-  match "vlc|[s]?mplayer"
+  match "vlc|[s]?mplayer|mpv"
   gravity :video_small
   stick true
 end
 
 tag "video" do
-  match "vlc|[s]?mplayer"
+  match "vlc|[s]?mplayer|mpv"
   gravity :center
 end
 
@@ -790,6 +794,27 @@ tag "sylph_fold" do
   urgent true
   fixed true
 end
+
+
+tag "hangouts_small" do
+  match :instance =>"crx\_.*"
+  gravity :pidgin_small
+  stick true
+  fixed true
+end
+
+tag "hangouts_conv" do
+  match :instance =>"crx\_.*"
+  gravity :center
+  fixed true
+end
+
+#tag "hangouts" do
+#  match :name =>"Hangouts"
+#  gravity :pidgin_main
+#  stick false
+#  fixed true
+#end
 
 tag "pidgin_small" do
   match :role =>"conversation"
@@ -948,11 +973,12 @@ view "internet" do
   #icon_only true
 end
 
-view "messages" do
-  match "chat|pidgin_main|pidgin_conv|mail|sylph_main|sylph_fold|hangouts"
+#view "messages" do
+#  match "chat|pidgin_main|pidgin_conv|mail|sylph_main|sylph_fold|hangouts"
   #icon Subtlext::Icon.new("#{iconpath}/simple1/balloon.xbm")
   #icon_only true
-end
+#  dynamic true
+#end
 
 view "extra" do
   match "default|video"
@@ -1013,10 +1039,6 @@ end
 #
 # The syntax of the sublet configuration is similar to other configuration
 # options in subtle:
-
-sublet :ipaddr do
-  interval 1
-end
 
 sublet :clock2 do
   interval 1

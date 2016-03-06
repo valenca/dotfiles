@@ -62,8 +62,13 @@
 (add-hook 'python-mode-hook
       (lambda ()
         (setq indent-tabs-mode t)
-        (setq tab-width 4)
-        (setq python-indent 4)))
+        (setq tab-width 2)
+        (setq python-indent 2)))
+
+(add-hook 'go-mode-hook
+      (lambda ()
+        (setq indent-tabs-mode t)
+        (setq tab-width 2)))
 
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 (define-key my-keys-minor-mode-map (kbd "C-d") 'compile)
@@ -161,6 +166,7 @@
 ;;case-sensitive autocomplete
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'auto-complete-config)
+(require 'go-mode-autoloads)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)
 

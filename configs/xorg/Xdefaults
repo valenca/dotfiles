@@ -3,7 +3,7 @@ urxvt.background: Black
 
 URxvt.scrollBar: false
 URxvt.font: xft:monospace:size=9:
-URxvt*termName:linux
+URxvt*termName: linux
 URxvt.cursorBlink: 1
 
 Rxvt.perl-ext-common:  default,tabbedex
@@ -52,4 +52,33 @@ URxvt.keysym.KP_End:  \033[4~
 
 ! white dark/light
 *color7: #eeeeee
-*color15: #ffffff 
+*color15: #ffffff
+
+!! Rofi config
+! Enabled modi
+rofi.modi:                           window,run,ssh
+! Window opacity
+rofi.opacity:                        100
+! Window width
+rofi.width:                          30
+! Number of lines
+rofi.lines:                          5
+! Number of columns
+rofi.columns:                        1
+! Font to use
+rofi.font:                           ohsnap 10
+! Color scheme for normal row
+rofi.color-normal:                   #010101,#CCCCCC,#1d284f,#336699,#000000
+! Color scheme for urgent row
+rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
+! Color scheme for active row
+rofi.color-active:                   #000000,#AAAAFF,#eee8d5,#268bd2,#fdf6e3
+! Color scheme window
+rofi.color-window:                   #010101,#002b36
+! Border width
+rofi.bw:                             0
+! Location on screen
+rofi.location:                       1
+! Padding
+rofi.padding:                        5
+

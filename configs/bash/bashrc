@@ -22,7 +22,6 @@ alias rm='rm -Iv'
 alias cal='cal -3'
 alias please='sudo $(history -p !!)'
 alias nmpls='sudo systemctl restart NetworkManager'
-alias slock='i3lock -f'
 alias moff='xset dpms force off'
 
 
@@ -30,6 +29,7 @@ alias unrarall='find -name "*.rar" | parallel unrar x {}'
 
 export EDITOR='emacs'
 export HISTCONTROL=ignoreboth
+export TERM=linux
 HISTSIZE=50000
 HISTFILESIZE=1048576
 
