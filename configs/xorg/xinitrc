@@ -2,7 +2,7 @@ nm-applet --sm-disable &
 
 wmname LG3D &
 setxkbmap -layout pt &
-xinput set-button-map 11 1 2 3 5 4 6 7 8 9 10 11 12 &
+xinput set-prop 11 "Synaptics Scrolling Distance" -79 79 &
 xrdb -merge ~/.Xdefaults &
 unclutter -idle 3 &
 compton --backend glx --vsync opengl-swc --glx-no-stencil &

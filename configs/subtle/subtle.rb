@@ -499,15 +499,12 @@ grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
 grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
 grab "A-F2", "rofi -show run"
 grab "A-F3", "rofi -show ssh"
+grab "A-XF86MonBrightnessDown", "rofi -show run"
+grab "A-XF86MonBrightnessUp", "rofi -show ssh"
 grab "A-Tab", "rofi -show window"
 #grab "A-F2", "dmenu_run  -hist ~/.dmenu.hist -l 5"
 #grab "A-F2", "dmenu_run -l 5 -hist ~/.dmenu.hist -fn \"ohsnap:size=12\" -nf \"" + gray1 + "\" -nb \"" + black1 + "\" -sb \"" + gray3 + "\" -sf \""+blue1+"\""
-
-#grab "A-F2", "bashrun2 smart"
-#grab "A-F2", "rofi -show run"
-#grab "A-XF86MonBrightnessDown", "bashrun2 smart"
-
-grab "W-F5", "pkill pidgin && pidgin"
+#grab "W-F5", "pkill pidgin && pidgin"
 
 # Cycle between given gravities
 #grab "W-KP_7", [ :top_left,     :top_left66,     :top_left33     ]
@@ -532,6 +529,10 @@ grab "C-S-W-Down",  [ :video_wd3,    :video_wd2,     :video_wd1      ]
 grab "C-S-W-Left",  [ :video_sq1,    :video_sq2,     :video_sq3      ]
 grab "C-S-W-Right", [ :video_sq3,    :video_sq2,     :video_sq1      ]
 grab "C-W-Down",    [ :vid_center3,  :vid_center2,   :vid_center1    ]
+
+grab "C-W-w",      [ :video_small,  :video_small2,  :top_right      ]
+grab "C-W-s",    [ :vid_center3,  :vid_center2,   :vid_center1    ]
+
 
 #grab "W-s", [ :center,       :center66,       :center33       ]
 #grab "W-d", [ :right,        :right66,        :right33        ]
