@@ -151,6 +151,7 @@ end
 style :views do
   # Style for the active views
   padding     0, 5,0,5
+    foreground gray2
   style :focus do
     foreground blue1
     background gray3
@@ -171,9 +172,6 @@ style :views do
   end
 
   # Style for unoccupied views (views without clients)
-  style :unoccupied do
-    foreground  gray2
-  end
 end
 
 # Style for sublets
@@ -412,7 +410,7 @@ grab "W-4", :ViewSwitch4
 grab "W-5", :ViewSwitch5
 grab "W-6", :ViewSwitch6
 grab "W-7", :ViewSwitch7
-grab "W-p", :ViewSwitch8
+grab "W-p", :ViewSwitch7
 
 # Select next and prev view */
 #grab "A-Tab", :ViewNext
@@ -477,7 +475,7 @@ grab "W-q", "synergyc jvdt"
 grab "W-S-q", "pkill synergyc"
 
 # Fn shortcuts
-grab "XF86AudioMute", "amixer -q set Master toggle"
+grab "XF86AudioMute", "amixer set Master toggle"
 grab "XF86AudioLowerVolume","amixer set Master 5%- unmute"
 grab "XF86AudioRaiseVolume","amixer set Master 5%+ unmute"
 grab "XF86MonBrightnessDown","xbacklight -dec 10"

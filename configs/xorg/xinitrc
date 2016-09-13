@@ -1,23 +1,24 @@
 nm-applet --sm-disable &
-
 wmname LG3D &
-setxkbmap -layout pt &
-xinput set-prop 11 "Synaptics Scrolling Distance" -79 79 &
-xrdb -merge ~/.Xdefaults &
-unclutter -idle 3 &
 compton --backend glx --vsync opengl-swc --glx-no-stencil &
 QT_STYLE_OVERRIDE=gtk dropbox &
-dunst &
-#rofi -key-run alt+F2 -key-ssh alt+F3 -key-window alt-Tab -fuzzy -lines 5 -bg "#101010" -fg "#CCCCCC" -bc "#1d284f" -bw 0 -hlbg "#336699" -bg-active "#000000" -fg-active "#AAAAFF" -location 1 -width 30 -terminal urxvt -font ohsnap\ 10 &
+unclutter -idle 3 &
 
+setxkbmap -layout pt &
+xinput set-prop 11 "Synaptics Scrolling Distance" -79 79 &
+xinput set-prop 11 "Synaptics Tap Action" 0 0 0 0 1 2 3  &
+
+xrdb -merge ~/.Xdefaults &
+dunst &
+thunar --daemon &
 
 urxvt &
-#pidgin &
-
-conky &
 
 #SUBTLE
 exec subtle
 
 #QTile
 #exec qtile
+
+#GNOME
+#exec gnome-session
