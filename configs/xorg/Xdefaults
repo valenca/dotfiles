@@ -14,6 +14,8 @@ URxvt.tabbed.tab-bg: 0
 URxvt.tabbed.title-fg:    7
 URxvt.tabbed.title-bg:    0
 
+URxvt*buffered: false
+
 URxvt.autohide:  yes
 URxvt.new-button:  no
 
