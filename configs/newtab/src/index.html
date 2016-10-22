@@ -28,7 +28,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Dashboard</a>
+        <a class="navbar-brand" href="https://feedzai.com">
+          <img src="./thumbs/feedzai.png" style="max-height:30px" class="img-responsive" alt="Generic placeholder thumbnail">
+        </a>
       </div>
     </div>
   </nav>
@@ -42,7 +44,9 @@
       </ul>
   </div>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h3 >Search</h3>
+  <h3></h3>
+  <h3>Main</h3>
+  <hr>
   <div class="row placeholders">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
       <a href="https://www.google.com/ncr">
@@ -56,15 +60,27 @@
       <span class="text-muted">www.google.com</span>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.youtube.com/feed/subscriptions/">
-        <img src="./thumbs/youtube.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+      <a href="https://docs.feedzai.com">
+        <img src="./thumbs/confluence.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
       </a>
-      <h4>Youtube</h4>
-      <form class="navbar-form" name="youtube" action="https://www.youtube.com/results">
-        <input name="q" type="text" size="20" tabindex=1/>
+      <h4>Confluence</h4>
+      <form class="navbar-form" name="youtube" action="https://docs.feedzai.com/dosearchsite.action?">
+        <input name="queryString" type="text" size="20" tabindex=1/>
       </form>
-      <span class="text-muted">www.youtube.com</span>
+      <span class="text-muted">docs.feedzai.com</span>
     </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+      <a href="https://wiki.archlinux.org/">
+        <img src="./thumbs/archwiki.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+      </a>
+      <h4>Arch Wiki</h4>
+      <form class="navbar-form" name= "archwiki" action="https://wiki.archlinux.org/index.php">
+        <input type="text" name="search" size="20" tabindex=1/>
+      </form>
+      <span class="text-muted">wiki.archlinux.org</span>
+    </div>
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
       <a href="https://en.wikipedia.org/wiki/Main_Page">
         <img src="./thumbs/wikipedia.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
@@ -75,16 +91,6 @@
         <input name="search"   type="text"   size="20" tabindex=1/>
       </form>
       <span class="text-muted">www.wikipedia.org</span>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://wiki.archlinux.org/">
-        <img src="./thumbs/archwiki.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-      </a>
-      <h4>Arch Wiki</h4>
-      <form class="navbar-form" name= "archwiki" action="https://wiki.archlinux.org/index.php">
-        <input type="text" name="search" size="20" tabindex=1/>
-      </form>
-      <span class="text-muted">wiki.archlinux.org</span>
     </div>
 
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
@@ -98,50 +104,56 @@
   <span class="text-muted">www.wolframalpha.com</span>
       </div>
 
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://kickass.unblocked.la/full/">
-        <img src="./thumbs/kat.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+      <a href="https:/play.spotify.com">
+        <img src="./thumbs/spotify.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
       </a>
-      <h4>Kick Ass</h4>
-      <form class="navbar-form" id="kat">
+      <h4>Spotify</h4>
+      <form class="navbar-form" id="spotify">
         <input type="text" id="q" size="20" tabindex=1/>
       </form>
-      <span class="text-muted">kickass.unblocked.la</span>
+      <span class="text-muted">play.spotify.com</span>
 
 
     </div>
   </div>
-  <!--  ROW NUMBER TWO  -->
-  <h3 >Media</h3>
+  <!--  ROW NUMBER TWO 
+  <h3>Common</h3>-->
   <div class="row placeholders">
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.reddit.com/"  tabindex=2>
-        <img src="./thumbs/reddit.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+      <a href="localhost:8080"  tabindex=2>
+        <img src="./thumbs/pulse.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
       </a>
-      <h4>reddit</h4>
-      <span class="text-muted">www.reddit.com</span>
+      <h4>Pulse</h4>
+      <span class="text-muted">localhost:8080</span>
     </div>
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.twitter.com/" tabindex=2>
-        <img src="./thumbs/twitter.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+      <a href="https://issues.feedzai.com/" tabindex=2>
+        <img src="./thumbs/jira.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
       </a>
-      <h4>Twitter</h4>
-      <span class="text-muted">www.twitter.com</span>
+      <h4>Issues</h4>
+      <span class="text-muted">issues.feedzai.com</span>
     </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-  <a href="https://www.facebook.com/" tabindex=2>
-    <img src="./thumbs/facebook.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-  </a>
-  <h4>Facebook2</h4>
-  <span class="text-muted">www.facebook.com</span>
-      </div>
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.netflix.com/" tabindex=2>
-        <img src="./thumbs/netflix.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+      <a href="https://feedzai.hipchat.com/chat" tabindex=2>
+        <img src="./thumbs/hipchat.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
       </a>
-      <h4>Netflix</h4>
-      <span class="text-muted">www.netflix.com</span>
+      <h4>Hipchat</h4>
+      <span class="text-muted">feedzai.hipchat.com</span>
     </div>
+    
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+      <a href="https://jenkins.feedzai.com/" tabindex=2>
+        <img src="./thumbs/jenkins.svg" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+      </a>
+      <h4>Jenkins</h4>
+      <span class="text-muted">jenkins.feedzai.com</span>
+    </div>
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
       <a href="https://drive.google.com/" tabindex=2>
         <img src="./thumbs/drive.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail" >
@@ -157,50 +169,51 @@
       <span class="text-muted">mail.google.com</span>
     </div>
   </div>
-  <h3> Subreddits</h3>
+  <hr>
+  <h3> Links</h3>
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
-        <th>General</th>
-        <th>Reads</th>
-        <th>Comics</th>
+        <th>Repos</th>
         <th>Programming</th>
-        <th>Miscellaneous</th>
+        <th>Reads</th>
+        <th>Other</th>
+        <th>Media</th>
       </thead>
       <tbody>
         <tr>
-          <td><a href="http://www.reddit.com/r/portugal">Portugal</a></td>
-          <td><a href="http://www.reddit.com/r/askreddit">AskReddit</a></td>
-          <td><a href="http://www.reddit.com/r/marvelstudios">Marvel Studios</a></td>
+          <td><a href="http://git.feedzai.com">Gitorious</a></td>
           <td><a href="http://www.reddit.com/r/linux">Linux</a></td>
-          <td><a href="http://www.tvshowtime.com/en/calendar">Show Tracker</a></td>
+          <td></td>
+          <td></td>
+          <td><a href="http://www.reddit.com">Reddit</a></td>
         </tr>
         <tr>
-          <td><a href="http://www.reddit.com/r/pics">Pics</a></td>
-          <td><a href="http://www.reddit.com/r/todayilearned">TIL</a></td>
-          <td><a href="http://www.reddit.com/r/marvel">Marvel</a></td>
+          <td><a href="http://www.github.com">Github</a></td>
           <td><a href="http://www.reddit.com/r/archlinux">Archlinux</a></td>
-          <td><a href="http://player.spotify.com/">Spotify</a></td>
+          <td></td>
+          <td></td>
+          <td><a href="http://youtube.com/">Youtube</a></td>
         </tr>
         <tr>
-          <td><a href="http://www.reddit.com/r/funny">Funny</a></td>
-          <td><a href="http://www.reddit.com/r/iama">IAMA</a></td>
-          <td><a href="http://www.reddit.com/r/movies">Movies</a></td>
+          <td><a href="http://www.bitbucket.com">BitBucket</a></td>
           <td><a href="http://www.reddit.com/r/algorithms">Algorithms</a></td>
-          <td><a href="http://www.tested.com/podcast/still-untitled-the-adam-savage-project/">Tested</a></td>
-        </tr>
-        <tr>
-          <td><a href="http://www.reddit.com/r/worldnews">World News</a></td>
-          <td><a href="http://www.reddit.com/r/smartereveryday">Smarter Every Day</a></td>
-          <td><a href="http://www.reddit.com/r/shield">SHIELD</a></td>
-          <td><a href="https://www.github.com">Github</a></td>
-          <td><a href="http://redlettermedia.com/half-in-the-bag/">RLM</a></td>
+          <td></td>
+          <td></td>
+          <td><a href="http://www.twitter.com/">Twitter</a></td>
         </tr>
         <tr>
           <td></td>
-          <td><a href="http://www.reddit.com/r/cgpgrey">CGPGrey</a></td>
-          <td><a href="https://boards.4chan.org/co/catalog">/co/</a></td>
-          <td><a href="https://www.bitbucket.com">Bitbucket</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><a href="http://www.messenger.com">Messenger</a></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td></td>
         </tr>
       </tbody>
