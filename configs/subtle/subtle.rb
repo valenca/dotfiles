@@ -489,12 +489,12 @@ grab "F2","xbacklight -dec 10"
 grab "F3","xbacklight -inc 10"
 
 # Exec programs
-grab "W-t", "urxvt"
+grab "W-t", "terminator"
 grab "W-f", "chromium"
 grab "W-g", "thunar"
 grab "W-e", "emacs"
-grab "W-m", "urxvt -name mocp -background black -foreground white -e mocp"
-grab "W-n", "urxvt -name ncmpcpp -background black -foreground white -e ncmpcpp"
+grab "W-m", "terminator -c mocp -x mocp"
+grab "W-n", "terminator -c ncmpcpp -x ncmpcpp"
 grab "A-F2", "rofi -show run"
 grab "A-F3", "rofi -show ssh"
 grab "A-XF86MonBrightnessDown", "rofi -show run"
@@ -729,7 +729,7 @@ end
 
 #Separate console based apps from consoles
 tag "terms" do
-  match :instance =>"[u]?rxvt|xterm"
+  match :instance =>"[u]?rxvt|xterm|terminator"
 end
 
 tag "mocp" do
