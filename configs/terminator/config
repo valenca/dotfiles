@@ -1,0 +1,41 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = mouse
+  inactive_color_offset = 0.88
+  title_receive_bg_color = "#666666"
+  title_transmit_bg_color = "#336699"
+[keybindings]
+  broadcast_group = <Primary>g
+  broadcast_off = <Primary><Shift>g
+  cycle_next = None
+  cycle_prev = None
+  go_down = <Super>Down
+  go_left = <Super>Left
+  go_right = <Super>Right
+  go_up = <Super>Up
+  group_all = None
+  group_tab = <Primary><Alt>g
+  move_tab_left = <Primary><Shift>Left
+  move_tab_right = <Primary><Shift>Right
+  new_tab = <Shift>Down
+  next_tab = <Shift>Right
+  prev_tab = <Shift>Left
+  split_horiz = <Primary>3
+  split_vert = <Primary>2
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
+    scrollback_lines = 10000
+    scrollbar_position = hidden
+    split_to_group = True
