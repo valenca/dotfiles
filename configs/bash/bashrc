@@ -27,7 +27,7 @@ alias moff='xset dpms force off'
 
 alias unrarall='find -name "*.rar" | parallel unrar x {}'
 
-export EDITOR='emacs'
+export EDITOR='vim'
 export HISTCONTROL=ignoreboth
 export TERM=linux
 HISTSIZE=50000
