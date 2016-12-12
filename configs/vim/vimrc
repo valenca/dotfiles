@@ -25,7 +25,9 @@ command! SW w !sudo tee %
 nmap <C-V> "+gP
 imap <C-V> <ESC><C-V>i
 vmap <C-C> "+y
+cmap w!! w !sudo tee > /dev/null %
 set t_Co=256
 if has("gui_running")
 set lines=40 columns=75
 endif
+
