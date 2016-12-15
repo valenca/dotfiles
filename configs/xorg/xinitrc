@@ -2,7 +2,6 @@
 #wmname LG3D &
 #compton --backend glx --vsync opengl-swc --glx-no-stencil &
 #QT_STYLE_OVERRIDE=gtk dropbox &
-#unclutter -idle 3 &
 
 setxkbmap -layout pt &
 xinput set-prop 11 "Synaptics Scrolling Distance" -79 79 &
@@ -10,7 +9,10 @@ xinput set-prop 11 "Synaptics Tap Action" 0 0 0 0 1 2 3  &
 
 xrdb -merge ~/.Xdefaults &
 #dunst &
-#thunar --daemon &
+thunar --daemon &
+
+#unclutter --timeout 3 &
+devilspie &
 
 #urxvt &
 
