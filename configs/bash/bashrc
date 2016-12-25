@@ -36,10 +36,19 @@ HISTFILESIZE=1048576
 relaunch(){ pkill -9 $1;$1 & }
 
 
-C_0="\[\e[0;37m\]"
-C_1="\[\e[1;34m\]"
-C_2="\[\e[1;31m\]"
+#C_0="\[\e[0;37m\]"
+#C_1="\[\e[1;34m\]"
+#C_2="\[\e[1;31m\]"
 
-PS1="${C_1}[${C_0}\u@\h \W${C_1}]${C_0}\$ "
+#PS1="${C_1}[${C_0}\u@\h \W${C_1}]${C_0}\$ "
 
+color1="\[\e[34m\]"
+color2="\[\e[36m\]"
+colorR="\[\e[m\]"
+
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+	 
+export PS1="\u$color1:$colorR\W $color1>>$colorR \$(parse_git_branch) \$ "
 
