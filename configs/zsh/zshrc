@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/joao.valenca/.oh-my-zsh
+  export ZSH=/home/valenca/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -89,30 +89,29 @@ alias l='ls -CF'
 alias cd='cd -LP'
 alias less='less -r'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias d='docker'
-alias d_im='docker images'
-alias d_ps='d ps -a'
-alias d_build_pulse='d rmi feedzai:pulse && (cdps && cp /home/jnuno/projects/2013_07_pulse_dev_utils/docker/pulse/* . && d build -t feedzai:pulse .)'
-alias d_rm_all='d_ps | tail -n +2 | cut -f 1 -d " " | xargs docker rm -f'
-alias d_rm_ps='docker ps -a -q | xargs -n 1 -P 12 docker rm -f'
-alias d_rm_all='docker ps -a -q --filter "status=exited" | xargs docker rm -f'
-alias d_rm_sys='docker ps -a | grep "docker-repo.zai" | awk ''{ print $1 }'' | xargs docker rm -f'
-alias d_rmi_all='docker images -q --filter "dangling=true" | xargs docker rmi -f'
 
-function d_db() {
-    psql -h `d inspect --format '{{ .NetworkSettings.IPAddress }}' postgresql` pulse pulse
-}
+export EDITOR='vim'
+export HISTCONTROL=ignoreboth
+export TERM=linux
 
-function d_in() {
-    d exec -it $1 bash
-}
 
-function d_rm() {
-    d rm -f $1
-}
+alias ls='ls -B --color=auto'
+alias ll='ls -l -B --color=auto'
+alias sl='ls'
+alias tree='tree -C'
+alias grep='grep --color=auto'
+alias pacman='pacaur'
+alias alsa='alsamixer'
+alias ping='ping -c 5'
+alias shutdown='sudo shutdown -hP now'
+alias suspend='sudo pm-suspend'
+alias reboot='sudo reboot'
+alias matlab='matlab -desktop -nosplash'
+alias rm='rm -Iv'
+alias cal='cal -3'
+alias please='sudo $(history -p !!)'
+alias nmpls='sudo systemctl restart NetworkManager'
+alias moff='xset dpms force off'
+alias unrarall='find -name "*.rar" | parallel unrar x {}'
 
-export BUILD_ANALYSIS_PATH=~/Pulse/2013_07_pulse_dev_utils/build-analysis/
-export PATH=$BUILD_ANALYSIS_PATH:$PATH
-export DEVELOPMENT_TOOLS_PATH=~/bin/development_tools
-export PATH=$DEVELOPMENT_TOOLS_PATH/phabricator/arcanist/bin/:$PATH
 
