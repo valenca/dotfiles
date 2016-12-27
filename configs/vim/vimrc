@@ -2,6 +2,7 @@ set nocompatible
 syntax enable " enable syntax highlight
 set tabstop=4	" numbers of spaces of tab character
 set shiftwidth=4	" numbers of spaces to (auto)indent
+set expandtab
 set scrolloff=4	" keep 3 lines when scrolling
 set number	" show line numbers
 set hlsearch	" highlight searches
