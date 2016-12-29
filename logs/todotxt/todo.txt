@@ -1,1 +1,3 @@
 (D) Make jenkins node cleanup script
+Warn someone to double-check the AppEngine faults
+(C) Check STW-GC fault injection techniques
