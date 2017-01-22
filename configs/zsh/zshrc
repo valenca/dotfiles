@@ -121,3 +121,6 @@ function zle-line-finish () {
 		echoti rmkx
 	fi
 }
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
