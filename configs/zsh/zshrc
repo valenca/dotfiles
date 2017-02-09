@@ -104,7 +104,8 @@ function d_db() {
 }
 
 function d_in() {
-    d exec -it $1 bash
+
+    d exec -it $(d_ps | grep $1 | awk '{print $1}') bash
 }
 
 function d_rm() {
@@ -116,3 +117,4 @@ export PATH=$BUILD_ANALYSIS_PATH:$PATH
 export DEVELOPMENT_TOOLS_PATH=~/bin/development_tools
 export PATH=$DEVELOPMENT_TOOLS_PATH/phabricator/arcanist/bin/:$PATH
 
+setopt HIST_FIND_NO_DUPS

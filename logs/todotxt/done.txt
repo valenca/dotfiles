@@ -1,1 +1,5 @@
 x 2016-12-26 Self-evaluation
+x 2017-01-16 Add a PS/AE STWGC fault with a timeout waiting for ZK
+x 2017-01-18 ST:Cassandra 226
+x 2017-02-08 https://jenkins-product.feedzai.com/job/qa_valenca_ONE-SHOT_system-tests/
+x 2017-02-09 Goal Plan
