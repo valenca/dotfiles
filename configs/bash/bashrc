@@ -29,7 +29,7 @@ alias unrarall='find -name "*.rar" | parallel unrar x {}'
 
 export EDITOR='vim'
 export HISTCONTROL=ignoreboth
-export TERM=linux
+export TERM=xterm-256color
 HISTSIZE=50000
 HISTFILESIZE=1048576
 
