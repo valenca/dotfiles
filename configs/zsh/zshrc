@@ -114,7 +114,8 @@ function d_rm() {
 
 export BUILD_ANALYSIS_PATH=~/Pulse/2013_07_pulse_dev_utils/build-analysis/
 export PATH=$BUILD_ANALYSIS_PATH:$PATH
-export DEVELOPMENT_TOOLS_PATH=~/bin/development_tools
-export PATH=$DEVELOPMENT_TOOLS_PATH/phabricator/arcanist/bin/:$PATH
+export PHABRICATOR_TOOLS_PATH=/home/joao.valenca/bin/development_tools
+export PATH=$PHABRICATOR_TOOLS_PATH/phabricator/arcanist/bin/:$PATH
+export LOCAL_TEST_RESOURCES=/home/joao.valenca/Pulse/test-resources/files/
 
 setopt HIST_FIND_NO_DUPS

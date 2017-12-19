@@ -4,3 +4,5 @@ x 2017-01-18 ST:Cassandra 226
 x 2017-02-08 https://jenkins-product.feedzai.com/job/qa_valenca_ONE-SHOT_system-tests/
 x 2017-02-09 Goal Plan
 x 2017-02-14 OS: STC 286
+x 2017-02-22 FM #8
+x 2017-02-27 FM 28-29
