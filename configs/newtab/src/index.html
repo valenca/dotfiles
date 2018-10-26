@@ -1,5 +1,35 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+
+<style>
+.myTooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.myTooltip .myTooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.myTooltip:hover .myTooltiptext {
+    visibility: visible;
+
+}
+</style>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,19 +153,33 @@
   <div class="row placeholders">
 
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="http://172.17.0.12:8080"  tabindex=2>
+      <a href="http://localhost:8080"  tabindex=2>
         <img src="./thumbs/pulse.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
       </a>
       <h4>Pulse</h4>
-      <span class="text-muted">172.17.0.12:8080/</span>
+      <span class="text-muted">localhost:8080/</span>
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=190&view=detail&selectedIssue=PULSEDEV-16675" tabindex=2>
+      <a href="https://issues.feedzai.com/secure/Dashboard.jspa" tabindex=2>
         <img src="./thumbs/jira.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
       </a>
-      <h4>Issues</h4>
+      <h4>Jira</h4>
       <span class="text-muted">issues.feedzai.com</span>
+      <div>
+        <table align="center">
+          <tr>
+            <!--
+            <th style="padding:5px" title="Core"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=190">⬤</a></th>
+            <th style="padding:5px" title="Atlas"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=222">⬤</a></th>
+            <th style="padding:5px" title="Genome"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=553">⬤</a></th>
+            -->
+          <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=190">⬤</a><span class="myTooltiptext">Core</span></div></th>
+          <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=222">⬤</a><span class="myTooltiptext">Atlas</span></div></th>
+          <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=553">⬤</a><span class="myTooltiptext">Genome</span></div></th>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
@@ -177,57 +221,45 @@
       <thead>
         <th>Repositories / Files</th>
         <th>Organisation</th>
-        <th>Programming</th>
+        <th>Remote</th>
         <th>Quality Assurance</th>
         <th>Media</th>
       </thead>
       <tbody>
         <tr>
           <td class="col-md-2"><a href="https://gitlab.feedzai.com/">Gitlab</a></td>
-          <td class="col-md-2"><a href="http://calendar.google.com">Calendar</a></td>
-          <td class="col-md-2"><a href="http://www.reddit.com/r/linux">Linux</a></td>
-          <td class="col-md-2">
-            Radiators:
-            <a href="https://jenkins-product.feedzai.com/view/Build%20Radiators/view/Unstable%20Hotfix/">HF</a>
-            /
-            <a href="https://jenkins-product.feedzai.com/view/Build%20Radiators/view/develop/">Dev</a>
-          </td>
+          <td class="col-md-2"> Status: <a href="https://hangouts.google.com/hangouts/_/feedzai.com/core-system?authuser=0">Proton Team</a></td>
+          <td class="col-md-2"><a href="https://feedzai-main.signin.aws.amazon.com/console">AWS</a></td>
+          <td class="col-md-2"><a href="qa-monitoring:3000">Grafana</a></td>
           <td class="col-md-2"><a href="http://www.reddit.com">Reddit</a></td>
         </tr>
         <tr>
-          <td class="col-md-2"><a href="http://git.feedzai.com">Gitorious</a></td>
-          <td class="col-md-2"> Status: <a href="https://hangouts.google.com/hangouts/_/feedzai.com/core-system?authuser=0">Proton Team</a></td>
-          <td class="col-md-2"><a href="http://www.reddit.com/r/archlinux">Archlinux</a></td>
-          <td class="col-md-2"><a href="qa-monitoring:3000">Grafana</a></td>
+          <td class="col-md-2"><a href="http://www.github.com">Github</a></td>
+          <td class="col-md-2"><a href="http://calendar.google.com">Calendar</a></td>
+          <td class="col-md-2"><a href="https://portal.azure.com">Azure</a></td>
+          <td class="col-md-2"><a href="http://jenkins-build-radiators.zai/jenkins-builds?user=joao.valenca">QAggregator</a></td>
           <td class="col-md-2"><a href="http://www.twitter.com/">Twitter</a></td>
         </tr>
         <tr>
-          <td class="col-md-2"><a href="http://www.github.com">Github</a></td>
-          <td class="col-md-2"><a href="https://app.sococo.com/">Sococo</a></td>
-          <td class="col-md-2"><a href="http://www.reddit.com/r/algorithms">Algorithms</a></td>
-          <td class="col-md-2"><a href="http://test-selenium-grid:4444/grid/console">Selenium Grid</a></td>
+          <td class="col-md-2"><a href="https://drive.google.com/drive/shared-with-me">Drive</a></td>
+          <td class="col-md-2"><a href="https://feedzai.namely.com/">Namely</a></td>
+          <td class="col-md-2"><a href="https://docker.feedzai.com/repositories">Docker</a></td>
+          <td class="col-md-2"><a href="https://jenkins-monitoring.feedzai.com/nagios/cgi-bin/status.cgi?hostgroup=all&style=hostdetail">Nagios</a></td>
           <td class="col-md-2"><a href="http://youtube.com/">Youtube</a></td>
         </tr>
         <tr>
-          <td class="col-md-2"><a href="http://www.bitbucket.com">BitBucket</a></td>
-          <td class="col-md-2"><a href="https://feedzai.namely.com/">Namely</a></td>
+          <td class="col-md-2"><a href="https://intra.feedzai.com/releases/experimental">Experimental</a></td>
           <td class="col-md-2"></td>
-          <td class="col-md-2"><a href="https://jenkins-monitoring.feedzai.com/nagios/cgi-bin/status.cgi?hostgroup=all&style=hostdetail">Nagios</td>
+          <td class="col-md-2"></td>
+          <td class="col-md-2"><a href="http://jenkins-build-radiators.zai:7070/">Metadata Performance</td>
           <td class="col-md-2"><a href="http://www.messenger.com">Messenger</a></td>
         </tr>
         <tr>
-          <td class="col-md-2"><a href="https://drive.google.com/drive/shared-with-me">Drive</a></td>
+          <td class="col-md-2"></td>
           <td class="col-md-2"></td>
           <td class="col-md-2"></td>
           <td class="col-md-2"></td>
           <td class="col-md-2"><a href="https://www.facebook.com/ipnbarcafetaria/">Cafeteria Menu</a></td>
-        </tr>
-        <tr>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"></td>
         </tr>
       </tbody>
     </table>

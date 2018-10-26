@@ -89,6 +89,8 @@ alias l='ls -CF'
 alias cd='cd -LP'
 alias less='less -r'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias bluez='sudo bluetoothctl connect 70:26:05:3C:AC:A6; pacmd set-card-profile bluez_card.70_26_05_3C_AC_A6 a2dp_sink'
+
 alias d='docker'
 alias d_im='docker images'
 alias d_ps='d ps -a'
@@ -98,13 +100,14 @@ alias d_rm_ps='docker ps -a -q | xargs -n 1 -P 12 docker rm -f'
 alias d_rm_all='docker ps -a -q --filter "status=exited" | xargs docker rm -f'
 alias d_rm_sys='docker ps -a | grep "docker-repo.zai" | awk ''{ print $1 }'' | xargs docker rm -f'
 alias d_rmi_all='docker images -q --filter "dangling=true" | xargs docker rmi -f'
+alias d_rmi_none='docker rmi $(docker images --filter ''dangling=true'' -q --no-trunc)'
+alias cclip='xclip -selection clipboard'
 
 function d_db() {
     psql -h `d inspect --format '{{ .NetworkSettings.IPAddress }}' postgresql` pulse pulse
 }
 
 function d_in() {
-
     d exec -it $(d_ps | grep $1 | awk '{print $1}') bash
 }
 
@@ -112,6 +115,16 @@ function d_rm() {
     d rm -f $1
 }
 
+
+function d_ip() {
+#Is only expecting one argument
+    if [ $# -ne 1 ];
+        then echo "Illegal usage of the script, its only expecting the container ID as parameter."
+    fi
+    docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(d_ps | grep $1 | awk '{print $1}')
+}
+
+export DOCKER_API_VERSION="1.23"
 export BUILD_ANALYSIS_PATH=~/Pulse/2013_07_pulse_dev_utils/build-analysis/
 export PATH=$BUILD_ANALYSIS_PATH:$PATH
 export PHABRICATOR_TOOLS_PATH=/home/joao.valenca/bin/development_tools
@@ -119,3 +132,6 @@ export PATH=$PHABRICATOR_TOOLS_PATH/phabricator/arcanist/bin/:$PATH
 export LOCAL_TEST_RESOURCES=/home/joao.valenca/Pulse/test-resources/files/
 
 setopt HIST_FIND_NO_DUPS
+
+export NVM_DIR="/home/joao.valenca/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
