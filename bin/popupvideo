@@ -1,3 +1,5 @@
 #!/bin/bash
 #mpv $(xclip -o -selection clipboard)
-vlc $(xclip -o -selection clipboard)
+#vlc $(xclip -o -selection clipboard)
+#streamlink --player-passthrough hls $(xclip -o -selection clipboard) 360p
+streamlink --player-passthrough hls $(xclip -o -selection clipboard) 480p
