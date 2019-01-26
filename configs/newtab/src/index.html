@@ -1,20 +1,49 @@
 <!DOCTYPE html>
+
+<style>
+.myTooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.myTooltip .myTooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.myTooltip:hover .myTooltiptext {
+  visibility: visible;
+
+}
+</style>
 <html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="./thumbs/favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="./thumbs/favicon.ico">
 
-  <title>Dashboard</title>
+<title>Dashboard</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/dashboard.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
 
 </head>
 
@@ -28,174 +57,194 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Dashboard</a>
+        <!--<a class="navbar-brand" href="#">Dashboard</a>-->
       </div>
     </div>
   </nav>
   <div class="container-fluid show">
-  <div class="row">
-    <div class="col-sm-3 col-md-2 sidebar">
-      <ul class="nav nav-sidebar" id=twitch>
-        <!--<li class="active"><a href="#">Main <span class="sr-only">(current)</span></a></li>-->
-        <!--<li><a href="#">Analytics</a></li>
-        <li><a href="#">Export</a></li>-->
-      </ul>
-  </div>
-  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h3 >Search</h3>
-  <div class="row placeholders">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.google.com/ncr">
-        <img src="./thumbs/google.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Google</h4>
-      <form class="navbar-form" name="google" action="https://www.google.com/search">
-        <input name="q" align="center" type="text" size="15" tabindex=1/>
-      </form>
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <!--
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Streams</a>
+              </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item"><a href="https://www.twitch.tv/coestar/videos/archive">Coestar</a></li>
+                <li class="list-group-item"><a href="https://www.twitch.tv/ilmango/videos/archive">Ilmango</a></li>
+                <li class="list-group-item"><a href="https://www.twitch.tv/necomi/videos/archive">Necomi</a></li>
+                <li class="list-group-item"><a href="https://www.twitch.tv/phedran/videos/archive">Phedran</a></li>
+              </ul>
+            </div>
+          </div>
+        -->
+        </div>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h3 >Search</h3>
+      <div class="row placeholders">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://www.google.com/ncr">
+            <img src="./thumbs/google.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Google</h4>
+          <form class="navbar-form" name="google" action="https://www.google.com/search">
+            <input name="q" align="center" type="text" size="15" tabindex=1/>
+          </form>
 
-      <span class="text-muted">www.google.com</span>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.youtube.com/feed/subscriptions/">
-        <img src="./thumbs/youtube.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Youtube</h4>
-      <form class="navbar-form" name="youtube" action="https://www.youtube.com/results">
-        <input name="q" align="center" type="text" size="15" tabindex=1/>
-      </form>
-      <span class="text-muted">www.youtube.com</span>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://en.wikipedia.org/wiki/Main_Page">
-        <img src="./thumbs/wikipedia.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Wikipedia</h4>
-      <form class="navbar-form" name= "wikipedia" action="http://www.wikipedia.org/search-redirect.php">
-        <input name="language" align="center" type="hidden" value="en" />
-        <input name="search" align="center"   type="text"   size="15" tabindex=1/>
-      </form>
-      <span class="text-muted">www.wikipedia.org</span>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://wiki.archlinux.org/">
-        <img src="./thumbs/archwiki.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Arch Wiki</h4>
-      <form class="navbar-form" name= "archwiki" action="https://wiki.archlinux.org/index.php">
-        <input type="text" align="center" name="search" size="15" tabindex=1/>
-      </form>
-      <span class="text-muted">wiki.archlinux.org</span>
-    </div>
+          <span class="text-muted">www.google.com</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://www.youtube.com/feed/subscriptions/">
+            <img src="./thumbs/youtube.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Youtube</h4>
+          <form class="navbar-form" name="youtube" action="https://www.youtube.com/results">
+            <input name="q" align="center" type="text" size="15" tabindex=1/>
+          </form>
+          <span class="text-muted">www.youtube.com</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://en.wikipedia.org/wiki/Main_Page">
+            <img src="./thumbs/wikipedia.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Wikipedia</h4>
+          <form class="navbar-form" name= "wikipedia" action="http://www.wikipedia.org/search-redirect.php">
+            <input name="language" align="center" type="hidden" value="en" />
+            <input name="search" align="center"   type="text"   size="15" tabindex=1/>
+          </form>
+          <span class="text-muted">www.wikipedia.org</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://wiki.archlinux.org/">
+            <img src="./thumbs/archwiki.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Arch Wiki</h4>
+          <form class="navbar-form" name= "archwiki" action="https://wiki.archlinux.org/index.php">
+            <input type="text" align="center" name="search" size="15" tabindex=1/>
+          </form>
+          <span class="text-muted">wiki.archlinux.org</span>
+        </div>
 
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-  <a href="http://www.wolframalpha.com/">
-    <img src="./thumbs/wolfram.png" style="max-height:65px" class="img-responsive">
-  </a>
-  <h4>Wolfram Alpha</h4>
-  <form class="navbar-form" name="wolfram" action="http://www.wolframalpha.com/input/">
-    <input name="i" align="center" type="text" size="15" tabindex=1/>
-  </form>
-  <span class="text-muted">www.wolframalpha.com</span>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="http://www.wolframalpha.com/">
+            <img src="./thumbs/wolfram.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Wolfram Alpha</h4>
+          <form class="navbar-form" name="wolfram" action="http://www.wolframalpha.com/input/">
+            <input name="i" align="center" type="text" size="15" tabindex=1/>
+          </form>
+          <span class="text-muted">www.wolframalpha.com</span>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https:/play.spotify.com">
+            <img src="./thumbs/spotify.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Spotify</h4>
+          <form class="navbar-form" id="spotify">
+            <input type="text" align="center" id="q" size="15" tabindex=1/>
+          </form>
+          <span class="text-muted">play.spotify.com</span>
+
+
+        </div>
       </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https:/play.spotify.com">
-        <img src="./thumbs/spotify.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Spotify</h4>
-      <form class="navbar-form" id="spotify">
-        <input type="text" align="center" id="q" size="15" tabindex=1/>
-      </form>
-      <span class="text-muted">play.spotify.com</span>
-
-
-    </div>
-  </div>
-  <!--  ROW NUMBER TWO  -->
-  <h3 >Media</h3>
-  <div class="row placeholders">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.reddit.com/"  tabindex=2>
-        <img src="./thumbs/reddit.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>reddit</h4>
-      <span class="text-muted">www.reddit.com</span>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.twitter.com/" tabindex=2>
-        <img src="./thumbs/twitter.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Twitter</h4>
-      <span class="text-muted">www.twitter.com</span>
-    </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-  <a href="https://www.messenger.com/" tabindex=2>
-    <img src="./thumbs/messenger.png" style="max-height:65px" class="img-responsive">
-  </a>
-  <h4>Messenger</h4>
-  <span class="text-muted">www.messenger.com</span>
+      <!--  ROW NUMBER TWO  -->
+      <h3 >Media</h3>
+      <div class="row placeholders">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://www.reddit.com/"  tabindex=2>
+            <img src="./thumbs/reddit.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>reddit</h4>
+          <span class="text-muted">www.reddit.com</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://www.twitter.com/" tabindex=2>
+            <img src="./thumbs/twitter.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Twitter</h4>
+          <span class="text-muted">www.twitter.com</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://www.messenger.com/" tabindex=2>
+            <img src="./thumbs/messenger.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Messenger</h4>
+          <span class="text-muted">www.messenger.com</span>
+          <div>
+              <table align="center">
+                <tr>
+                  <th style="padding:5px"><div class="myTooltip"><a href="https://facebook.com/">⬤</a><span class="myTooltiptext">Facebook</span></div></th>
+                </tr>
+              </table>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://www.netflix.com/" tabindex=2>
+            <img src="./thumbs/netflix.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Netflix</h4>
+          <span class="text-muted">www.netflix.com</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://drive.google.com/" tabindex=2>
+            <img src="./thumbs/drive.png" style="max-height:65px" class="img-responsive" >
+          </a>
+          <h4>Google Drive</h4>
+          <span class="text-muted">drive.google.com</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://mail.google.com"  tabindex=2>
+            <img src="./thumbs/gmail.png" style="max-height:65px" class="img-responsive">
+          </a>
+          <h4>Gmail</h4>
+          <span class="text-muted">mail.google.com</span>
+        </div>
       </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://www.netflix.com/" tabindex=2>
-        <img src="./thumbs/netflix.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Netflix</h4>
-      <span class="text-muted">www.netflix.com</span>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://drive.google.com/" tabindex=2>
-        <img src="./thumbs/drive.png" style="max-height:65px" class="img-responsive" >
-      </a>
-      <h4>Google Drive</h4>
-      <span class="text-muted">drive.google.com</span>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-      <a href="https://mail.google.com"  tabindex=2>
-        <img src="./thumbs/gmail.png" style="max-height:65px" class="img-responsive">
-      </a>
-      <h4>Gmail</h4>
-      <span class="text-muted">mail.google.com</span>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <th>General</th>
+            <th>Programming</th>
+            <th>Movies</th>
+            <th>Streams</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-md-2"><a href="https://boards.4chan.org/int/catalog">International</a></td>
+              <td class="col-md-2"><a href="https://www.github.com">Github</a></td>
+              <td class="col-md-2"><a href="http://www.tvshowtime.com/en/calendar">Show Tracker</a></td>
+              <td class="col-md-2"><a href="https://www.twitch.tv/coestar/videos?filter=archives&sort=time">Coestar</a></td>
+            </tr>
+            <tr>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"><a href="https://www.bitbucket.com">Bitbucket</a></td>
+              <td class="col-md-2"><a href="https://proxybay.bz/">PirateBay</a></td>
+              <td class="col-md-2"><a href="https://www.twitch.tv/ilmango/videos?filter=archives&sort=time">Ilmango</a></td>
+            </tr>
+            <tr>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"><a href="https://www.opensubtitles.org/">Subtitles</a></td>
+              <td class="col-md-2"><a href="https://www.twitch.tv/necomi/videos?filter=archives&sort=time">Necomi</a></td>
+            </tr>
+            <tr>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"><a href="https://www.twitch.tv/phedran/videos?filter=archives&sort=time">Phedran</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <h3>Links</h3>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <th>General</th>
-        <th>Programming</th>
-        <th>Streams</th>
-        <th>Miscellaneous</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-md-2"><a href="http://www.reddit.com/r/portugal">Portugal</a></td>
-          <td class="col-md-2"><a href="https://www.github.com">Github</a></td>
-          <td class="col-md-2"><a href="https://www.twitch.tv/coestar/videos/archive">Coestar</td>
-          <td class="col-md-2"><a href="http://www.tvshowtime.com/en/calendar">Show Tracker</a></td>
-        </tr>
-        <tr>
-          <td class="col-md-2"><a href="http://www.reddit.com/r/marvelstudios">Marvel Studios</a></td>
-          <td class="col-md-2"><a href="https://www.bitbucket.com">Bitbucket</a></td>
-          <td class="col-md-2"><a href="https://www.twitch.tv/ilmango/videos/archive">Ilmango</td>
-          <td class="col-md-2"><a href="https://boards.4chan.org/int/catalog">International</a></td>
-        </tr>
-        <tr>
-          <td class="col-md-2"><a href="http://www.reddit.com/r/movies">Movies</a></td>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"><a href="https://www.twitch.tv/necomi/videos/archive">Necomi</td>
-          <td class="col-md-2"><a href="https://thepiratebay.org/">PirateBay</a></td>
-        </tr>
-        <tr>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"></td>
-          <td class="col-md-2"><a href="https://www.opensubtitles.org/">Subtitles</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  </div>
-</div>
 </div>
 
     <!-- Bootstrap core JavaScript
@@ -207,5 +256,5 @@
     <script src="./js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
-</body>
-</html>
+  </body>
+  </html>
