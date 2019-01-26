@@ -29,7 +29,7 @@
 }
 
 .panel-heading {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 
@@ -75,47 +75,68 @@
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
-              <h4 class="panel-title">Drawer 1</h4>
+              <h4 class="panel-title">Demos</h4>
             </div>
             <div id="collapse1" class="panel-collapse collapse">
               <ul class="list-group">
-                <li class="list-group-item"><a href="https://localhost:8080">localhost</a></li>
-                <li class="list-group-item"><a href="https://172.17.0.1:8080">172.17.0.4</a></li>
-                <li class="list-group-item"><a href="https://172.17.0.2:8080">172.17.0.5</a></li>
-                <li class="list-group-item"><a href="https://172.17.0.3:8080">172.17.0.6</a></li>
-                <li class="list-group-item"><a href="https://172.17.0.4:8080">172.17.0.7</a></li>
-                <li class="list-group-item"><a href="https://172.17.0.5:8080">172.17.0.8</a></li>
-                <li class="list-group-item"><a href="https://172.17.0.6:8080">172.17.0.9</a></li>
+                <li class="list-group-item"><a href="http://genome.zai">Genome</a></li>
+                <li class="list-group-item"><a href="http://develop-demo.zai">Pulse</a></li>
+                <li class="list-group-item"><a href="http://core-demo.zai">Core</a></li>
+                <li class="list-group-item"><a href="http://muppets-demo.zai">Muppets</a></li>
+                <li class="list-group-item"><a href="http://dart-demo.zai">Dart</a></li>
               </ul>
             </div>
           </div>
-
           <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">
-              <h4 class="panel-title">Drawer 2</h4>
+              <h4 class="panel-title">Local IPs</h4>
             </div>
             <div id="collapse2" class="panel-collapse collapse">
               <ul class="list-group">
-                <li class="list-group-item">One</li>
-                <li class="list-group-item">Two</li>
-                <li class="list-group-item">Three</li>
+                <li class="list-group-item"><a href="localhost:8080">localhost</a></li>
+                <li class="list-group-item"><a href="172.17.0.4:8080">172.17.0.4</a></li>
+                <li class="list-group-item"><a href="172.17.0.5:8080">172.17.0.5</a></li>
+                <li class="list-group-item"><a href="172.17.0.6:8080">172.17.0.6</a></li>
+                <li class="list-group-item"><a href="172.17.0.7:8080">172.17.0.7</a></li>
+                <li class="list-group-item"><a href="172.17.0.8:8080">172.17.0.8</a></li>
+                <li class="list-group-item"><a href="172.17.0.9:8080">172.17.0.9</a></li>
               </ul>
             </div>
           </div>
-
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">
-              <h4 class="panel-title">Drawer 3</h4>
+            <div class="panel-heading" data-toggle="collapse" data-target="#collapse3">
+              <h4 class="panel-title">Nagios</h4>
             </div>
-            <div id="collapse3" class="panel-collapse collapse">
-              <ul class="list-group">
-                <li class="list-group-item">One</li>
-                <li class="list-group-item">Two</li>
-                <li class="list-group-item">Three</li>
-              </ul>
+            <div id="collapse3" class="panel-collapse collapse in" style="height: 200px;">    
+              <!--<div class="embed-responsive embed-responsive-1by1" style="height: 600px;">-->
+              <div class="embed-container" style="height: 200px;">
+                <iframe src="http://localhost:3030?board=nagios" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#collapse4">
+              <h4 class="panel-title">Develop</h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse in" style="height: 200px;">    
+              <!--<div class="embed-responsive embed-responsive-1by1" style="height: 600px;">-->
+              <div class="embed-container" style="height: 200px;">
+                <iframe src="http://localhost:3030?board=jenkins&radiator=develop" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#collapse5">
+              <h4 class="panel-title">Hotfix</h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse in" style="height: 200px;">    
+              <!--<div class="embed-responsive embed-responsive-1by1" style="height: 600px;">-->
+              <div class="embed-container" style="height: 200px;">
+                <iframe src="http://localhost:3030?board=jenkins&radiator=Build%20Radiators/view/Unstable%20Hotfix" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
+              </div>
+            </div>
+          </div>
+      </div>
       </div>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -161,7 +182,7 @@
             <img src="./thumbs/wikipedia.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
           </a>
           <h4>Wikipedia</h4>
-          <form class="navbar-form" name= "wikipedia" action="http://www.wikipedia.org/search-redirect.php">
+          <form class="navbar-form" name= "wikipedia" action="https://www.wikipedia.org/search-redirect.php">
             <input name="language" type="hidden" value="en" />
             <input name="search"   type="text"   size="20" tabindex=1/>
           </form>
@@ -169,11 +190,11 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="http://www.wolframalpha.com/">
+          <a href="https://www.wolframalpha.com/">
             <img src="./thumbs/wolfram.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
           </a>
           <h4>Wolfram Alpha</h4>
-          <form class="navbar-form" name="wolfram" action="http://www.wolframalpha.com/input/">
+          <form class="navbar-form" name="wolfram" action="https://www.wolframalpha.com/input/">
             <input name="i" type="text" size="20" tabindex=1/>
           </form>
           <span class="text-muted">www.wolframalpha.com</span>
@@ -195,7 +216,24 @@
       <div class="row placeholders">
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://gitlab.feedzai.com"  tabindex=2>
+          <a href="https://issues.feedzai.com/secure/ConfigureReport.jspa?targetUser=joao.valenca&weekends=true&reportKey=jira-timesheet-plugin:report&reportingDay=0&offset=0&numOfWeeks=2&sum=day&groupByField=labels" tabindex=2>
+            <img src="./thumbs/jira.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+          </a>
+          <h4>Jira</h4>
+          <span class="text-muted">issues.feedzai.com</span>
+          <div>
+            <table align="center">
+              <tr>
+                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=190">⬤</a><span class="myTooltiptext">Core</span></div></th>
+                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=222">⬤</a><span class="myTooltiptext">Atlas</span></div></th>
+                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=553">⬤</a><span class="myTooltiptext">Genome</span></div></th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
+          <a href="https://gitlab.feedzai.com/dashboard/projects/starred"  tabindex=2>
             <img src="./thumbs/gitlab.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
           </a>
           <h4>Gitlab</h4>
@@ -212,23 +250,6 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://issues.feedzai.com/secure/Dashboard.jspa" tabindex=2>
-            <img src="./thumbs/jira.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-          </a>
-          <h4>Jira</h4>
-          <span class="text-muted">issues.feedzai.com</span>
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=190">⬤</a><span class="myTooltiptext">Core</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=222">⬤</a><span class="myTooltiptext">Atlas</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=553&view=planning&selectedIssue=GEN-211&quickFilter=2591">⬤</a><span class="myTooltiptext">Genome</span></div></th>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://jenkins-product.feedzai.com/" tabindex=2>
             <img src="./thumbs/jenkins.svg" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
           </a>
@@ -237,8 +258,9 @@
           <div>
             <table align="center">
               <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="http://jenkins-build-radiators.zai/jenkins-builds?user=joao.valenca">⬤</a><span class="myTooltiptext">QAggregator</span></div></th>
+                <th style="padding:5px"><div class="myTooltip"><a href="http://qa.zai?user=joao.valenca">⬤</a><span class="myTooltiptext">QAggregator</span></div></th>
                 <th style="padding:5px"><div class="myTooltip"><a href="http://jenkins-build-radiators.zai:7070/">⬤</a><span class="myTooltiptext">Metadata Performance</span></div></th>
+                <th style="padding:5px"><div class="myTooltip"><a href="https://jenkins-monitoring.feedzai.com/monitor">⬤</a><span class="myTooltiptext">Monitoring</span></div></th>
               </tr>
             </table>
           </div>
@@ -266,6 +288,13 @@
           </a>
           <h4>Gmail</h4>
           <span class="text-muted">mail.google.com</span>
+          <div>
+            <table align="center">
+              <tr>
+                <th style="padding:5px"><div class="myTooltip"><a href="https://drive.google.com">⬤</a><span class="myTooltiptext">Drive</span></div></th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
       <hr>
@@ -281,39 +310,39 @@
           </thead>
           <tbody>
             <tr>
-              <td class="col-md-2"><a href="http://www.github.com">Github</a></td>
-              <td class="col-md-2"> Status: <a href="https://hangouts.google.com/hangouts/_/feedzai.com/core-system?authuser=0">Proton Team</a></td>
+              <td class="col-md-2"><a href="https://maven.feedzai.com/">Maven</a></td>
+              <td class="col-md-2"><a href="https://helpdesk.feedzai.com">Helpdesk</a></td>
               <td class="col-md-2"><a href="https://feedzai-main.signin.aws.amazon.com/console">AWS</a></td>
-              <td class="col-md-2"><a href="qa-monitoring:3000">Grafana</a></td>
-              <td class="col-md-2"><a href="http://www.reddit.com">Reddit</a></td>
+              <td class="col-md-2"><a href="http://qa-monitoring:3000/dashboard/db/qa-metrics-2">Grafana</a></td>
+              <td class="col-md-2"><a href="https://www.reddit.com">Reddit</a></td>
             </tr>
             <tr>
-              <td class="col-md-2"><a href="https://drive.google.com/drive/shared-with-me">Drive</a></td>
-              <td class="col-md-2"><a href="http://calendar.google.com">Calendar</a></td>
+              <td class="col-md-2"><a href="https://docker.feedzai.com/repositories">Docker</a></td>
+              <td class="col-md-2"><a href="https://calendar.google.com">Calendar</a></td>
               <td class="col-md-2"><a href="https://portal.azure.com">Azure</a></td>
-              <td class="col-md-2"><a href="http://blackduck.feedzai.com/">Blackduck</td>
-                <td class="col-md-2"><a href="http://www.twitter.com/">Twitter</a></td>
+              <td class="col-md-2"><a href="https://jenkins-monitoring.feedzai.com/nagios/cgi-bin/status.cgi?hostgroup=all&style=grid">Nagios</a></td>
+              <td class="col-md-2"><a href="https://www.twitter.com/">Twitter</a></td>
+            </tr>
+            <tr>
+              <td class="col-md-2"><a href="https://intra.feedzai.com/releases/experimental">Experimental</a></td>
+              <td class="col-md-2"><a href="https://feedzai.namely.com/">Namely</a></td>
+              <td class="col-md-2"><a href="http://labs.k8s.zai/">Kubernetes Labs</a></td>
+              <td class="col-md-2"><a href="https://sonar.feedzai.com/">Sonar</td>
+              <td class="col-md-2"><a href="https://youtube.com/">Youtube</a></td>
+            </tr>
+            <tr>
+              <td class="col-md-2"><a href="https://www.github.com">Github</a></td>
+              <td class="col-md-2"><a href="https://techdocs.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/case-manager.version,variabl">CS Deployments</a></td>
+              <td class="col-md-2"><a href="https://cloud-gocd.feedzai.com/go/pipelines#!/">GoCD Pipelines</a></td>
+              <td class="col-md-2"><a href="https://blackduck.feedzai.com/">Blackduck</a></td>
+                <td class="col-md-2"><a href="https://www.messenger.com">Messenger</a></td>
               </tr>
               <tr>
-                <td class="col-md-2"><a href="https://intra.feedzai.com/releases/experimental">Experimental</a></td>
-                <td class="col-md-2"><a href="https://feedzai.namely.com/">Namely</a></td>
-                <td class="col-md-2"></td>
-                <td class="col-md-2"><a href="https://jenkins-monitoring.feedzai.com/nagios/cgi-bin/status.cgi?hostgroup=all&style=hostdetail">Nagios</a></td>
-                <td class="col-md-2"><a href="http://youtube.com/">Youtube</a></td>
-              </tr>
-              <tr>
-                <td class="col-md-2"><a href="https://docker.feedzai.com/repositories">Docker</a></td>
-                <td class="col-md-2"><a href="https://tech.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/case-manager.version,variabl">Projects</a></td>
+                <td class="col-md-2"><a href="https://techdocs.feedzai.com/">Docs</a></td>
+                <td class="col-md-2"><a href="https://app.greenhouse.io/">Greenhouse</a></td>
                 <td class="col-md-2"></td>
                 <td class="col-md-2"></td>
-                <td class="col-md-2"><a href="http://www.messenger.com">Messenger</a></td>
-              </tr>
-              <tr>
-                <td class="col-md-2"></td>
-                <td class="col-md-2"></td>
-                <td class="col-md-2"></td>
-                <td class="col-md-2"></td>
-                <td class="col-md-2"><a href="https://www.facebook.com/ipnbarcafetaria/">Cafeteria Menu</a></td>
+                <td class="col-md-2"><a href="https://gordosmasfelizes.pt/">Cafeteria Menu</a></td>
               </tr>
             </tbody>
           </table>
