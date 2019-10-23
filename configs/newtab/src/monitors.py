@@ -163,11 +163,11 @@ def getExecutors(text):
 	return text
 
 
-def getJenkinsBoard(radiator):
+def getJenkinsBoard(radiator, green):
 	jobs = requests.get('https://jenkins-product.feedzai.com/view/{}/api/json'.format(radiator), auth=JENKINS_AUTH).json()["jobs"]
 
- 	order = {"red": 1, "yellow": 2, "blue": 3, "disabled": 4, "aborted": 4}
-	colors = {"red": "critical", "yellow": "warning", "blue": "stable", "disabled": "disabled", "aborted": "aborted"}
+ 	order = {"red": 1, "yellow": 2, "blue": 3, "disabled": 4, "aborted": 4, "notbuilt": 4}
+	colors = {"red": "critical", "yellow": "warning", "blue": "stable", "disabled": "disabled", "aborted": "aborted", "notbuilt": "disabled"}
 
 	for job in jobs:
 		if "anime" in job["color"]:
@@ -181,7 +181,7 @@ def getJenkinsBoard(radiator):
 	lines = "<body bgcolor='#e8e8e8'><div id='nagios_placeholder'><table width='90%' border='0' class='boldtable' align='center'><tbody>"
 	jobs.sort(key=lambda x: x["order"])
 	for i,job in enumerate(jobs):
-		if job["order"] != 3:
+		if job["order"] != 3 or green == "true":
 			if (i == 0 or job["order"] != jobs[i-1]["order"]):
 				lines += "<tr height='5px'><td colspan='2'></td></tr>"
 			lines +="<tr class='{0:} widget'><td class='widget'><a target='_parent' href={1:}>{2:}</a></td><td class='widget'>{3:}</td></tr>\n".format(job["color"], job["url"], job["name"], job["running"])
@@ -194,10 +194,10 @@ def getJenkinsBoard(radiator):
 def getNagiosBoard():
 	return getExecutors(requests.get('https://jenkins-monitoring.feedzai.com/monitor?widget=true&bgcolor=%23e8e8e8').text)
 
-def getInfo(board, radiator):
+def getInfo(board, radiator, green):
 	try:
 		if board == "jenkins":
-			return getJenkinsBoard(radiator)
+			return getJenkinsBoard(radiator, green)
 		elif board == "nagios":
 			return getNagiosBoard()
 		else:
@@ -207,8 +207,8 @@ def getInfo(board, radiator):
 
 class HelloWorld(object):
     @cherrypy.expose
-    def index(self, board = None, radiator = None):
-        return getInfo(board, radiator)
+    def index(self, board = None, radiator = None, green = None):
+        return getInfo(board, radiator, green)
 
 if __name__ == "__main__":
 	from cherrypy.process.plugins import Daemonizer

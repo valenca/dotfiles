@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/joao.valenca/.oh-my-zsh
+export ZSH=/home/joao.valenca/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -89,7 +89,7 @@ alias l='ls -CF'
 alias cd='cd -LP'
 alias less='less -r'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias bluez='sudo bluetoothctl connect 70:26:05:3C:AC:A6; pacmd set-card-profile bluez_card.70_26_05_3C_AC_A6 a2dp_sink'
+alias ssh='ssh -o ServerAliveInterval=30'
 
 alias d='docker'
 alias d_im='docker images'
@@ -102,6 +102,39 @@ alias d_rm_sys='docker ps -a | grep "docker-repo.zai" | awk ''{ print $1 }'' | x
 alias d_rmi_all='docker images -q --filter "dangling=true" | xargs docker rmi -f'
 alias d_rmi_none='docker rmi $(docker images --filter ''dangling=true'' -q --no-trunc)'
 alias cclip='xclip -selection clipboard'
+alias warn='notify-send "Task Finished"'
+
+function bluez(){
+    PHONES="70:26:05:3C:AC:A6"
+    PHONES_=$(echo ${PHONES} | tr ":" "_")
+    PREFIX="[[\e[94mBLUEZ\e[39m]] :"
+
+    if [[ $(bluetoothctl 2> /dev/null <<< "info ${PHONES}" |  grep Connected | cut -f 2 -d ":") == " yes" ]]
+    then
+        echo "${PREFIX} Turning headset [\e[91mOFF\e[39m]"
+        bluetoothctl 2> /dev/null <<< "disconnect ${PHONES}"
+    else
+        echo "${PREFIX} Turning headset [\e[92mON\e[39m]"
+        rfkill unblock bluetooth
+        bluetoothctl 2> /dev/null <<< "power on"
+        bluetoothctl 2> /dev/null <<< "connect ${PHONES}"
+        while : ; do
+            echo "${PREFIX} Awaiting connection..."
+            [[ $(bluetoothctl 2> /dev/null <<< "info ${PHONES}" | grep Connected | cut -f 2 -d ":") != " yes" ]] || break
+            sleep 1s
+        done
+        while : ; do
+            echo "${PREFIX} Running \"pacmd set-card-profile bluez_card.${PHONES_} a2dp_sink\"..."
+            [[ $(pacmd set-card-profile bluez_card.${PHONES_} a2dp_sink) == "No card found by this name or index." ]] || break
+            sleep 1s
+        done
+        while : ; do
+            echo "${PREFIX} Running \"pactl set-default-sink bluez_sink.${PHONES_}\"..."
+            [[ $(pactl set-default-sink bluez_sink.${PHONES_}) == "Failure: No such entity" ]] || break
+            sleep 1s
+        done
+    fi
+}
 
 function d_db() {
     psql -h `d inspect --format '{{ .NetworkSettings.IPAddress }}' postgresql` pulse pulse
@@ -124,7 +157,7 @@ function d_ip() {
     docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(d_ps | grep $1 | awk '{print $1}')
 }
 
-export DOCKER_API_VERSION="1.23"
+#export DOCKER_API_VERSION="1.23"
 export BUILD_ANALYSIS_PATH=~/Pulse/2013_07_pulse_dev_utils/build-analysis/
 export PATH=$BUILD_ANALYSIS_PATH:$PATH
 export PHABRICATOR_TOOLS_PATH=/home/joao.valenca/bin/development_tools
@@ -135,3 +168,5 @@ setopt HIST_FIND_NO_DUPS
 
 export NVM_DIR="/home/joao.valenca/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval $(thefuck --alias)

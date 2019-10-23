@@ -85,28 +85,11 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">
-              <h4 class="panel-title">Local IPs</h4>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse">
-              <ul class="list-group">
-                <li class="list-group-item"><a href="localhost:8080">localhost</a></li>
-                <li class="list-group-item"><a href="172.17.0.4:8080">172.17.0.4</a></li>
-                <li class="list-group-item"><a href="172.17.0.5:8080">172.17.0.5</a></li>
-                <li class="list-group-item"><a href="172.17.0.6:8080">172.17.0.6</a></li>
-                <li class="list-group-item"><a href="172.17.0.7:8080">172.17.0.7</a></li>
-                <li class="list-group-item"><a href="172.17.0.8:8080">172.17.0.8</a></li>
-                <li class="list-group-item"><a href="172.17.0.9:8080">172.17.0.9</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-target="#collapse3">
               <h4 class="panel-title">Nagios</h4>
             </div>
-            <div id="collapse3" class="panel-collapse collapse in" style="height: 200px;">    
-              <!--<div class="embed-responsive embed-responsive-1by1" style="height: 600px;">-->
-              <div class="embed-container" style="height: 200px;">
+            <div id="collapse3" class="panel-collapse collapse in" style="height: 150px;">
+              <div class="embed-container" style="height: 150px;">
                 <iframe src="http://localhost:3030?board=nagios" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
               </div>
             </div>
@@ -115,20 +98,30 @@
             <div class="panel-heading" data-toggle="collapse" data-target="#collapse4">
               <h4 class="panel-title">Develop</h4>
             </div>
-            <div id="collapse4" class="panel-collapse collapse in" style="height: 200px;">    
-              <!--<div class="embed-responsive embed-responsive-1by1" style="height: 600px;">-->
-              <div class="embed-container" style="height: 200px;">
+            <div id="collapse4" class="panel-collapse collapse in" style="height: 150px;">
+              <div class="embed-container" style="height: 150px;">
                 <iframe src="http://localhost:3030?board=jenkins&radiator=develop" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
               </div>
             </div>
           </div>
+        
           <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-target="#collapse5">
+              <h4 class="panel-title">JVM</h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse in" style="height: 150px;">
+              <div class="embed-container" style="height: 150px;">
+                <iframe src="http://localhost:3030?board=jenkins&radiator=weekly/view/JVM" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
+              </div>
+            </div>
+          </div>
+        
+          <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#collapse6">
               <h4 class="panel-title">Hotfix</h4>
             </div>
-            <div id="collapse5" class="panel-collapse collapse in" style="height: 200px;">    
-              <!--<div class="embed-responsive embed-responsive-1by1" style="height: 600px;">-->
-              <div class="embed-container" style="height: 200px;">
+            <div id="collapse6" class="panel-collapse collapse in" style="height: 150px;">
+              <div class="embed-container" style="height: 150px;">
                 <iframe src="http://localhost:3030?board=jenkins&radiator=Build%20Radiators/view/Unstable%20Hotfix" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
               </div>
             </div>
@@ -238,7 +231,7 @@
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://issues.feedzai.com/secure/ConfigureReport.jspa?targetUser=joao.valenca&weekends=true&reportKey=jira-timesheet-plugin:report&reportingDay=0&offset=0&numOfWeeks=2&sum=day&groupByField=labels" tabindex=2>
+          <a href="https://issues.feedzai.com/secure/Tempo.jspa#/my-work/week?type=TIME" tabindex=2>
             <img src="./thumbs/jira.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
           </a>
           <h4>Jira</h4>
@@ -246,6 +239,7 @@
           <div>
             <table align="center">
               <tr>
+                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=743">⬤</a><span class="myTooltiptext">Ίσος</span></div></th>
                 <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=190">⬤</a><span class="myTooltiptext">Proton</span></div></th>
                 <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=222">⬤</a><span class="myTooltiptext">Atlas</span></div></th>
                 <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=553">⬤</a><span class="myTooltiptext">Genome</span></div></th>
@@ -281,6 +275,7 @@
             <table align="center">
               <tr>
                 <th style="padding:5px"><div class="myTooltip"><a href="http://qa.zai?user=joao.valenca">⬤</a><span class="myTooltiptext">QAggregator</span></div></th>
+                <th style="padding:5px"><div class="myTooltip"><a href="https://qa-dashboards.feedzai.com/app/kibana#/visualize/edit/b1bb3dd0-b520-11e9-8bcb-cbfe6017756f?_g=()">⬤</a><span class="myTooltiptext">Flaky Dashboard</span></div></th>
                 <th style="padding:5px"><div class="myTooltip"><a href="http://jenkins-build-radiators.zai:7070/">⬤</a><span class="myTooltiptext">Metadata Performance</span></div></th>
                 <th style="padding:5px"><div class="myTooltip"><a href="https://jenkins-monitoring.feedzai.com/monitor">⬤</a><span class="myTooltiptext">Monitoring</span></div></th>
               </tr>
@@ -295,30 +290,12 @@
           <h4>Phabricator</h4>
           <span class="text-muted">review.feedzai.com</span>
         </div>
-
-      <!--
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://feedzai.hipchat.com/chat" tabindex=2>
-            <img src="./thumbs/hipchat.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-          </a>
-          <h4>Hipchat</h4>
-          <span class="text-muted">feedzai.hipchat.com</span>
-        </div>
-      -->
-
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://feedzai.slack.com/" tabindex=2>
             <img src="./thumbs/slack.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
           </a>
           <h4>Slack</h4>
           <span class="text-muted">feedzai.slack.com</span>
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://feedzai.hipchat.com/chat"><img src="./thumbs/hipchat.png" style="max-width:20px" class="img-responsive" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Hipchat</span></div></th>
-              </tr>
-            </table>
-          </div>
           </div>
       </div>
       <hr>
@@ -328,45 +305,45 @@
           <thead>
             <th>Repositories / Files</th>
             <th>Organisation</th>
-            <th>Remote</th>
+            <th>Cloud</th>
             <th>QA Infrastructure</th>
             <th>Media</th>
           </thead>
           <tbody>
               <tr>
                 <td class="col-md-2"><a href="https://maven.feedzai.com/">Maven</a></td>
-                <td class="col-md-2"><a href="https://helpdesk.feedzai.com">Helpdesk</a></td>
+                <td class="col-md-2"><a href="https://feedzai.namely.com/">Namely</a></td>
                 <td class="col-md-2"><a href="https://feedzai-main.signin.aws.amazon.com/console">AWS</a></td>
                 <td class="col-md-2"><a href="http://qa-monitoring:3000/dashboard/db/qa-metrics-2">Grafana</a></td>
                 <td class="col-md-2"><a href="https://www.reddit.com">Reddit</a></td>
               </tr>
               <tr>
                 <td class="col-md-2"><a href="https://docker.feedzai.com/repositories">Docker</a></td>
-                <td class="col-md-2"><a href="https://feedzai.namely.com/">Namely</a></td>
+                <td class="col-md-2"><a href="https://expensify.com/">Expensify</a></td>
                 <td class="col-md-2"><a href="https://portal.azure.com">Azure</a></td>
                 <td class="col-md-2"><a href="https://jenkins-monitoring.feedzai.com/nagios/cgi-bin/status.cgi?hostgroup=all&style=grid">Nagios</a></td>
                 <td class="col-md-2"><a href="https://www.twitter.com/">Twitter</a></td>
               </tr>
               <tr>
                 <td class="col-md-2"><a href="https://intra.feedzai.com/releases/experimental">Experimental</a></td>
-                <td class="col-md-2"><a href="https://techdocs.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/case-manager.version,variabl">CS Deployments</a></td>
-                <td class="col-md-2"><a href="http://labs.k8s.zai/">Kubernetes Labs</a></td>
+                <td class="col-md-2"><a href="https://app.greenhouse.io/">Greenhouse</a></td>
+                <td class="col-md-2"><a href="http://labs.k8s.zai/">K8s Labs</a></td>
                 <td class="col-md-2"><a href="https://sonar.feedzai.com/">Sonar</td>
                 <td class="col-md-2"><a href="https://youtube.com/">Youtube</a></td>
               </tr>
               <tr>
                 <td class="col-md-2"><a href="https://www.github.com">Github</a></td>
-                <td class="col-md-2"><a href="https://app.greenhouse.io/">Greenhouse</a></td>
-                <td class="col-md-2"><a href="https://cloud-gocd.feedzai.com/go/pipelines#!/">GoCD Pipelines</a></td>
+                <td class="col-md-2"><a href="https://techdocs.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/feedzai-libs.version,variables/maven/case-manager.version,variables/maven/tfm.version,variables/maven/insights.version,variables/maven/tfrb.version,variables/maven/tokenizer.version,variables/maven/elasticsearch.version,variables/maven/oracle.version,variables/maven/postgresql.version,variables/maven/mssql.version,variables/maven/mysql.version,variables/maven/jetty-distribution.version&labels=Refresh%20Date,Project,Stage,Project%20Version,Pulse,Feedzai%20Libs,CM,Merchants,Insights,Banks,Tokenizer,Elastic,Oracle,Postgresql,MS%20SQL,MySQL,Jetty">CS Deployments</a></td>
+                <td class="col-md-2"><a href="https://cloud-gocd.feedzai.com/go/pipelines#!/">GoCD</a></td>
                 <td class="col-md-2"><a href="https://blackduck.feedzai.com/">Blackduck</a></td>
                 <td class="col-md-2"><a href="https://www.messenger.com">Messenger</a></td>
               </tr>
               <tr>
-                <td class="col-md-2"><a href="https://techdocs.feedzai.com/">Docs</a></td>
+                <td class="col-md-2"><a href="https://techdocs.feedzai.com/">Techdocs</a></td>
+                <td class="col-md-2"><a href="https://helpdesk.feedzai.com">Helpdesk</a></td>
                 <td class="col-md-2"></td>
                 <td class="col-md-2"></td>
                 <td class="col-md-2"></td>
-                <td class="col-md-2"><a href="https://gordosmasfelizes.pt/">Cafeteria Menu</a></td>
               </tr>
             </tbody>
           </table>
