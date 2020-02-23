@@ -103,13 +103,21 @@ alias d_rmi_all='docker images -q --filter "dangling=true" | xargs docker rmi -f
 alias d_rmi_none='docker rmi $(docker images --filter ''dangling=true'' -q --no-trunc)'
 alias cclip='xclip -selection clipboard'
 alias warn='notify-send "Task Finished"'
+alias plot="gnuplot -p -e 'plot \"/dev/stdin\"'"
 
 function bluez(){
-    PHONES="70:26:05:3C:AC:A6"
-    PHONES_=$(echo ${PHONES} | tr ":" "_")
     PREFIX="[[\e[94mBLUEZ\e[39m]] :"
+    case $1 in 
+        "headset")
+            PHONES=70:26:05:3C:AC:A6;;
+        "phones")
+            PHONES=00:FA:21:2E:5E:45;;
+        *)
+            echo "${PREFIX} Pick phones or headset" ; return;;
+    esac
+    PHONES_=$(echo ${PHONES} | tr ":" "_")
 
-    if [[ $(bluetoothctl 2> /dev/null <<< "info ${PHONES}" |  grep Connected | cut -f 2 -d ":") == " yes" ]]
+    if [[ $(bluetoothctl 2> /dev/null <<< "info ${PHONES}" | grep Connected | cut -f 2 -d ":") == " yes" ]]
     then
         echo "${PREFIX} Turning headset [\e[91mOFF\e[39m]"
         bluetoothctl 2> /dev/null <<< "disconnect ${PHONES}"
@@ -133,6 +141,7 @@ function bluez(){
             [[ $(pactl set-default-sink bluez_sink.${PHONES_}) == "Failure: No such entity" ]] || break
             sleep 1s
         done
+        pacmd set-card-profile bluez_card.${PHONES_} a2dp_sink
     fi
 }
 
