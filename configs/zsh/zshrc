@@ -106,7 +106,37 @@ alias moff='xset dpms force off'
 alias unrarall='find -name "*.rar" | parallel unrar x {}'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias bluez='sudo bluetoothctl connect 70:26:05:3C:AC:A6; pacmd set-card-profile bluez_card.70_26_05_3C_AC_A6 a2dp_sink'
+function bluez(){
+    PHONES="00:FA:21:2E:5E:45"
+    PHONES_=$(echo ${PHONES} | tr ":" "_")
+    PREFIX="[[\e[94mBLUEZ\e[39m]] :"
+
+    if [[ $(bluetoothctl 2> /dev/null <<< "info ${PHONES}" |  grep Connected | cut -f 2 -d ":") == " yes" ]]
+    then
+        echo "${PREFIX} Turning headset [\e[91mOFF\e[39m]"
+        bluetoothctl 2> /dev/null <<< "disconnect ${PHONES}"
+    else
+        echo "${PREFIX} Turning headset [\e[92mON\e[39m]"
+        rfkill unblock bluetooth
+        bluetoothctl 2> /dev/null <<< "power on"
+        bluetoothctl 2> /dev/null <<< "connect ${PHONES}"
+        while : ; do
+            echo "${PREFIX} Awaiting connection..."
+            [[ $(bluetoothctl 2> /dev/null <<< "info ${PHONES}" | grep Connected | cut -f 2 -d ":") != " yes" ]] || break
+            sleep 1s
+        done
+        while : ; do
+            echo "${PREFIX} Running \"pacmd set-card-profile bluez_card.${PHONES_} a2dp_sink\"..."
+            [[ $(pacmd set-card-profile bluez_card.${PHONES_} a2dp_sink) == "No card found by this name or index." ]] || break
+            sleep 1s
+        done
+        while : ; do
+            echo "${PREFIX} Running \"pactl set-default-sink bluez_sink.${PHONES_}\"..."
+            [[ $(pactl set-default-sink bluez_sink.${PHONES_}) == "Failure: No such entity" ]] || break
+            sleep 1s
+        done
+    fi
+}
 
 export EDITOR='vim'
 export HISTCONTROL=ignoreboth
@@ -126,3 +156,5 @@ function zle-line-finish () {
 
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
+
+eval $(thefuck --alias)

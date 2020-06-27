@@ -1,0 +1,819 @@
+[apps/light-locker]
+idle-hint=false
+late-locking=true
+lock-after-screensaver=uint32 5
+lock-on-lid=true
+lock-on-suspend=true
+
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/settings-daemon/plugins/'
+saved-view='/org/gnome/'
+show-warning=false
+window-height=603
+window-is-maximized=false
+window-width=1228
+
+[com/gexperts/Tilix]
+enable-wide-handle=true
+focus-follow-mouse=true
+prompt-on-close=true
+prompt-on-new-session=false
+quake-active-monitor=false
+quake-alignment='center'
+quake-height-percent=70
+quake-hide-headerbar=true
+quake-keep-on-top=true
+quake-specific-monitor=-1
+session-name='${title} ()${terminalCount}'
+sidebar-on-right=false
+terminal-title-show-when-single=false
+terminal-title-style='small'
+theme-variant='system'
+use-overlay-scrollbar=false
+use-tabs=true
+warn-vte-config-issue=false
+window-style='borderless'
+
+[com/gexperts/Tilix/keybindings]
+app-new-session='<Shift>Down'
+session-add-auto='<Primary>1'
+session-add-down='<Primary>3'
+session-add-right='<Primary>2'
+session-synchronize-input='<Primary><Shift>g'
+terminal-find-next='disabled'
+win-switch-to-next-session='<Shift>Right'
+win-switch-to-previous-session='<Shift>Left'
+
+[com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#000000000000'
+background-transparency-percent=0
+badge-color='#AC7EA8'
+badge-color-set=false
+badge-position='northeast'
+badge-text=''
+bold-color-set=false
+bold-is-bright=true
+cursor-background-color='#FFFFFFFFFFFF'
+cursor-blink-mode='system'
+cursor-colors-set=true
+cursor-foreground-color='#000000000000'
+dim-transparency-percent=7
+font='Source Code Pro 10'
+foreground-color='#FFFFFFFFFFFF'
+highlight-colors-set=false
+login-shell=false
+notify-silence-enabled=false
+notify-silence-threshold=60
+palette=['#000000', '#AA0000', '#00AA00', '#AA5400', '#34346565A4A4', '#757550507B7B', '#00AAAA', '#AAAAAA', '#545454', '#FF5454', '#54FF54', '#FFFF54', '#72729F9FCFCF', '#ADAD7F7FA8A8', '#54FFFF', '#FFFFFF']
+scroll-on-output=false
+scrollback-unlimited=true
+show-scrollbar=false
+terminal-bell='none'
+terminal-title='${id}: ${title}'
+use-system-font=false
+use-theme-colors=false
+visible-name='Default'
+
+[org/gnome/Lollypop]
+db-version=16
+network-search=false
+paned-listview-width=200
+paned-mainlist-width=150
+window-maximized=true
+
+[org/gnome/cheese]
+brightness=0.0
+burst-delay=1000
+camera='WebCam SC-13HDL11624N: WebCam S'
+photo-x-resolution=800
+photo-y-resolution=600
+selected-effect='No Effect'
+video-x-resolution=800
+video-y-resolution=600
+
+[org/gnome/control-center]
+last-panel='keyboard'
+
+[org/gnome/desktop/a11y/keyboard]
+mousekeys-enable=false
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='wallpaper'
+picture-uri='file:////usr/share/gnome-control-center/pixmaps/noise-texture-light.png'
+primary-color='#425265'
+secondary-color='#425265'
+
+[org/gnome/desktop/calendar]
+show-weekdate=false
+
+[org/gnome/desktop/datetime]
+automatic-timezone=true
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'pt')]
+xkb-options=['lv3:ralt_switch']
+
+[org/gnome/desktop/interface]
+clock-show-date=true
+clock-show-seconds=false
+enable-animations=false
+font-name='Sans 11'
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Numix-DarkBlue'
+icon-theme='Numix-Circle'
+monospace-font-name='Monospace 9'
+text-scaling-factor=0.90000000000000002
+toolkit-accessibility=false
+
+[org/gnome/desktop/notifications]
+application-children=['org-gnome-nautilus', 'ca-desrt-dconf-editor', 'thunar', 'transmission-gtk', 'gnome-network-panel', 'nm-applet', 'org-gnome-chromegnomeshell', 'chromium', 'chrome-jjphmlaoffndcnecccgemfdaaoighkel-default', 'pavucontrol', 'nomacs', 'eog', 'org-gnome-shell-portalhelper', 'desmume', 'gnome-control-center', 'vlc', 'teeworlds', 'firefox', 'steam', 'arandr', 'ltris', 'gpaint', 'sublime-text2', 'spotify', 'xarchiver', 'lbreakout2', 'webcamoid', 'guitarpro6', 'pinta', 'sublime-text-3', 'com-gexperts-tilix', 'gnome-power-panel', 'org-gnome-gthumb', 'mplayer', 'flameshot', 'wireshark', 'code-oss', 'love', 'doom2df', 'retroarch', 'org-gnome-cheese']
+show-banners=true
+
+[org/gnome/desktop/notifications/application/arandr]
+application-id='arandr.desktop'
+
+[org/gnome/desktop/notifications/application/ca-desrt-dconf-editor]
+application-id='ca.desrt.dconf-editor.desktop'
+
+[org/gnome/desktop/notifications/application/chrome-jjphmlaoffndcnecccgemfdaaoighkel-default]
+application-id='chrome-jjphmlaoffndcnecccgemfdaaoighkel-Default.desktop'
+
+[org/gnome/desktop/notifications/application/chromium]
+application-id='chromium.desktop'
+
+[org/gnome/desktop/notifications/application/code-oss]
+application-id='code-oss.desktop'
+
+[org/gnome/desktop/notifications/application/com-gexperts-tilix]
+application-id='com.gexperts.Tilix.desktop'
+
+[org/gnome/desktop/notifications/application/desmume]
+application-id='desmume.desktop'
+
+[org/gnome/desktop/notifications/application/doom2df]
+application-id='doom2df.desktop'
+
+[org/gnome/desktop/notifications/application/eog]
+application-id='eog.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
+[org/gnome/desktop/notifications/application/flameshot]
+application-id='flameshot.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-control-center]
+application-id='gnome-control-center.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-network-panel]
+application-id='gnome-network-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gpaint]
+application-id='gpaint.desktop'
+
+[org/gnome/desktop/notifications/application/guitarpro6]
+application-id='GuitarPro6.desktop'
+
+[org/gnome/desktop/notifications/application/lbreakout2]
+application-id='lbreakout2.desktop'
+
+[org/gnome/desktop/notifications/application/love]
+application-id='love.desktop'
+
+[org/gnome/desktop/notifications/application/ltris]
+application-id='ltris.desktop'
+
+[org/gnome/desktop/notifications/application/mplayer]
+application-id='mplayer.desktop'
+
+[org/gnome/desktop/notifications/application/nm-applet]
+application-id='nm-applet.desktop'
+
+[org/gnome/desktop/notifications/application/nomacs]
+application-id='nomacs.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-cheese]
+application-id='org.gnome.Cheese.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
+application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-gthumb]
+application-id='org.gnome.gThumb.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-shell-portalhelper]
+application-id='org.gnome.Shell.PortalHelper.desktop'
+
+[org/gnome/desktop/notifications/application/pavucontrol]
+application-id='pavucontrol.desktop'
+
+[org/gnome/desktop/notifications/application/pinta]
+application-id='pinta.desktop'
+
+[org/gnome/desktop/notifications/application/retroarch]
+application-id='retroarch.desktop'
+
+[org/gnome/desktop/notifications/application/spotify]
+application-id='spotify.desktop'
+
+[org/gnome/desktop/notifications/application/steam]
+application-id='steam.desktop'
+
+[org/gnome/desktop/notifications/application/sublime-text-3]
+application-id='sublime_text_3.desktop'
+
+[org/gnome/desktop/notifications/application/sublime-text2]
+application-id='sublime-text2.desktop'
+
+[org/gnome/desktop/notifications/application/teeworlds]
+application-id='teeworlds.desktop'
+
+[org/gnome/desktop/notifications/application/thunar]
+application-id='thunar.desktop'
+
+[org/gnome/desktop/notifications/application/transmission-gtk]
+application-id='transmission-gtk.desktop'
+
+[org/gnome/desktop/notifications/application/vlc]
+application-id='vlc.desktop'
+
+[org/gnome/desktop/notifications/application/webcamoid]
+application-id='webcamoid.desktop'
+
+[org/gnome/desktop/notifications/application/wireshark]
+application-id='wireshark.desktop'
+
+[org/gnome/desktop/notifications/application/xarchiver]
+application-id='xarchiver.desktop'
+
+[org/gnome/desktop/peripherals/mouse]
+natural-scroll=false
+
+[org/gnome/desktop/peripherals/touchpad]
+natural-scroll=true
+
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+picture-options='wallpaper'
+picture-uri='file:////usr/share/gnome-control-center/pixmaps/noise-texture-light.png'
+primary-color='#7a8aa2'
+secondary-color='#7a8aa2'
+
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/session]
+idle-delay=uint32 600
+
+[org/gnome/desktop/sound]
+event-sounds=true
+theme-name='__custom'
+
+[org/gnome/desktop/wm/keybindings]
+always-on-top=['<Super><Shift>R']
+lower=['<Super>l']
+maximize=@as []
+minimize=['']
+move-to-workspace-1=@as []
+move-to-workspace-down=['<Primary><Shift><Alt>Down']
+move-to-workspace-last=['<Shift><Super>Page_Down']
+move-to-workspace-up=['<Primary><Shift><Alt>Up']
+panel-main-menu=['<Super>0', '<Alt>F1']
+panel-run-dialog=['<Shift><Alt>F2']
+raise=['<Super>r']
+switch-to-workspace-1=['<Shift><Super>exclam']
+switch-to-workspace-2=['<Shift><Super>quotedbl']
+switch-to-workspace-3=['<Shift><Super>numbersign']
+switch-to-workspace-4=['<Shift><Super>dollar']
+switch-to-workspace-down=['<Primary><Alt>Down']
+switch-to-workspace-last=['<Super>Page_Down']
+switch-to-workspace-left=['']
+switch-to-workspace-right=['']
+switch-to-workspace-up=['<Primary><Alt>Up']
+toggle-maximized=['<Alt>f']
+toggle-on-all-workspaces=['']
+unmaximize=@as []
+
+[org/gnome/desktop/wm/preferences]
+audible-bell=false
+auto-raise=false
+focus-mode='mouse'
+num-workspaces=4
+raise-on-click=false
+
+[org/gnome/eog/ui]
+image-gallery=false
+sidebar=false
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/gedit/plugins]
+active-plugins=['modelines', 'docinfo', 'time', 'spell', 'filebrowser']
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(1548, 778)
+state=128
+
+[org/gnome/gthumb/browser]
+browser-sidebar-width=285
+fullscreen-sidebar='hidden'
+fullscreen-thumbnails-visible=false
+maximized=false
+properties-visible=false
+sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthFileDetails:expanded', 'GthImageHistogram:expanded']
+sidebar-visible=true
+sort-inverse=false
+sort-type='file::mtime'
+startup-current-file='file:///home/valenca/Pictures/Ireland/IMG_20180430_154628.jpg'
+startup-location='file:///home/valenca/Pictures/Ireland'
+statusbar-visible=true
+thumbnail-list-size=114
+thumbnail-list-visible=true
+viewer-sidebar='tools'
+viewer-sidebar-width=294
+window-height=603
+window-width=1228
+
+[org/gnome/gthumb/crop]
+aspect-ratio='square'
+aspect-ratio-height=1
+aspect-ratio-invert=false
+aspect-ratio-width=1
+bind-dimensions=false
+bind-factor=8
+grid-type='thirds'
+
+[org/gnome/gthumb/data-migration]
+catalogs-2-10=true
+
+[org/gnome/gthumb/dialogs/save-file]
+show-options=true
+
+[org/gnome/gthumb/general]
+active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'facebook', 'file_manager', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'photobucket', 'picasaweb', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'webalbums']
+
+[org/gnome/gthumb/gstreamer-tools]
+volume=100
+
+[org/gnome/gthumb/pixbuf-savers/jpeg]
+default-ext='jpeg'
+optimize=false
+progressive=false
+quality=100
+smoothing=0
+
+[org/gnome/gthumb/pixbuf-savers/png]
+compression-level=0
+
+[org/gnome/gthumb/resize-images]
+height=70
+keep-aspect-ratio=true
+mime-type=''
+unit='percentage'
+width=70
+
+[org/gnome/gthumb/rotate]
+background-color='rgb(0,0,0)'
+grid-type='thirds'
+keep-aspect-ratio=true
+resize='crop'
+
+[org/gnome/mutter]
+auto-maximize=false
+edge-tiling=true
+
+[org/gnome/mutter/keybindings]
+toggle-tiled-left=['<Primary><Shift>parenleft']
+toggle-tiled-right=['<Primary><Shift>parenright']
+
+[org/gnome/nautilus/icon-view]
+default-zoom-level='small'
+
+[org/gnome/nautilus/list-view]
+default-zoom-level='large'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+search-view='list-view'
+
+[org/gnome/nautilus/window-state]
+geometry='748x774+26+48'
+initial-size=(1228, 566)
+maximized=false
+sidebar-width=176
+
+[org/gnome/nm-applet]
+disable-disconnected-notifications=true
+
+[org/gnome/nm-applet/eap/0327f063-eba4-48ef-bd20-ba00588ef8fc]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/1bde37ea-fbe9-424e-9341-1bc3028b1a8b]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/512071b4-f282-4a80-8275-1689714b0f50]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/58e91f85-7619-4f69-82f1-955f882129f7]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/614e519d-a8d3-4c3c-846a-280e7510b61e]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/76d557d2-fa55-4bb1-8726-5987f9fcf81f]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/a981b87c-1798-4e90-b277-0a81c8fa141b]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/af4daf9b-5786-4eb8-8a01-9cc980de4707]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/bf176321-74f0-4906-9534-75f050787788]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/c2a86522-29d0-400f-a394-8a2dc652baef]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/c2d4620d-5526-428f-91d2-e40e553f56d3]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/dab6c913-eede-4222-9fc8-972417903d83]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/e39dc079-b813-4fb9-84a7-5f0c503f88f6]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/e985e8c7-22ef-4778-a931-eae3284f81a3]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/f75e4dbf-c1b2-4a82-b3db-521380dcdb35]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/fa07b4b1-0adc-4c73-9fce-89900e5669a8]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/power-manager]
+info-history-type='charge'
+info-last-device='/org/freedesktop/UPower/devices/battery_BAT1'
+info-page-number=1
+info-stats-graph-points=true
+info-stats-graph-smooth=true
+info-stats-type='discharge-accuracy'
+
+[org/gnome/rhythmbox]
+maximized=true
+position=(-1, -1)
+size=(1600, 875)
+
+[org/gnome/rhythmbox/library/source]
+show-browser=true
+
+[org/gnome/rhythmbox/plugins]
+active-plugins=['power-manager', 'rb', 'artsearch', 'generic-player', 'audiocd', 'notification', 'audioscrobbler', 'dbus-media-server', 'android', 'mmkeys', 'iradio', 'mpris']
+seen-plugins=['cd-recorder', 'rb', 'magnatune', 'artsearch', 'soundcloud', 'ipod', 'pythonconsole', 'rblirc', 'webremote', 'fmradio', 'sendto', 'notification', 'im-status', 'audioscrobbler', 'lyrics', 'dbus-media-server', 'mtpdevice', 'visualizer', 'grilo', 'mpris', 'daap', 'replaygain']
+
+[org/gnome/rhythmbox/plugins/audioscrobbler/Last.fm]
+scrobbling-enabled=true
+
+[org/gnome/rhythmbox/plugins/audioscrobbler/Libre.fm]
+scrobbling-enabled=true
+
+[org/gnome/rhythmbox/plugins/iradio]
+initial-stations-loaded=true
+
+[org/gnome/rhythmbox/plugins/iradio/source]
+show-browser=true
+
+[org/gnome/rhythmbox/podcast/source]
+show-browser=true
+
+[org/gnome/rhythmbox/rhythmdb]
+locations=['file:///home/valenca']
+
+[org/gnome/settings-daemon/peripherals/keyboard]
+numlock-state='off'
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-last-coordinates=(40.205599999999997, -8.4196000000000009)
+night-light-schedule-automatic=true
+night-light-temperature=uint32 5727
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom14/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom15/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom16/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom17/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom18/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom19/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom20/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom21/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom22/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom23/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom24/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom25/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom26/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom27/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom28/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom29/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom30/']
+home=['<Shift><Super>g']
+screensaver=['<Primary><Alt>l']
+screenshot=@as []
+volume-down=['F7']
+volume-mute=['F6']
+volume-up=['F8']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>t'
+command='tilix'
+name='Tilix'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>f'
+command='chromium'
+name='Browser'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10]
+binding='<Super>Down'
+command='gauche travel down'
+name='Mouse Travel Down'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11]
+binding='<Primary><Alt>Right'
+command='gauche gravity right'
+name='Move to Right'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12]
+binding='<Primary><Alt>Left'
+command='gauche gravity left'
+name='Move to Left'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13]
+binding='<Super>v'
+command='popupvideo'
+name='Video Popup'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom14]
+binding='<Super>h'
+command='gauche split horizontal'
+name='Adjust Horizontal Split Coordinate'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom15]
+binding='<Super>s'
+command='gauche stick'
+name='Toggle Window Sticky'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom16]
+binding='<Super>b'
+command='chromeapp'
+name='Chrome App from Clipboard'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom17]
+binding='<Super>c'
+command='chromium --app=https://hangouts.google.com/'
+name='Hangouts'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom18]
+binding='<Primary><Super>a'
+command='gauche gravity left'
+name='Move Window Left 2'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom19]
+binding='<Primary><Super>d'
+command='gauche gravity right'
+name='Move Window Right'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>n'
+command='netflix'
+name='Netflix'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom20]
+binding='<Primary><Super>v'
+command='gauche split vertical'
+name='Split Vertical'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom21]
+binding='<Primary><Super>h'
+command='gauche split horizontal'
+name='Split Horizontal'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom22]
+binding=''
+command='thunar'
+name='Thunar'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom23]
+binding=''
+command='slcok'
+name='Slock'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom24]
+binding='<Shift><Super>q'
+command='bash /home/valenca/.dotfiles/configs/arandr/2-screen.sh'
+name='2screen config'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom25]
+binding='<Super>2'
+command='xdotool mousemove 800 450'
+name='Move to Screen 1'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom26]
+binding='<Super>3'
+command='xdotool mousemove 2560 540'
+name='Move to Screen 2'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom27]
+binding='<Super>1'
+command='xdotool mousemove 800 450'
+name='Move to Screen 1'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom28]
+binding='<Super>g'
+command='thunar'
+name='thunar'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom29]
+binding='<Alt>F2'
+command='tilix -q'
+name='tilix'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Primary><Super>w'
+command='gauche gravity video_top'
+name='Move to corner'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom30]
+binding='Print'
+command='flameshot gui'
+name='flameshot'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4]
+binding='<Primary><Super>s'
+command='gauche gravity video_centre'
+name='Move to Centre'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5]
+binding='<Primary><Super>c'
+command='gauche gravity chat_bottom'
+name='Move to chat'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6]
+binding='<Super>d'
+command='wmctrl -r :ACTIVE: -b toggle, above'
+name='Toggle Always on top'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7]
+binding='<Super>Left'
+command='gauche travel left'
+name='Mouse Travel Left'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8]
+binding='<Super>Right'
+command='gauche travel right'
+name='Mouse Travel Right'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9]
+binding='<Super>Up'
+command='gauche travel up'
+name='Mouse Travel Up'
+
+[org/gnome/settings-daemon/plugins/power]
+idle-dim=true
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='suspend'
+sleep-inactive-battery-timeout=1800
+sleep-inactive-battery-type='suspend'
+
+[org/gnome/settings-daemon/plugins/xsettings]
+antialiasing='grayscale'
+hinting='none'
+overrides={'Gdk/WindowScalingFactor': <1>}
+
+[org/gnome/shell]
+app-picker-view=uint32 1
+command-history=['gedit', 'pkill x', 'metacity --replace', 'devilspie', 'tilix -q', 'gnome-session-properties', 'r']
+disable-user-extensions=false
+enabled-extensions=['maximus@luis.pabon.auronconsulting.co.uk', 'pixel-saver@deadalnix.me', 'scriptexec@samb1999.hotmail.co.uk', 'todo.txt@bart.libert.gmail.com', 'transparentwindows@ellen', 'steal-my-focus@kagesenshi.org', 'updateindicator@aegirxx.googlemail.com', 'mediaplayer@patapon.info', 'transmission-daemon@patapon.info']
+favorite-apps=['com.gexperts.Tilix.desktop', 'chromium.desktop', 'code-oss.desktop', 'spotify.desktop', 'thunar.desktop', 'transmission-gtk.desktop']
+had-bluetooth-devices-setup=true
+
+[org/gnome/shell/extensions/TodoTxt]
+click-action=2
+display-format-string='{unarchived}'
+donetxt-location='/home/valenca/.dotfiles/logs/todotxt/done.txt'
+group-by=0
+group-ungrouped=true
+open-key=['<Alt>F1']
+settings-level=250
+show-contexts-label=true
+show-edit-button=true
+show-priority-buttons=true
+show-projects-label=true
+show-status-icon=true
+todotxt-location='/home/valenca/.dotfiles/logs/todotxt/todo.txt'
+
+[org/gnome/shell/extensions/auto-move-windows]
+application-list=['chromium.desktop:2', 'exo-web-browser.desktop:2', 'firefox.desktop:2', 'terminator.desktop:1', 'transmission-gtk.desktop:4', 'Thunar.desktop:4', 'exo-file-manager.desktop:4', 'pidgin.desktop:3']
+
+[org/gnome/shell/extensions/maximus]
+app-list=['smplayer.desktop']
+
+[org/gnome/shell/extensions/mediaplayer]
+cover-status=false
+enable-scroll=true
+hide-aggindicator=false
+hide-stockmpris=false
+indicator-position='right'
+play-state-icon=false
+playlist-title=false
+playstatus=false
+position=false
+tracklist=false
+volume=false
+
+[org/gnome/shell/extensions/multi-monitors-add-on]
+available-indicators=@as []
+show-activities=false
+show-app-menu=false
+show-date-time=false
+show-indicator=true
+show-panel=true
+show-thumbnails-slider=false
+thumbnails-on-left-side=true
+
+[org/gnome/shell/extensions/topicons]
+tray-pos='right'
+
+[org/gnome/shell/extensions/transmission-daemon]
+always-show=false
+latest-filter=0
+password='blindfoldedstork'
+port=9091
+stats-icons=false
+stats-numeric=false
+stats-torrents=true
+torrents-display='TransmissionTorrent'
+user='user1'
+
+[org/gnome/shell/extensions/transparentwindows]
+onlyterminal=0
+showinpanel=0
+useinactive=0
+
+[org/gnome/shell/keybindings]
+focus-active-notification=['<Super>guillemotleft']
+switch-to-application-1=['']
+switch-to-application-2=['']
+switch-to-application-3=['']
+switch-to-application-4=['']
+switch-to-application-5=['']
+switch-to-application-6=['']
+switch-to-application-7=['']
+switch-to-application-8=['']
+switch-to-application-9=['']
+toggle-message-tray=['', '<Super>m']
+toggle-overview=['']
+
+[org/gnome/shell/overrides]
+dynamic-workspaces=true
+workspaces-only-on-primary=false
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.66666666666666663, 0.66666666666666663, 0.66666666666666663, 1.0), (0.97254901960784312, 0.97254901960784312, 0.94901960784313721, 1.0), (1.0, 0.32941176470588235, 1.0, 1.0), (0.66666666666666663, 0.0, 0.66666666666666663, 1.0), (0.32941176470588235, 0.32941176470588235, 1.0, 1.0), (0.0, 0.0, 0.66666666666666663, 1.0), (0.15294117647058825, 0.15686274509803921, 0.13333333333333333, 1.0)]
+selected-color=(true, 1.0, 1.0, 1.0, 1.0)
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=true
+show-size-column=true
+show-type-column=true
+sidebar-width=148
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(0, 138)
+window-size=(1228, 602)
+
+[system/locale]
+region='en_GB.UTF-8'
