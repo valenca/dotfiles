@@ -2,37 +2,57 @@
 <html lang="en">
 
 <style>
-.myTooltip {
-  position: relative;
-  display: inline-block;
-}
+  .myTooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .myTooltip .myTooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    left: 125%;
+  }
+  
+  .myTooltip:hover .myTooltiptext {
+    visibility: visible;
+  }
+  
+  .panel-heading {
+    cursor: pointer;
+  }
+  
+  .main-icon {
+    height: 90px;
+  }
+  
+  .search-bar {
+    border-radius: 5px 10px; 
+    background-color:#eee; 
+    border-color: #eee;
+  }
 
-.myTooltip .myTooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+  .has-side-icons {
+    padding-left: 12px !important;
+  }
+  
+  .side-icon {
+    height: 30px;
+  }
 
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: 100%;
-  left: 50%;
-  margin-left: -60px;
-}
-
-.myTooltip:hover .myTooltiptext {
-  visibility: visible;
-}
-
-.panel-heading {
-  cursor: pointer;
-}
-
-
+  .button-column {
+    position: absolute;
+    top: 0%;
+    padding-left: 5px;
+  }
 </style>
 <head>
   <meta charset="utf-8">
@@ -42,15 +62,15 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="./thumbs/favicon.ico">
-
+  
   <title>Dashboard</title>
-
+  
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-
+  
   <!-- Custom styles for this template -->
   <link href="css/dashboard.css" rel="stylesheet">
-
+  
 </head>
 
 <body>
@@ -59,9 +79,15 @@
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <span class="icon-bar">
+
+          </span>
+          <span class="icon-bar">
+
+          </span>
+          <span class="icon-bar">
+
+          </span>
         </button>
       </div>
     </div>
@@ -76,12 +102,33 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse">
               <ul class="list-group">
-                <li class="list-group-item"><a href="http://genome.zai">Genome</a></li>
-                <li class="list-group-item"><a href="http://develop-demo.zai">Pulse</a></li>
-                <li class="list-group-item"><a href="http://core-demo.zai">Core</a></li>
-                <li class="list-group-item"><a href="http://muppets-demo.zai">Muppets</a></li>
-                <li class="list-group-item"><a href="http://dart-demo.zai">Dart</a></li>
+                <li class="list-group-item">
+                  <a href="http://genome.zai">Genome</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="http://develop-demo.zai">Pulse</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="http://core-demo.zai">Core</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="http://muppets-demo.zai">Muppets</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="http://dart-demo.zai">Dart</a>
+                </li>
               </ul>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#collapse5">
+              <h4 class="panel-title">Documents</h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse" style="height: 150px;">
+              <div class="embed-container" style="height: 150px;">
+                <iframe src="http://localhost:3030?board=bookmarks&folder=newtab/docs" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0">
+                </iframe>
+              </div>
             </div>
           </div>
           <div class="panel panel-default">
@@ -90,7 +137,8 @@
             </div>
             <div id="collapse3" class="panel-collapse collapse in" style="height: 150px;">
               <div class="embed-container" style="height: 150px;">
-                <iframe src="http://localhost:3030?board=nagios" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
+                <iframe src="http://localhost:3030?board=nagios" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0">
+                </iframe>
               </div>
             </div>
           </div>
@@ -100,209 +148,355 @@
             </div>
             <div id="collapse4" class="panel-collapse collapse in" style="height: 150px;">
               <div class="embed-container" style="height: 150px;">
-                <iframe src="http://localhost:3030?board=jenkins&radiator=develop" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
+                <iframe src="http://localhost:3030?board=jenkins&radiator=develop" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0">
+                </iframe>
               </div>
             </div>
           </div>
-        
-        <!--
-          <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" data-target="#collapse5">
-              <h4 class="panel-title">Smoke Tests</h4>
-            </div>
-            <div id="collapse5" class="panel-collapse collapse in" style="height: 150px;">
-              <div class="embed-container" style="height: 150px;">
-                <iframe src="http://localhost:3030?board=jenkins&radiator=Build%20Radiators/view/smoke-tests/&green=true" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
-              </div>
-            </div>
-          </div>
-        -->
           <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-target="#collapse6">
               <h4 class="panel-title">Hotfix</h4>
             </div>
             <div id="collapse6" class="panel-collapse collapse in" style="height: 150px;">
               <div class="embed-container" style="height: 150px;">
-                <iframe src="http://localhost:3030?board=jenkins&radiator=Build%20Radiators/view/Unstable%20Hotfix" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0"></iframe>
+                <iframe src="http://localhost:3030?board=jenkins&radiator=Build%20Radiators/view/Unstable%20Hotfix" class="embed-responsive-item" style="width:100%; height:100%;" frameBorder="0">
+                </iframe>
               </div>
             </div>
           </div>
-      </div>
+        </div>
       </div>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
+      
       <h3>Main</h3>
       <hr>
       <div class="row placeholders">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://www.google.com/ncr">
-            <img src="./thumbs/google.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+            <img src="./thumbs/google.svg" class="main-icon" alt="Generic placeholder thumbnail">
           </a>
-          <h4>Google</h4>
+          <h4>google</h4>
           <form class="navbar-form" name="google" action="https://www.google.com/search">
-            <input name="q" type="text" size="20" tabindex=1/>
+            <input name="q" type="text" size="20" tabindex=1 class="search-bar"/>
           </form>
-
+          
           <span class="text-muted">www.google.com</span>
-          <!--
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://gmail.google.com"><img src="./thumbs/gmail.png" style="max-width:20px" class="img-responsive" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Gmail</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://calendar.google.com"><img src="./thumbs/calendar.png" style="max-width:20px" class="img-responsive" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Calendar</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://drive.google.com"><img src="./thumbs/drive.png" style="max-width:20px" class="img-responsive" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Drive</span></div></th>
-              </tr>
-            </table>
-          </div>-->
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://docs.feedzai.com">
-            <img src="./thumbs/confluence.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+            <img src="./thumbs/confluence.svg" class="main-icon" alt="Generic placeholder thumbnail">
           </a>
-          <h4>Confluence</h4>
+          <h4>confluence</h4>
           <form class="navbar-form" name="youtube" action="https://docs.feedzai.com/dosearchsite.action?">
-            <input name="queryString" type="text" size="20" tabindex=1/>
+            <input name="queryString" type="text" size="20" tabindex=1 class="search-bar"/>
           </form>
           <span class="text-muted">docs.feedzai.com</span>
         </div>
-
+        
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://wiki.archlinux.org/">
-            <img src="./thumbs/archwiki.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+            <img src="./thumbs/archlinux.svg" class="main-icon" alt="Generic placeholder thumbnail">
           </a>
-          <h4>Arch Wiki</h4>
+          <h4>arch wiki</h4>
           <form class="navbar-form" name= "archwiki" action="https://wiki.archlinux.org/index.php">
-            <input type="text" name="search" size="20" tabindex=1/>
+            <input type="text" name="search" size="20" tabindex=1 class="search-bar"/>
           </form>
           <span class="text-muted">wiki.archlinux.org</span>
         </div>
-
+        
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://en.wikipedia.org/wiki/Main_Page">
-            <img src="./thumbs/wikipedia.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+            <img src="./thumbs/wikipedia.svg" class="main-icon" alt="Generic placeholder thumbnail">
           </a>
-          <h4>Wikipedia</h4>
+          <h4>wikipedia</h4>
           <form class="navbar-form" name= "wikipedia" action="https://www.wikipedia.org/search-redirect.php">
-            <input name="language" type="hidden" value="en" />
-            <input name="search"   type="text"   size="20" tabindex=1/>
+            <input name="language" type="hidden" value="en"  class="search-bar"/>
+            <input name="search"   type="text"   size="20" tabindex=1 class="search-bar"/>
           </form>
           <span class="text-muted">www.wikipedia.org</span>
         </div>
-
+        
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://www.wolframalpha.com/">
-            <img src="./thumbs/wolfram.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+            <img src="./thumbs/wolfram.svg" class="main-icon" alt="Generic placeholder thumbnail">
           </a>
-          <h4>Wolfram Alpha</h4>
+          <h4>wolfram alpha</h4>
           <form class="navbar-form" name="wolfram" action="https://www.wolframalpha.com/input/">
-            <input name="i" type="text" size="20" tabindex=1/>
+            <input name="i" type="text" size="20" tabindex=1 class="search-bar"/>
           </form>
           <span class="text-muted">www.wolframalpha.com</span>
         </div>
-
-
+        
+        
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https:/play.spotify.com">
-            <img src="./thumbs/spotify.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+            <img src="./thumbs/spotify.svg" class="main-icon" alt="Generic placeholder thumbnail">
           </a>
-          <h4>Spotify</h4>
+          <h4>spotify</h4>
           <form class="navbar-form" id="spotify">
-            <input type="text" id="q" size="20" tabindex=1/>
+            <input type="text" id="q" size="20" tabindex=1 class="search-bar"/>
           </form>
           <span class="text-muted">play.spotify.com</span>
-
+          
         </div>
       </div>
       <div class="row placeholders">
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://mail.google.com"  tabindex=2>
-            <img src="./thumbs/gmail.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-          </a>
-          <h4>Gmail</h4>
-          <span class="text-muted">mail.google.com</span>
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://calendar.google.com"><img src="./thumbs/calendar.png" style="max-width:20px" class="img-responsive" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Calendar</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://drive.google.com"><img src="./thumbs/drive.png" style="max-width:20px" class="img-responsive" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Drive</span></div></th>
-              </tr>
-            </table>
-          </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+          <table align="center">
+            <tr>
+              <td>
+                <a href="https://mail.google.com"  tabindex=2>
+                  <img src="./thumbs/gmail.svg" class="main-icon" alt="Generic placeholder thumbnail">
+                </a>
+              </td>
+              <td>
+                <div class="button-column">
+                  <table align="center">
+                    <tr>
+                      <th style="padding:5px">
+                        <div class="myTooltip">
+                          <a href="https://calendar.google.com">
+                            <img src="./thumbs/calendar.svg" class="side-icon" alt="Generic placeholder thumbnail">
+                          </a>
+                          <span class="myTooltiptext">Calendar</span>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th style="padding:5px">
+                        <div class="myTooltip">
+                          <a href="https://drive.google.com">
+                            <img src="./thumbs/drive.svg" class="side-icon" alt="Generic placeholder thumbnail">
+                          </a>
+                          <span class="myTooltiptext">Drive</span>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th style="padding:5px">
+                        <div class="myTooltip">
+                          <a href="zoommtg://feedzai.zoom.us/join?action=join&confno=6862688181&pwd=UXVtQlpOdWc4U1Z4RHpPQUlBRkRjdz09">
+                            <img src="./thumbs/zoom.svg" class="side-icon" alt="Generic placeholder thumbnail">
+                          </a>
+                          <span class="myTooltiptext">Zoom</span>
+                        </div>
+                      </th>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>gmail</h4>
+                <span class="text-muted">mail.google.com</span>
+              </td>
+            </tr>
+          </table>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://issues.feedzai.com/secure/Tempo.jspa#/my-work/week?type=TIME" tabindex=2>
-            <img src="./thumbs/jira.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-          </a>
-          <h4>Jira</h4>
-          <span class="text-muted">issues.feedzai.com</span>
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=743">⬤</a><span class="myTooltiptext">Ίσος</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=1112">⬤</a><span class="myTooltiptext">RMC</span></div></th>
-              </tr>
-            </table>
-          </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+          <table align=center>
+            <tr>
+              <td>
+                <a href="https://issues.feedzai.com/secure/Tempo.jspa#/my-work/week?type=TIME" tabindex=2>
+                  <img src="./thumbs/jira.svg" class="main-icon" alt="Generic placeholder thumbnail">
+                </a>
+              </td>
+              <td>
+                <div class="button-column">
+                  <table align="center">
+                    <tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=743"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">Isos</span>
+                          </div>
+                        </th>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://issues.feedzai.com/secure/RapidBoard.jspa?rapidView=1112"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">RMC</span>
+                          </div>
+                        </th>
+                      </td>
+                    </tr>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4>jira</h4>
+              <span class="text-muted">issues.feedzai.com</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+        <table align=center>
+          <tr>
+            <td>
+              <a href="https://gitlab.feedzai.com/dashboard/projects/starred"  tabindex=2>
+                <img src="./thumbs/gitlab.svg" class="main-icon" alt="Generic placeholder thumbnail">
+              </a>
+            </td>
+            <td>
+              <div class="button-column">
+                <table align="center">
+                  <tr>
+                    <td>
+                      <th style="padding:5px">
+                        <div class="myTooltip">
+                          <a href="https://gitlab.feedzai.com/pulse/pulse"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                          <span class="myTooltiptext">Pulse</span>
+                        </div>
+                      </th>
+                    </td>
+                    <tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://gitlab.feedzai.com/feedzai/feedzai-libs"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">Feedzai Libs</span>
+                          </div>
+                        </th>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://gitlab.feedzai.com/pulse/dev-utils"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">Dev Utils</span>
+                          </div>
+                        </th>
+                      </td>
+                    </tr>
+                    
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>gitlab</h4>
+                <span class="text-muted">gitlab.feedzai.com</span>
+              </td>
+            </tr>
+          </table>
         </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://gitlab.feedzai.com/dashboard/projects/starred"  tabindex=2>
-            <img src="./thumbs/gitlab.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-          </a>
-          <h4>Gitlab</h4>
-          <span class="text-muted">gitlab.feedzai.com</span>
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://gitlab.feedzai.com/pulse/pulse">⬤</a><span class="myTooltiptext">Pulse</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://gitlab.feedzai.com/feedzai/feedzai-libs">⬤</a><span class="myTooltiptext">Feedzai Libs</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://gitlab.feedzai.com/pulse/dev-utils">⬤</a><span class="myTooltiptext">Dev Utils</span></div></th>
-              </tr>
-            </table>
-          </div>
+        
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+          <table align=center>
+            <tr>
+              <td>
+                <a href="https://jenkins-product.feedzai.com/" tabindex=2>
+                  <img src="./thumbs/jenkins.svg" class="main-icon" alt="Generic placeholder thumbnail">
+                </a>
+              </td>
+              <td>
+                <div class="button-column">
+                  <table align="center">
+                    <tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="http://qa.zai?user=joao.valenca"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">QAggregator</span>
+                          </div>
+                        </th>
+                      </td>
+                      <tr>
+                      </tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://qa-dashboards.feedzai.com/app/kibana#/visualize/edit/a753ed80-d89a-11ea-99e3-c3296a47513e?_g=()"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">Flaky Dashboard</span>
+                          </div>
+                        </th>
+                      </td>
+                      <tr>
+                      </tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="http://jenkins-build-radiators.zai:7070/"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">Metadata Performance</span>
+                          </div>
+                        </th>
+                      </td>
+                      <tr>
+                      </tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://jenkins-monitoring.feedzai.com/monitor"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">Nagios Monitoring</span>
+                          </div>
+                        </th>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>jenkins</h4>
+                <span class="text-muted">jenkins-product.feedzai.com</span>
+              </td>
+            </tr>
+          </table>
         </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://jenkins-product.feedzai.com/" tabindex=2>
-            <img src="./thumbs/jenkins.svg" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
-          </a>
-          <h4>Jenkins</h4>
-          <span class="text-muted">jenkins-product.feedzai.com</span>
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="http://qa.zai?user=joao.valenca">⬤</a><span class="myTooltiptext">QAggregator</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://qa-dashboards.feedzai.com/app/kibana#/visualize/edit/b1bb3dd0-b520-11e9-8bcb-cbfe6017756f?_g=()">⬤</a><span class="myTooltiptext">Flaky Dashboard</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="http://jenkins-build-radiators.zai:7070/">⬤</a><span class="myTooltiptext">Metadata Performance</span></div></th>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://jenkins-monitoring.feedzai.com/monitor">⬤</a><span class="myTooltiptext">Nagios Monitoring</span></div></th>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://review.feedzai.com/differential/query/active/" tabindex=2>
-            <img src="./thumbs/phabricator.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail" >
-          </a>
-          <h4>Phabricator</h4>
-          <span class="text-muted">review.feedzai.com</span>
-          <div>
-            <table align="center">
-              <tr>
-                <th style="padding:5px"><div class="myTooltip"><a href="https://gitlab.feedzai.com/dashboard/merge_requests?scope=all&utf8=✓&state=opened&approver_usernames[]=joao.valenca">⬤</a><span class="myTooltiptext">Merge Requests</span></div></th>
-              </tr>
-            </table>
-          </div>
+        
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+          <table align=center>
+            <tr>
+              <td>
+                <a href="https://review.feedzai.com/differential/query/active/" tabindex=2>
+                  <img src="./thumbs/phabricator.svg" class="main-icon" alt="Generic placeholder thumbnail" >
+                </a>
+              </td>
+              <td>
+                <div class="button-column">
+                  <table align="center">
+                    <tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://gitlab.feedzai.com/dashboard/merge_requests?scope=all&utf8=✓&state=opened&approver_usernames[]=joao.valenca"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">Merge Requests</span>
+                          </div>
+                        </th>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>phabricator</h4>
+                <span class="text-muted">review.feedzai.com</span>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://chat.google.com/" tabindex=2>
-            <img src="./thumbs/gchat.png" style="max-height:65px" class="img-responsive" alt="Generic placeholder thumbnail">
+            <img src="./thumbs/hangouts.svg" class="main-icon" alt="Generic placeholder thumbnail">
           </a>
-          <h4>GChat</h4>
+          <h4>gchat</h4>
           <span class="text-muted">chat.google.com</span>
-          </div>
+        </div>
       </div>
       <hr>
       <h3>Links</h3>
@@ -316,53 +510,108 @@
             <th>Media</th>
           </thead>
           <tbody>
-              <tr>
-                <td class="col-md-2"><a href="https://maven.feedzai.com/">Maven</a></td>
-                <td class="col-md-2"><a href="https://feedzai.namely.com/">Namely</a></td>
-                <td class="col-md-2"><a href="https://feedzai-main.signin.aws.amazon.com/console">AWS</a></td>
-                <td class="col-md-2"><a href="http://qa-monitoring:3000/dashboard/db/qa-metrics-2">Grafana</a></td>
-                <td class="col-md-2"><a href="https://www.reddit.com">Reddit</a></td>
-              </tr>
-              <tr>
-                <td class="col-md-2"><a href="https://docker.feedzai.com/repositories">Docker</a></td>
-                <td class="col-md-2"><a href="https://expensify.com/">Expensify</a></td>
-                <td class="col-md-2"><a href="https://portal.azure.com">Azure</a></td>
-                <td class="col-md-2"><a href="https://jenkins-monitoring.feedzai.com/nagios/cgi-bin/status.cgi?hostgroup=all&style=grid">Nagios</a></td>
-                <td class="col-md-2"><a href="https://www.twitter.com/">Twitter</a></td>
-              </tr>
-              <tr>
-                <td class="col-md-2"><a href="https://intra.feedzai.com/releases/experimental">Experimental</a></td>
-                <td class="col-md-2"><a href="https://app.greenhouse.io/">Greenhouse</a></td>
-                <td class="col-md-2"><a href="http://labs.k8s.zai/">K8s Labs</a></td>
-                <td class="col-md-2"><a href="https://sonar.feedzai.com/">Sonar</td>
-                <td class="col-md-2"><a href="https://youtube.com/">Youtube</a></td>
-              </tr>
-              <tr>
-                <td class="col-md-2"><a href="https://www.github.com">Github</a></td>
-                <td class="col-md-2"><a href="https://techdocs.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/feedzai-libs.version,variables/maven/case-manager.version,variables/maven/tfm.version,variables/maven/insights.version,variables/maven/tfrb.version,variables/maven/tokenizer.version,variables/maven/elasticsearch.version,variables/maven/oracle.version,variables/maven/postgresql.version,variables/maven/mssql.version,variables/maven/mysql.version,variables/maven/jetty-distribution.version&labels=Refresh%20Date,Project,Stage,Project%20Version,Pulse,Feedzai%20Libs,CM,Merchants,Insights,Banks,Tokenizer,Elastic,Oracle,Postgresql,MS%20SQL,MySQL,Jetty">CS Deployments</a></td>
-                <td class="col-md-2"><a href="https://cloud-engineering-gocd.feedzai.com/">GoCD</a></td>
-                <td class="col-md-2"><a href="https://blackduck.feedzai.com/">Blackduck</a></td>
-                <td class="col-md-2"><a href="https://www.messenger.com">Messenger</a></td>
-              </tr>
-              <tr>
-                <td class="col-md-2"><a href="https://techdocs.feedzai.com/">Techdocs</a></td>
-                <td class="col-md-2"><a href="https://helpdesk.feedzai.com">Helpdesk</a></td>
-                <td class="col-md-2"></td>
-                <td class="col-md-2"></td>
-                <td class="col-md-2"></td>
-              </tr>
-            </tbody>
-          </table>
+            <tr>
+              <td class="col-md-2">
+                <a href="https://maven.feedzai.com/">Maven</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://feedzai.namely.com/">Namely</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://feedzai-main.signin.aws.amazon.com/console">AWS</a>
+              </td>
+              <td class="col-md-2">
+                <a href="http://qa-monitoring:3000/dashboard/db/qa-metrics-2">Grafana</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://www.reddit.com">Reddit</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-md-2">
+                <a href="https://docker.feedzai.com/repositories">Docker</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://expensify.com/">Expensify</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://portal.azure.com">Azure</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://jenkins-monitoring.feedzai.com/nagios/cgi-bin/status.cgi?hostgroup=all&style=grid">Nagios</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://www.twitter.com/">Twitter</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-md-2">
+                <a href="https://intra.feedzai.com/releases/experimental">Experimental</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://app.greenhouse.io/">Greenhouse</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://console.cloud.google.com/?pli=1">GCP</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://sonar.feedzai.com/">Sonar</td>
+                  <td class="col-md-2">
+                    <a href="https://youtube.com/">Youtube</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-2">
+                    <a href="https://www.github.com">Github</a>
+                  </td>
+                  <td class="col-md-2">
+                    <a href="https://techdocs.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/feedzai-libs.version,variables/maven/case-manager.version,variables/maven/tfm.version,variables/maven/insights.version,variables/maven/tfrb.version,variables/maven/tokenizer.version,variables/maven/elasticsearch.version,variables/maven/oracle.version,variables/maven/postgresql.version,variables/maven/mssql.version,variables/maven/mysql.version,variables/maven/jetty-distribution.version&labels=Refresh%20Date,Project,Stage,Project%20Version,Pulse,Feedzai%20Libs,CM,Merchants,Insights,Banks,Tokenizer,Elastic,Oracle,Postgresql,MS%20SQL,MySQL,Jetty">CS Deployments</a>
+                  </td>
+                  <td class="col-md-2">
+                    <a href="http://labs.k8s.zai/">K8s Labs</a>
+                  </td>
+                  <td class="col-md-2">
+                    <a href="https://blackduck.feedzai.com/">Blackduck</a>
+                  </td>
+                  <td class="col-md-2">
+                    <a href="https://www.messenger.com">Messenger</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-2">
+                    <a href="https://techdocs.feedzai.com/">Techdocs</a>
+                  </td>
+                  <td class="col-md-2">
+                    <a href="https://helpdesk.feedzai.com">Helpdesk</a>
+                  </td>
+                  <td class="col-md-2">
+                    <a href="https://cloud-engineering-gocd.feedzai.com/">GoCD</a>
+                  </td>
+                  <td class="col-md-2">
+                    
+                  </td>
+                  <td class="col-md-2">
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <script src="./js/jquery.js"></script>
-  <script src="./js/twitch.js"></script>
-  <script src="./js/doSearch.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/ie10-viewport-bug-workaround.js"></script>
-
-</body>
-</html>
+    
+    <script src="./js/jquery.js">
+    </script>
+    <script src="./js/twitch.js">
+    </script>
+    <script src="./js/doSearch.js">
+    </script>
+    <script src="./js/bootstrap.min.js">
+    </script>
+    <script src="./js/ie10-viewport-bug-workaround.js">
+    </script>
+    
+  </body>
+  </html>
+  

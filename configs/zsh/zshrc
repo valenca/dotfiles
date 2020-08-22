@@ -1,4 +1,4 @@
-# If you come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $PATH
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -170,12 +170,15 @@ function d_ip() {
 export BUILD_ANALYSIS_PATH=~/Pulse/2013_07_pulse_dev_utils/build-analysis/
 export PATH=$BUILD_ANALYSIS_PATH:$PATH
 export PHABRICATOR_TOOLS_PATH=/home/joao.valenca/bin/development_tools
+export DEVELOPMENT_TOOLS_PATH=/home/joao.valenca/bin/development_tools
 export PATH=$PHABRICATOR_TOOLS_PATH/phabricator/arcanist/bin/:$PATH
 export LOCAL_TEST_RESOURCES=/home/joao.valenca/Pulse/test-resources/files/
 
 setopt HIST_FIND_NO_DUPS
 
+autoload bashcompinit
+bashcompinit
+
 export NVM_DIR="/home/joao.valenca/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-eval $(thefuck --alias)

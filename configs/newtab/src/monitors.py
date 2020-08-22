@@ -1,7 +1,10 @@
 #!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 
 import requests
 import cherrypy
+
+from os import path
 
 PORT = 3030
 HTML = """
@@ -116,6 +119,39 @@ HTML = """
 			padding: .1em 10px;
 		}
 
+		.docs {
+			background: #dadada;
+			color: black;
+			font-size: !important small;
+			line-height: 1.2em;
+		}
+		.docs td{
+			border: 2px solid #656565;
+			padding: .1em 10px;
+		}
+
+		.spreadsheets {
+			background: #4d8c3a;
+			color: black;
+			font-size: !important small;
+			line-height: 1.2em;
+		}
+		.spreadsheets td{
+			border: 2px solid #264715;
+			padding: .1em 10px;
+		}
+
+		.document {
+			background: #336699;
+			color: black;
+			font-size: !important small;
+			line-height: 1.2em;
+		}
+		.document td{
+			border: 2px solid #113366;
+			padding: .1em 10px;
+		}
+
 		.widget {
 			line-height: 1em;
 			font-size: small;
@@ -184,7 +220,7 @@ def getJenkinsBoard(radiator, green):
 		if job["order"] != 3 or green == "true":
 			if (i == 0 or job["order"] != jobs[i-1]["order"]):
 				lines += "<tr height='5px'><td colspan='2'></td></tr>"
-			lines +="<tr class='{0:} widget'><td class='widget'><a target='_parent' href={1:}>{2:}</a></td><td class='widget'>{3:}</td></tr>\n".format(job["color"], job["url"], job["name"], job["running"])
+			lines += "<tr class='{0:} widget'><td class='widget'><a target='_parent' href={1:}>{2:}</a></td><td class='widget'>{3:}</td></tr>\n".format(job["color"], job["url"], job["name"], job["running"])
 			
 	lines +="</div>"
 	lines +="<meta http-equiv='refresh' content='60'/>"
@@ -194,12 +230,53 @@ def getJenkinsBoard(radiator, green):
 def getNagiosBoard():
 	return getExecutors(requests.get('https://jenkins-monitoring.feedzai.com/monitor?widget=true&bgcolor=%23e8e8e8').text)
 
-def getInfo(board, radiator, green):
+def getBookmarks(folder):
+	import json
+	lines = "<body bgcolor='#e8e8e8'><div id='nagios_placeholder'><table width='90%' border='0' class='boldtable' align='center'><tbody>"
+	with open(path.expanduser("~") + "/.config/google-chrome/Profile 1/Bookmarks",  "r") as f:
+		root = json.loads(f.read())["roots"]["bookmark_bar"]["children"]
+	
+	directory = folder.split("/")
+
+	for level in directory:
+		for folder in root:
+			if folder["name"] == level:
+				root = folder["children"]
+				break
+
+	jobs = []
+	for link in root:
+		job = {
+			"name" : " ".join(link["name"].split("-")[1:]),
+			"color" : "disabled",
+			"url" : link["url"],
+			"running" : link["name"].split("-")[0]
+		}
+
+		for document_type in ["spreadsheets", "document"]:
+			if "/{}/".format(document_type) in job["url"]:
+				job["color"] = document_type
+
+		jobs.append(job)
+
+	jobs.sort(key=lambda x: (x["running"],x["color"]), reverse=True)
+	for i,job in enumerate(jobs):
+		if (i == 0 or job["running"] != jobs[i-1]["running"]):
+			lines += "<tr height='5px'><td colspan='3'></td></tr>"
+		lines += "<tr class='docs widget'><td class='{0:} widget'></td><td class='widget'><a target='_parent' href={1:}>{2:}</a></td><td class='widget'>{3:}</td></tr>\n".format(job["color"], job["url"], job["name"], job["running"])
+
+	lines +="</div>"
+
+	return HTML.replace("{{}}", lines)
+
+def getInfo(board, radiator, green, folder):
 	try:
 		if board == "jenkins":
 			return getJenkinsBoard(radiator, green)
 		elif board == "nagios":
 			return getNagiosBoard()
+		elif board == "bookmarks":
+			return getBookmarks(folder)
 		else:
 			return getEmpty()
 	except requests.ConnectionError:
@@ -207,8 +284,8 @@ def getInfo(board, radiator, green):
 
 class HelloWorld(object):
     @cherrypy.expose
-    def index(self, board = None, radiator = None, green = None):
-        return getInfo(board, radiator, green)
+    def index(self, board = None, radiator = None, green = None, folder = None):
+        return getInfo(board, radiator, green, folder)
 
 if __name__ == "__main__":
 	from cherrypy.process.plugins import Daemonizer
