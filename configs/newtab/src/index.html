@@ -1,50 +1,72 @@
 <!DOCTYPE html>
 
 <style>
-.myTooltip {
-  position: relative;
-  display: inline-block;
-}
+  .myTooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .myTooltip .myTooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    left: 125%;
+  }
+  
+  .myTooltip:hover .myTooltiptext {
+    visibility: visible;
+  }
 
-.myTooltip .myTooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+  .search-bar {
+    border-radius: 5px 10px; 
+    background-color:#eee; 
+    border-color: #eee;
+  }
 
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: 100%;
-  left: 50%;
-  margin-left: -60px;
-}
+  .main-icon {
+    height: 90px;
+  }
 
-.myTooltip:hover .myTooltiptext {
-  visibility: visible;
+  .has-side-icons {
+    padding-left: 12px !important;
+  }
+  
+  .side-icon {
+    height: 30px;
+  }
 
-}
+
+  .button-column {
+    position: absolute;
+    top: 0%;
+    padding-left: 5px;
+  }
 </style>
 <html lang="en"><head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="./thumbs/favicon.ico">
-
-<title>Dashboard</title>
-
-<!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="css/dashboard.css" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./thumbs/favicon.ico">
+  
+  <title>Dashboard</title>
+  
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom styles for this template -->
+  <link href="css/dashboard.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -57,188 +79,265 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <!--<a class="navbar-brand" href="#">Dashboard</a>-->
+        <a class="navbar-brand" href="#">Dashboard</a>
       </div>
     </div>
   </nav>
   <div class="container-fluid show">
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
-        <!--
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Streams</a>
-              </h4>
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
+              <h4 class="panel-title">Birdcam</h4>
             </div>
-            <div id="collapse1" class="panel-collapse collapse">
+            <div id="collapse1" class="panel-collapse collapse in">
               <ul class="list-group">
-                <li class="list-group-item"><a href="https://www.twitch.tv/coestar/videos/archive">Coestar</a></li>
-                <li class="list-group-item"><a href="https://www.twitch.tv/ilmango/videos/archive">Ilmango</a></li>
-                <li class="list-group-item"><a href="https://www.twitch.tv/necomi/videos/archive">Necomi</a></li>
-                <li class="list-group-item"><a href="https://www.twitch.tv/phedran/videos/archive">Phedran</a></li>
+                <li class="list-group-item"><a href="http://raspberry/view.cgi">View Actagram</a></li>
+                <li class="list-group-item"><a href="http://raspberry/realtime.html">Realtime</a></li>
               </ul>
             </div>
           </div>
-        -->
+          <!--
+            <div class="panel panel-default">
+              <div class="panel-heading" data-toggle="collapse" data-target="#collapse3">
+                <h4 class="panel-title">Nagios</h4>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse in" style="height: 150px;">
+                <div class="embed-container" style="height: 150px;">
+                  <iframe src="" class="embed-responsive-item" style="height: 150px;" frameBorder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          -->
         </div>
+      </div>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h3 >Search</h3>
       <div class="row placeholders">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://www.google.com/ncr">
-            <img src="./thumbs/google.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/google.svg" class="main-icon">
           </a>
-          <h4>Google</h4>
+          <h4>google</h4>
           <form class="navbar-form" name="google" action="https://www.google.com/search">
-            <input name="q" align="center" type="text" size="15" tabindex=1/>
+            <input name="q" class="search-bar" align="center" type="text" size="15" tabindex=1 />
           </form>
-
+          
           <span class="text-muted">www.google.com</span>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://www.youtube.com/feed/subscriptions/">
-            <img src="./thumbs/youtube.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/youtube.svg" class="main-icon">
           </a>
-          <h4>Youtube</h4>
+          <h4>youtube</h4>
           <form class="navbar-form" name="youtube" action="https://www.youtube.com/results">
-            <input name="q" align="center" type="text" size="15" tabindex=1/>
+            <input name="q" class="search-bar" align="center" type="text" size="15" tabindex=1 />
           </form>
           <span class="text-muted">www.youtube.com</span>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://en.wikipedia.org/wiki/Main_Page">
-            <img src="./thumbs/wikipedia.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/wikipedia.svg" class="main-icon">
           </a>
-          <h4>Wikipedia</h4>
+          <h4>wikipedia</h4>
           <form class="navbar-form" name= "wikipedia" action="http://www.wikipedia.org/search-redirect.php">
-            <input name="language" align="center" type="hidden" value="en" />
-            <input name="search" align="center"   type="text"   size="15" tabindex=1/>
+            <input name="language" class="search-bar" align="center" type="hidden" value="en"  />
+            <input name="search" class="search-bar" align="center"   type="text"   size="15" tabindex=/>
           </form>
           <span class="text-muted">www.wikipedia.org</span>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://wiki.archlinux.org/">
-            <img src="./thumbs/archwiki.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/archlinux.svg" class="main-icon">
           </a>
-          <h4>Arch Wiki</h4>
+          <h4>arch wiki</h4>
           <form class="navbar-form" name= "archwiki" action="https://wiki.archlinux.org/index.php">
-            <input type="text" align="center" name="search" size="15" tabindex=1/>
+            <input name="search" class="search-bar" type="text" align="center" size="15" tabindex=/>
           </form>
           <span class="text-muted">wiki.archlinux.org</span>
         </div>
-
+        
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="http://www.wolframalpha.com/">
-            <img src="./thumbs/wolfram.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/wolfram.svg" class="main-icon">
           </a>
-          <h4>Wolfram Alpha</h4>
+          <h4>wolfram alpha</h4>
           <form class="navbar-form" name="wolfram" action="http://www.wolframalpha.com/input/">
-            <input name="i" align="center" type="text" size="15" tabindex=1/>
+            <input name="i" class="search-bar" align="center" type="text" size="15" tabindex=1 />
           </form>
           <span class="text-muted">www.wolframalpha.com</span>
         </div>
-
+        
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https:/play.spotify.com">
-            <img src="./thumbs/spotify.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/spotify.svg" class="main-icon">
           </a>
-          <h4>Spotify</h4>
+          <h4>spotify</h4>
           <form class="navbar-form" id="spotify">
-            <input type="text" align="center" id="q" size="15" tabindex=1/>
+            <input name="search" class="search-bar" type="text" align="center" id="q" size="15" tabindex=1/>
           </form>
           <span class="text-muted">play.spotify.com</span>
-
-
+          
+          
         </div>
       </div>
       <!--  ROW NUMBER TWO  -->
       <h3 >Media</h3>
       <div class="row placeholders">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://www.reddit.com/"  tabindex=2>
-            <img src="./thumbs/reddit.png" style="max-height:65px" class="img-responsive">
-          </a>
-          <h4>reddit</h4>
-          <span class="text-muted">www.reddit.com</span>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+          <table align=center >
+            <tr>
+              <td>
+                <a href="https://mail.google.com"  tabindex=2>
+                  <img src="./thumbs/gmail.svg" class="main-icon" alt="Generic placeholder thumbnail">
+                </a>
+              </td>
+              <td style="vertical-align:center;">
+                <div class="button-column">
+                  <table align="center">
+                    <tr>
+                      <th style="padding:5px"><div class="myTooltip"><a href="https://photos.google.com"><img src="./thumbs/photos.svg" class="side-icon" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Photos</span></div></th>
+                    </tr>
+                    <tr>
+                      <th style="padding:5px"><div class="myTooltip"><a href="https://drive.google.com"><img src="./thumbs/drive.svg" class="side-icon" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Drive</span></div></th>
+                    </tr>
+                    <tr>
+                      <th style="padding:5px"><div class="myTooltip"><a href="https://calendar.google.com"><img src="./thumbs/calendar.svg" class="side-icon" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Calendar</span></div></th>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>gmail</h4>
+                <span class="text-muted">mail.google.com</span>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://www.twitter.com/" tabindex=2>
-            <img src="./thumbs/twitter.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/twitter.svg" class="main-icon">
           </a>
-          <h4>Twitter</h4>
+          <h4>twitter</h4>
           <span class="text-muted">www.twitter.com</span>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://www.messenger.com/" tabindex=2>
-            <img src="./thumbs/messenger.png" style="max-height:65px" class="img-responsive">
-          </a>
-          <h4>Messenger</h4>
-          <span class="text-muted">www.messenger.com</span>
-          <div>
-              <table align="center">
-                <tr>
-                  <th style="padding:5px"><div class="myTooltip"><a href="https://facebook.com/">⬤</a><span class="myTooltiptext">Facebook</span></div></th>
-                </tr>
-              </table>
-            </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+          <table align=center>
+            <tr>
+              <td>
+                <a href="https://www.messenger.com/" tabindex=2>
+                  <img src="./thumbs/messenger.svg" class="main-icon">
+                </a>
+              </td>
+              <td>
+                <div class="button-column">
+                  <table align="center">
+                    <tr>
+                      <th style="padding:5px"><div class="myTooltip"><a href="https://facebook.com"><img src="./thumbs/facebook.svg" class="side-icon" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Facebook</span></div></th>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>messenger</h4>
+                <span class="text-muted">www.messenger.com</span>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
           <a href="https://web.whatsapp.com/" tabindex=2>
-            <img src="./thumbs/whatsapp.png" style="max-height:65px" class="img-responsive">
+            <img src="./thumbs/whatsapp.svg" class="main-icon">
           </a>
-          <h4>Whatsapp</h4>
+          <h4>whatsapp</h4>
           <span class="text-muted">web.whatsapp.com</span>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://drive.google.com/" tabindex=2>
-            <img src="./thumbs/drive.png" style="max-height:65px" class="img-responsive" >
-          </a>
-          <h4>Google Drive</h4>
-          <span class="text-muted">drive.google.com</span>
+        
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder has-side-icons">
+          <table align=center >
+            <tr>
+              <td>
+                <a href="https://twitch.tv"  tabindex=2>
+                  <img src="./thumbs/twitch.svg" class="main-icon" alt="Generic placeholder thumbnail">
+                </a>
+              </td>
+              <td style="vertical-align:center;">
+                <div class="button-column">
+                  <table align="center">
+                    <tr>
+                      <th style="padding:5px"><div class="myTooltip"><a href="https://twitch.tv/coestar"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Coestar</span></div></th>
+                    </tr>
+                    <tr>
+                      <th style="padding:5px"><div class="myTooltip"><a href="https://twitch.tv/ilmango"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a><span class="myTooltiptext">Ilmango</span></div></th>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>twitch</h4>
+                <span class="text-muted">twitch.tv</span>
+              </td
+            </tr>
+          </table>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 placeholder">
-          <a href="https://mail.google.com"  tabindex=2>
-            <img src="./thumbs/gmail.png" style="max-height:65px" class="img-responsive">
+          <a href="https://www.reddit.com/"  tabindex=2>
+            <img src="./thumbs/reddit.svg" class="main-icon">
           </a>
-          <h4>Gmail</h4>
-          <span class="text-muted">mail.google.com</span>
+          <h4>reddit</h4>
+          <span class="text-muted">www.reddit.com</span>
         </div>
       </div>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <th>General</th>
-            <th>Programming</th>
-            <th>Movies</th>
-            <th>Streams</th>
+            <th>Projects</th>
+            <th>Media</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </thead>
           <tbody>
             <tr>
               <td class="col-md-2"><a href="https://boards.4chan.org/int/catalog">International</a></td>
               <td class="col-md-2"><a href="https://www.github.com">Github</a></td>
               <td class="col-md-2"><a href="http://www.tvshowtime.com/en/calendar">Show Tracker</a></td>
-              <td class="col-md-2"><a href="https://www.twitch.tv/coestar/videos?filter=archives&sort=time">Coestar</a></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+            </tr>
+            <tr>
+              <td class="col-md-2"><a href="https://www.amazon.es/">Amazon</a></td>
+              <td class="col-md-2"><a href="https://www.biodiversity4all.org/observations/jsvalenca">Biodiversity4All</a></td>
+              <td class="col-md-2"><a href="https://proxybay.bz/">PirateBay</a></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
             </tr>
             <tr>
               <td class="col-md-2"><a href="https://riders.uber.com/">Uber</a></td>
-              <td class="col-md-2"><a href="https://www.bitbucket.com">Bitbucket</a></td>
-              <td class="col-md-2"><a href="https://proxybay.bz/">PirateBay</a></td>
-              <td class="col-md-2"><a href="https://www.twitch.tv/ilmango/videos?filter=archives&sort=time">Ilmango</a></td>
-            </tr>
-            <tr>
-              <td class="col-md-2"></td>
               <td class="col-md-2"></td>
               <td class="col-md-2"><a href="https://www.opensubtitles.org/">Subtitles</a></td>
-              <td class="col-md-2"><a href="https://www.twitch.tv/necomi/videos?filter=archives&sort=time">Necomi</a></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
             </tr>
             <tr>
               <td class="col-md-2"></td>
               <td class="col-md-2"></td>
               <td class="col-md-2"></td>
-              <td class="col-md-2"><a href="https://www.twitch.tv/phedran/videos?filter=archives&sort=time">Phedran</a></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
+              <td class="col-md-2"></td>
             </tr>
           </tbody>
         </table>
@@ -247,14 +346,14 @@
   </div>
 </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-    <script src="./js/jquery.js"></script>
-    <script src="./js/doSearch.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-
-  </body>
-  </html>
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+  <script src="./js/jquery.js"></script>
+  <script src="./js/doSearch.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  
+</body>
+</html>

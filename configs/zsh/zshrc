@@ -105,6 +105,8 @@ alias nmpls='sudo systemctl restart NetworkManager'
 alias moff='xset dpms force off'
 alias unrarall='find -name "*.rar" | parallel unrar x {}'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias plot="gnuplot -e \"plot '-'\" -p"
+alias plotascii="gnuplot -e \"set terminal dumb size \$COLUMNS,\$LINES-3; plot '-' pt '*'\""
 
 function bluez(){
     PHONES="00:FA:21:2E:5E:45"
