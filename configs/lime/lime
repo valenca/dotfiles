@@ -1,0 +1,164 @@
+#!/bin/bash
+REG="^[A-Z]+-[0-9]+"
+
+# Absolute path to this script. 
+SCRIPT=$(readlink -f "${0}")
+# Absolute path this script is in. 
+SCRIPTPATH=$(dirname "${SCRIPT}")
+
+TASK_LIST="${SCRIPTPATH}"/task_list
+DAILY_LIST="${SCRIPTPATH}"/daily_list
+TOTAL_LIST="${SCRIPTPATH}"/total_list
+CURRENT_TASK="${SCRIPTPATH}"/current_task
+
+DATE=$(echo "$(date "+%Y%m%d%H%M") - ($(date +%M))%1" | bc)
+
+function get_title() {
+    grep -E "^${1}\s" "${TASK_LIST}" | sed -sE "s/${REG}\t//g"
+}
+
+function add() {
+    ISSUE=$(echo "$@" | grep -Eo "${REG}")
+    TITLE=$(echo "$@" | sed -sE "s/${REG}//g")
+    if [[ -z "${ISSUE}" ]];
+    then
+        echo "Invalid JIRA project. Use the NULL project for personal issue tracking."
+        exit 1
+    elif grep -q "^${ISSUE}" "${TASK_LIST}";
+    then
+        echo "Duplicated issue"
+    else
+        echo -e "${ISSUE}\t${TITLE}" >> "${TASK_LIST}"
+    fi
+}
+
+function remove() {
+    sed -i "/^${1}\t/d" "${TASK_LIST}" 
+}
+
+function stop() {
+    LAST=$(tail -1 "${DAILY_LIST}")
+    if [[ "${LAST}" =~ ${REG}[[:blank:]][0-9]{12}$ ]];
+    then
+        ISSUE=$(echo "${LAST}" | cut -f 1)
+        TITLE=$(get_title "${ISSUE}")
+        echo "Stopping ${ISSUE}: ${TITLE}"
+
+        read -r -p "Add a comment to the task log: " COMMENT
+        if [[ -z "${COMMENT}" ]];
+        then
+            COMMENT='null'
+        fi
+
+        sed -i "\$s/${LAST}/${LAST}\t${DATE}\t${COMMENT}/" "${DAILY_LIST}"
+        echo "" > "${CURRENT_TASK}"
+    elif [[ "${LAST}" =~ ${REG}[[:blank:]][0-9]{12}[[:blank:]][0-9]{12}.*$ ]] || [[ -z ${LAST} ]];
+    then
+        echo "Nothing to stop. Carrying on!"
+    else
+        echo "Mal formatted file. Check ${DAILY_LIST} for errors."
+    fi
+}
+
+function start() {
+    stop
+    ISSUE="${1}"
+    TITLE=$(get_title "${ISSUE}")
+    if [[ -z "${ISSUE}" ]];
+    then
+        echo "No issue given. Nothing to start!"
+        exit 1
+    else
+        echo "Starting ${ISSUE}: ${TITLE}"
+
+        echo -e "${ISSUE}\t${DATE}" >> "${DAILY_LIST}"
+        echo -e "${ISSUE}\t${TITLE}" > "${CURRENT_TASK}"
+    fi
+}
+
+function reset() {
+    echo "Resetting $(cat "${DAILY_LIST}" | wc -l ) log entries."
+    echo "Daily Entry from $(date +"%y-%m-%d %H:%M"): " >> "${TOTAL_LIST}"
+    cat "${DAILY_LIST}" >> "${TOTAL_LIST}"
+    echo "" > ${DAILY_LIST}
+}
+
+function clear() {
+    read -r -p "Removing $(cat "${TASK_LIST}" | wc -l) tasks at hand. Are you sure? [y/n] " yn
+    case $yn in
+        [Yy]* ) echo "" > "${TASK_LIST}"; return;;
+        [Nn]* ) return;;
+        * ) echo "Please answer yes or no.";;
+    esac
+}
+
+function show_total_time {
+    (
+        declare -A TIME_PER_ISSUE
+        for ISSUE in $(cat "${DAILY_LIST}" | cut -f 1 | sort | uniq); do
+            TIME_PER_ISSUE["${ISSUE}"]="0"
+        done
+
+        IFS=$'\n'
+        for LOG in $(cat daily_list); do
+            ISSUE=$(echo "${LOG}" | cut -f 1)
+            START=$(echo "${LOG}" | cut -f 2)
+            STOP=$(echo "${LOG}" | cut -f 3)
+            TIME_PER_ISSUE["${ISSUE}"]=$(( TIME_PER_ISSUE["${ISSUE}"] + (STOP - START) ))
+        done 
+
+        TOTAL="0"
+        for ISSUE in "${!TIME_PER_ISSUE[@]}"; do
+            echo -en "$(( ${TIME_PER_ISSUE[${ISSUE}]}/60 ))h $(( ${TIME_PER_ISSUE[${ISSUE}]}%60 ))m"
+            echo -e "\t${ISSUE}\t$(get_title ${ISSUE})"
+            TOTAL=$(( TOTAL + TIME_PER_ISSUE[${ISSUE}] ))
+        done
+        echo -e "\n\t\nTotal\t$(( TOTAL/60 ))h $(( TOTAL%60 ))m"
+    ) | column -ts $'\t'
+}
+
+function show_current_task {
+    cat "${CURRENT_TASK}"
+}
+
+function submit() {
+    echo "Time to be logged: "
+    show_total_time
+    
+    echo "submitting, but not really. Escape the NULL project, ignore the null comments"
+}
+
+case ${1} in
+    add)
+        add "${@:2}"
+    ;;
+    remove)
+        remove "${@:2}"
+    ;;
+    start)
+        start "${@:2}"
+    ;;
+    stop)
+        stop
+    ;;
+    reset)
+        reset
+    ;;
+    clear)
+        clear
+    ;;
+    submit)
+        submit
+    ;;
+    show)
+        shift
+        case ${1} in
+            total_time)
+                show_total_time
+            ;;
+            current_task)
+                show_current_task
+            ;;
+        esac
+    ;;
+esac
