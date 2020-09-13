@@ -1,5 +1,25 @@
 #!/bin/bash
-#mpv $(xclip -o -selection clipboard)
-#vlc $(xclip -o -selection clipboard)
-#streamlink --player-passthrough hls $(xclip -o -selection clipboard) 360p
-streamlink --player-passthrough hls $(xclip -o -selection clipboard) 480p
+# Release all keys usually used for shortcuts
+xdotool keyup hift_L Shift_R Control_L Control_R Meta_L Meta_R Alt_L Alt_R Super_L Super_R a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0
+# Pause youtube video
+xdotool key k
+# Select address bar (and wait a bit)
+xdotool key ctrl+l
+sleep 0.1s
+# Copy address (and wait a bit)
+xdotool key ctrl+c
+sleep 0.1s
+# Check if link is actually from youtube
+LINK=$(xclip -o -selection clipboard)
+if [[ $LINK =~ https://www.youtube.com/watch ]] || [[ $LINK =~ https://www.twitch.tv/ ]]
+then 
+	notify-send "Launching local YouTube" "$(xclip -o -selection clipboard)"
+	vlc \
+		--preferred-resolution 720 \
+		--http-reconnect \
+		--qt-minimal-view \
+		--sout-vpx-quality-mode 2 \
+		--video-on-top \
+		"${LINK}"
+fi
+
