@@ -472,8 +472,18 @@
                       <td>
                         <th style="padding:5px">
                           <div class="myTooltip">
-                            <a href="https://gitlab.feedzai.com/dashboard/merge_requests?scope=all&utf8=✓&state=opened&approver_usernames[]=joao.valenca"><img src="./thumbs/arrow.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
-                            <span class="myTooltiptext">Merge Requests</span>
+                            <a href="https://gitlab.feedzai.com/dashboard/merge_requests?assignee_username=joao.valenca"><img src="./thumbs/git_green.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">To Change</span>
+                          </div>
+                        </th>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <th style="padding:5px">
+                          <div class="myTooltip">
+                            <a href="https://gitlab.feedzai.com/dashboard/merge_requests?scope=all&utf8=✓&state=opened&approver_usernames[]=joao.valenca"><img src="./thumbs/git_red.svg" class="side-icon" alt="Generic placeholder thumbnail"></a>
+                            <span class="myTooltiptext">To Review</span>
                           </div>
                         </th>
                       </td>
@@ -498,7 +508,6 @@
           <span class="text-muted">chat.google.com</span>
         </div>
       </div>
-      <hr>
       <h3>Links</h3>
       <div class="table-responsive">
         <table class="table table-striped">
@@ -555,63 +564,56 @@
                 <a href="https://console.cloud.google.com/?pli=1">GCP</a>
               </td>
               <td class="col-md-2">
-                <a href="https://sonar.feedzai.com/">Sonar</td>
-                  <td class="col-md-2">
-                    <a href="https://youtube.com/">Youtube</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="col-md-2">
-                    <a href="https://www.github.com">Github</a>
-                  </td>
-                  <td class="col-md-2">
-                    <a href="https://techdocs.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/feedzai-libs.version,variables/maven/case-manager.version,variables/maven/tfm.version,variables/maven/insights.version,variables/maven/tfrb.version,variables/maven/tokenizer.version,variables/maven/elasticsearch.version,variables/maven/oracle.version,variables/maven/postgresql.version,variables/maven/mssql.version,variables/maven/mysql.version,variables/maven/jetty-distribution.version&labels=Refresh%20Date,Project,Stage,Project%20Version,Pulse,Feedzai%20Libs,CM,Merchants,Insights,Banks,Tokenizer,Elastic,Oracle,Postgresql,MS%20SQL,MySQL,Jetty">CS Deployments</a>
-                  </td>
-                  <td class="col-md-2">
-                    <a href="http://labs.k8s.zai/">K8s Labs</a>
-                  </td>
-                  <td class="col-md-2">
-                    <a href="https://blackduck.feedzai.com/">Blackduck</a>
-                  </td>
-                  <td class="col-md-2">
-                    <a href="https://www.messenger.com">Messenger</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="col-md-2">
-                    <a href="https://techdocs.feedzai.com/">Techdocs</a>
-                  </td>
-                  <td class="col-md-2">
-                    <a href="https://helpdesk.feedzai.com">Helpdesk</a>
-                  </td>
-                  <td class="col-md-2">
-                    <a href="https://cloud-engineering-gocd.feedzai.com/">GoCD</a>
-                  </td>
-                  <td class="col-md-2">
-                    
-                  </td>
-                  <td class="col-md-2">
-                    
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+                <a href="https://sonar.feedzai.com/">Sonar</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://youtube.com/">Youtube</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-md-2">
+                <a href="https://www.github.com">Github</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://techdocs.feedzai.com/cs-projects/cgi-bin/summary.py?columns=variables/date/ISO_8601_EXTENDED_DATETIME,variables/maven/groupId,variables/maven/git.branch,variables/maven/version,variables/maven/pulse.version,variables/maven/feedzai-libs.version,variables/maven/case-manager.version,variables/maven/tfm.version,variables/maven/insights.version,variables/maven/tfrb.version,variables/maven/tokenizer.version,variables/maven/elasticsearch.version,variables/maven/oracle.version,variables/maven/postgresql.version,variables/maven/mssql.version,variables/maven/mysql.version,variables/maven/jetty-distribution.version&labels=Refresh%20Date,Project,Stage,Project%20Version,Pulse,Feedzai%20Libs,CM,Merchants,Insights,Banks,Tokenizer,Elastic,Oracle,Postgresql,MS%20SQL,MySQL,Jetty">CS Deployments</a>
+              </td>
+              <td class="col-md-2">
+                <a href="http://labs.k8s.zai/">K8s Labs</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://blackduck.feedzai.com/">Blackduck</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://www.messenger.com">Messenger</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-md-2">
+                <a href="https://techdocs.feedzai.com/">Techdocs</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://helpdesk.feedzai.com">Helpdesk</a>
+              </td>
+              <td class="col-md-2">
+                <a href="https://cloud-engineering-gocd.feedzai.com/">GoCD</a>
+              </td>
+              <td class="col-md-2">
+                
+              </td>
+              <td class="col-md-2">
+                <a href="https://web.whatsapp.com/">WhatsApp</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    
-    <script src="./js/jquery.js">
-    </script>
-    <script src="./js/twitch.js">
-    </script>
-    <script src="./js/doSearch.js">
-    </script>
-    <script src="./js/bootstrap.min.js">
-    </script>
-    <script src="./js/ie10-viewport-bug-workaround.js">
-    </script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/twitch.js"></script>
+    <script src="./js/doSearch.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
     
   </body>
-  </html>
+</html>
   

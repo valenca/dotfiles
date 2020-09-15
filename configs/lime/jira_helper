@@ -1,0 +1,67 @@
+#! /usr/bin/python3
+
+from jira import JIRA
+from os import getenv
+from sys import argv
+from subprocess import Popen,PIPE,STDOUT
+
+def call(EXE):
+    return Popen(EXE, stdout = PIPE, shell = True).stdout.read().decode("utf-8").strip()
+
+# Getting authentication credentials.
+USER=getenv("USER")
+jira = JIRA(
+    {'server':'https://issues.feedzai.com/'},
+    basic_auth=(USER, call("pass feedzai/jira"))
+)
+
+# Fetches all the tasks from the sprint with the most tasks assigned to the user. customfield_10170 is the sprint object, and 
+# must be parsed.
+def sprint():
+    from collections import Counter
+    import re
+    
+    c = Counter()
+    issues = jira.search_issues("sprint in openSprints() AND assignee = {}".format(USER), fields="summary,customfield_10170")
+
+    for issue in issues:
+        m = re.search(r'id=[0-9]+', issue.fields.customfield_10170[0])
+        c[m.group(0)]+=1
+    
+    sprint=int(c.most_common(1)[0][0].split('=')[1])
+    issues = jira.search_issues("sprint = {} AND (assignee is EMPTY OR assignee = {})".format(sprint, USER), fields="summary")
+    
+    for issue in issues:
+        print("{} {}".format(issue.key,issue.fields.summary))
+
+# Submits a work log to JIRA with start, duration and comment.
+def log(key, start, stop, comment=None):
+    from datetime import datetime
+    # Compensate for timezone/DST
+    offset=datetime.utcnow()-datetime.now()
+    delta=datetime.strptime(stop, '%Y-%m-%d %H:%M')-datetime.strptime(start, '%Y-%m-%d %H:%M')
+
+    if comment == "null":
+        comment = None
+
+    if delta.total_seconds()/60 > 0:
+        jira.add_worklog(
+            key,
+            started=datetime.strptime(start, '%Y-%m-%d %H:%M')+offset,
+            timeSpent="{}m".format(delta.total_seconds()/60),
+            comment=comment
+        )
+
+# Looks up an issue description by key
+def lookup(key):
+    issue = jira.search_issues("key={}".format(key), fields="summary")[0]
+    print("{}".format(issue.fields.summary))
+
+# Multiplexes the various JIRA-dependent actions for lime
+if __name__ == '__main__':
+    if argv[1] == 'sprint':
+        sprint()
+    elif argv[1] == 'log':
+        log(*argv[2].split("\t")) 
+    elif argv[1] == 'lookup':
+        lookup(argv[2])

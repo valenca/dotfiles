@@ -1,0 +1,31 @@
+QAI-1724	ISOS - Team Governance | 2020/09/10
+QAI-1723	ISOS - End of Life tasks | 2020/09/10
+QAI-1722	ISOS - License Issuing | 2020/09/10
+QAI-1721	ISOS - Internship Support  | 2020/09/10
+QAI-1720	ISOS - [L4] CM Backlog management | 2020/09/10
+QAI-1719	ISOS - [L4] Audit / Overseer | 2020/09/10
+QAI-1718	ISOS - Team Docs Reviews | 2020/09/10
+QAI-1717	ISOS - 1-1s | 2020/09/10
+QAI-1716	ISOS - Interviews | 2020/09/10
+QAI-1715	ISOS - Thinkstorms | 2020/09/10
+QAI-1714	ISOS - Corporate Initiatives | 2020/09/10
+QAI-1713	ISOS - Team Code Reviews | 2020/09/10
+QAI-1712	ISOS - [L4] Closing ancient/old REQs process  | 2020/09/10
+QAI-1711	ISOS - Hours logging | 2020/09/10
+QAI-1710	ISOS - Internal Support | 2020/09/10
+QAI-1709	ISOS - External Support | 2020/09/10
+QAI-1708	ISOS - Keeping up to date | 2020/09/10
+QAI-1707	ISOS - Continuous Issue refinement | 2020/09/10
+QAI-1706	ISOS - Continuous Issue triage | 2020/09/10
+QAI-1705	ISOS - Planning and related tasks | 2020/09/10
+QAI-1704	ISOS - Scrum cerimonies | 2020/09/10
+QAI-1700	Automate the deletion of all GCP Test resources to save costs [M2]
+QAI-1699	[GCP Release Automation] Setting up a Dataproc [M1]
+QAI-1698	[GCP Release Automation] Setting up a Pulse VM [M1]
+QAI-1697	[GCP Release Automation] Setting up a DFS [M1]
+QAI-1696	Gather all the context required for setting up a testing GCP environment into a single document
+QAI-1694	CLONE - Pulse 20.1 INTERNAL 24-Sep
+QAI-1692	CLONE - Pulse 20.3 INTERNAL 14-Sep
+QAI-1691	CLONE - Pulse 19.1.36 Lloyds Bank 17-Sep
+QAI-1564	Document the Azure Tests
+QAI-1725	CLONE - Request for Pulse Black Duck Report 

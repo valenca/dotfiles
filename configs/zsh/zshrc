@@ -54,7 +54,7 @@ ZSH_THEME="wezm+"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
+source ~/.lime/lime-completion.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -173,6 +173,10 @@ export PHABRICATOR_TOOLS_PATH=/home/joao.valenca/bin/development_tools
 export DEVELOPMENT_TOOLS_PATH=/home/joao.valenca/bin/development_tools
 export PATH=$PHABRICATOR_TOOLS_PATH/phabricator/arcanist/bin/:$PATH
 export LOCAL_TEST_RESOURCES=/home/joao.valenca/Pulse/test-resources/files/
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 setopt HIST_FIND_NO_DUPS
 
