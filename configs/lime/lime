@@ -6,20 +6,26 @@ SCRIPT=$(readlink -f "${0}")
 # Absolute path this script is in. 
 SCRIPTPATH=$(dirname "${SCRIPT}")
 
-TASK_LIST="${SCRIPTPATH}"/task_list
-DAILY_LIST="${SCRIPTPATH}"/daily_list
-TOTAL_LIST="${SCRIPTPATH}"/total_list
-CURRENT_TASK="${SCRIPTPATH}"/current_task
+TASK_LIST="${SCRIPTPATH}"/task_list.txt
+DAILY_LIST="${SCRIPTPATH}"/daily_list.txt
+TOTAL_LIST="${SCRIPTPATH}"/total_list.txt
+CURRENT_TASK="${SCRIPTPATH}"/current_task.txt
 
-DATE=$(echo "$(date "+%Y%m%d%H%M") - ($(date +%M))%1" | bc)
+JIRA_BIN="${SCRIPTPATH}"/jira_helper.py
+README="${SCRIPTPATH}"/README.md
 
+DATE=$(date "+%Y-%m-%d %H:%M")
+
+# Looks into the task list for the corresponding issue title to a given key.
 function get_title() {
     grep -E "^${1}\s" "${TASK_LIST}" | sed -sE "s/${REG}\t//g"
 }
 
+# Adds an issue to the task list. If project key is "NULL", it will be ignored by other
+# commands. If no description is given, JIRA is consulted instead.
 function add() {
     ISSUE=$(echo "$@" | grep -Eo "${REG}")
-    TITLE=$(echo "$@" | sed -sE "s/${REG}//g")
+    TITLE=$(echo "$@" | sed -sE "s/${REG}\s*//g")
     if [[ -z "${ISSUE}" ]];
     then
         echo "Invalid JIRA project. Use the NULL project for personal issue tracking."
@@ -28,23 +34,33 @@ function add() {
     then
         echo "Duplicated issue"
     else
+        if [[ -z "${TITLE}" ]];
+        then
+            TITLE=$("${JIRA_BIN}" lookup "${ISSUE}")
+        fi
+        echo -e "Adding \e[1;34m${ISSUE}\e[m: \e[1;97m${TITLE}\e[m"
         echo -e "${ISSUE}\t${TITLE}" >> "${TASK_LIST}"
     fi
 }
 
+# Removes an issue from the task list
 function remove() {
-    sed -i "/^${1}\t/d" "${TASK_LIST}" 
+    ISSUE="${1}"
+    TITLE=$(get_title "${ISSUE}")
+    echo -e "Removing \e[1;34m${ISSUE}\e[m: \e[1;97m${TITLE}\e[m"
+    sed -i "/^${ISSUE}\t/d" "${TASK_LIST}" 
 }
 
+# Stops the current task and logs the time in the same line. Prompts for comments.
 function stop() {
     LAST=$(tail -1 "${DAILY_LIST}")
-    if [[ "${LAST}" =~ ${REG}[[:blank:]][0-9]{12}$ ]];
+    if [[ "${LAST}" =~ ${REG}[[:blank:]][0-9-]{10}[[:blank:]][0-9:]{5}$ ]];
     then
         ISSUE=$(echo "${LAST}" | cut -f 1)
         TITLE=$(get_title "${ISSUE}")
-        echo "Stopping ${ISSUE}: ${TITLE}"
+        echo -e "${DATE} - [\e[1;31mStopping\e[m] \e[1;34m${ISSUE}\e[m: \e[1;97m${TITLE}\e[m"
 
-        read -r -p "Add a comment to the task log: " COMMENT
+        read -e -r -p "Add a comment to the task log: " COMMENT
         if [[ -z "${COMMENT}" ]];
         then
             COMMENT='null'
@@ -52,7 +68,7 @@ function stop() {
 
         sed -i "\$s/${LAST}/${LAST}\t${DATE}\t${COMMENT}/" "${DAILY_LIST}"
         echo "" > "${CURRENT_TASK}"
-    elif [[ "${LAST}" =~ ${REG}[[:blank:]][0-9]{12}[[:blank:]][0-9]{12}.*$ ]] || [[ -z ${LAST} ]];
+    elif [[ "${LAST}" =~ ${REG}[[:blank:]][0-9-]{10}[[:blank:]][0-9:]{5}[[:blank:]][0-9-]{10}[[:blank:]][0-9:]{5}.*$ ]] || [[ -z ${LAST} ]];
     then
         echo "Nothing to stop. Carrying on!"
     else
@@ -60,6 +76,7 @@ function stop() {
     fi
 }
 
+# Starts a task and begins the log line. Stops any ongoing task.
 function start() {
     stop
     ISSUE="${1}"
@@ -68,97 +85,207 @@ function start() {
     then
         echo "No issue given. Nothing to start!"
         exit 1
+    elif [[ ! "${ISSUE}" =~ ${REG} ]]
+    then
+        echo "Invalid issue. Nothing to start!"
+        exit 1
     else
-        echo "Starting ${ISSUE}: ${TITLE}"
+        echo -e "${DATE} - [\e[1;32mStarting\e[m] \e[1;34m${ISSUE}\e[m: \e[1;97m${TITLE}\e[m"
 
         echo -e "${ISSUE}\t${DATE}" >> "${DAILY_LIST}"
         echo -e "${ISSUE}\t${TITLE}" > "${CURRENT_TASK}"
     fi
 }
 
-function reset() {
-    echo "Resetting $(cat "${DAILY_LIST}" | wc -l ) log entries."
-    echo "Daily Entry from $(date +"%y-%m-%d %H:%M"): " >> "${TOTAL_LIST}"
-    cat "${DAILY_LIST}" >> "${TOTAL_LIST}"
-    echo "" > ${DAILY_LIST}
+# Changes the current or last log entry to a different issue.
+function change(){
+    ISSUE="${1}"
+    TITLE=$(get_title "${ISSUE}")
+    LAST=$(tail -1 "${DAILY_LIST}")
+    if [[ ! "${ISSUE}" =~ ${REG} ]];
+    then
+        echo "Invalid issue. Nothing to change with!"
+        exit 1
+    fi
+    if [[ "${LAST}" =~ ${REG}[[:blank:]][0-9-]{10}[[:blank:]][0-9:]{5} ]];
+    then
+        sed -Ei "\$s/[A-Z]+\-[0-9]+/${ISSUE}/" "${DAILY_LIST}"
+        printf "%s - [\e[1;33mChanging\e[m] from \e[1;34m%s\e[m: \e[1;97m%s\e[m\n" "${DATE}" "$(echo "${LAST}" | cut -f 1)" "$(get_title "$(echo "${LAST}" | cut -f 1)")"
+        printf "                    \e[1;33m        \e[m    to \e[1;34m%s\e[m: \e[1;97m%s\e[m\n" "${ISSUE}" "${TITLE}"
+
+        echo -e "${ISSUE}\t${TITLE}" > "${CURRENT_TASK}"    
+    else
+        echo "Nothing to change. Carrying on!"
+    fi
 }
 
+# Clears the daily worklog list and appends it to the global one. Useful for skipping the log submission
+# after a mistaske or mishap
+function reset() {
+    echo "Resetting $(cat "${DAILY_LIST}" | wc -l ) log entries."
+    echo "Daily Entry from ${DATE}: " >> "${TOTAL_LIST}"
+    cat "${DAILY_LIST}" >> "${TOTAL_LIST}"
+    true > "${DAILY_LIST}"
+}
+
+# Clears the task pool (useful for end of sprints)
 function clear() {
-    read -r -p "Removing $(cat "${TASK_LIST}" | wc -l) tasks at hand. Are you sure? [y/n] " yn
+    read -e -r -p "Removing $(cat "${TASK_LIST}" | wc -l) tasks at hand. Are you sure? [y/n] " yn
     case $yn in
-        [Yy]* ) echo "" > "${TASK_LIST}"; return;;
+        [Yy]* ) true > "${TASK_LIST}"; return;;
         [Nn]* ) return;;
         * ) echo "Please answer yes or no.";;
     esac
 }
 
-function show_total_time {
+# General information about the program state. Useful for live displays or similar.
+function info () {
+    case ${1} in
+        total_time)
+            info_total_time
+        ;;
+        current_task)
+            info_current_task
+        ;;
+    esac
+}
+
+# Shows the total time spent per task as well as the sum of the totals in a column format.
+function info_total_time {
     (
         declare -A TIME_PER_ISSUE
         for ISSUE in $(cat "${DAILY_LIST}" | cut -f 1 | sort | uniq); do
             TIME_PER_ISSUE["${ISSUE}"]="0"
         done
 
+        # Sum all logs and group them by issue into the TIME_PER_ISSUE array
         IFS=$'\n'
-        for LOG in $(cat daily_list); do
+        for LOG in $(cat "${DAILY_LIST}"); do
             ISSUE=$(echo "${LOG}" | cut -f 1)
             START=$(echo "${LOG}" | cut -f 2)
             STOP=$(echo "${LOG}" | cut -f 3)
-            TIME_PER_ISSUE["${ISSUE}"]=$(( TIME_PER_ISSUE["${ISSUE}"] + (STOP - START) ))
+            if [[ -z ${STOP} ]]; then STOP="${DATE}"; fi
+            START=$(date -d "${START}" +'%s')
+            STOP=$(date -d "${STOP}" +'%s')
+            TIME_PER_ISSUE["${ISSUE}"]=$(( TIME_PER_ISSUE["${ISSUE}"] + (STOP - START)/60 ))
         done 
 
+        # Print all the logs
         TOTAL="0"
         for ISSUE in "${!TIME_PER_ISSUE[@]}"; do
-            echo -en "$(( ${TIME_PER_ISSUE[${ISSUE}]}/60 ))h $(( ${TIME_PER_ISSUE[${ISSUE}]}%60 ))m"
-            echo -e "\t${ISSUE}\t$(get_title ${ISSUE})"
+            printf "\e[1;34m%s\e[m\t" "${ISSUE}"              # Print the Issue key in blue
+            printf "\e[1;97m%s\e[m\t" "$(get_title ${ISSUE})" # Print the Issue title in white
+            printf "%2dh %02dm\n" "$(( ${TIME_PER_ISSUE[${ISSUE}]}/60 ))" "$(( ${TIME_PER_ISSUE[${ISSUE}]}%60 ))"
+
             TOTAL=$(( TOTAL + TIME_PER_ISSUE[${ISSUE}] ))
+
+            # Print parcels if requested (must recalculate)
+            for LOG in $(grep -E "^${ISSUE}\s" "${DAILY_LIST}"); do
+                if [[ ${ISSUE} == $(echo "${LOG}" | cut -f 1) ]] 
+                then
+                    START=$(echo "${LOG}" | cut -f 2)
+                    STOP=$(echo "${LOG}" | cut -f 3)
+                    if [[ -z ${STOP} ]]; then STOP="${DATE}"; fi
+                    START=$(date -d "${START}" +'%s')
+                    STOP=$(date -d "${STOP}" +'%s')
+                    SUM=$(( (STOP - START)/60 ))
+                    if [ $SUM -lt 60 ]; 
+                    then
+                        printf " \t\e[0;39m└─    %2dm %s\e[m\n" "$(( SUM%60 ))" "$(echo "${LOG}" | cut -f 4 | sed s/^null$//)"
+                    else
+                        printf " \t\e[0;39m└─%2dh %02dm %s\e[m\n" "$(( SUM/60 ))" "$(( SUM%60 ))" "$(echo "${LOG}" | cut -f 4 | sed s/^null$//)"
+                    fi
+                fi
+            done
         done
-        echo -e "\n\t\nTotal\t$(( TOTAL/60 ))h $(( TOTAL%60 ))m"
-    ) | column -ts $'\t'
+        printf " \e[1;37m\e[m\t \e[1;37m\e[m\tTOTAL\n"        # Force the blue codes to match number of characters for column
+        printf " \e[1;37m\e[m\t \e[1;37m\e[m\t%2dh %02dm\n" "$(( TOTAL/60 ))" "$(( TOTAL%60 ))"
+    ) | column -ts $'\t' | sed -E '{N; s/└(.*)└/├\1└/};P;D;'  # Align to column and unite the tree branches
 }
 
-function show_current_task {
-    cat "${CURRENT_TASK}"
+# Shows the task currently being worked on.
+function info_current_task {
+    ISSUE=$(cat "${CURRENT_TASK}" | cut -f 1)
+    if [[ -n ${ISSUE} ]]
+    then 
+        printf "\e[1;34m%s\e[m " "${ISSUE}"              # Print the Issue key in blue
+        printf "\e[1;97m%s\e[m\t\n" "$(get_title "${ISSUE}")" # Print the Issue title in white
+    else
+        printf " - \n"
+    fi
 }
 
+# Fetches all the relevant issues in the current ongoing sprint with the most tasks assigned to the user
+function sprint() {
+    IFS=$'\n'
+    for ISSUE in $("${JIRA_BIN}" sprint); do
+        add "${ISSUE}"
+    done
+}
+
+# Submits all the work logs to jira, with start time, duration and comments.
 function submit() {
-    echo "Time to be logged: "
-    show_total_time
+    stop
+    echo "Total time to be logged:"
+    info_total_time
+
+    read -e -r -p "Are you sure? [y/n] " yn
+    case $yn in
+        [Yy]* ) 
+            IFS=$'\n'
+            for LOG in $(cat "${DAILY_LIST}" | grep -vE "^NULL-[0-9]+.*"); do
+                echo "${LOG}"
+                "${JIRA_BIN}" log "${LOG}"
+            done
+            reset
+            return
+        ;;
+        [Nn]* ) 
+            return
+        ;;
+        * ) echo "Please answer yes or no.";;
+    esac
     
-    echo "submitting, but not really. Escape the NULL project, ignore the null comments"
 }
 
+# Opens the readme so that the users can be reminded of the functions to use.
+function help() {
+    README="${SCRIPTPATH}"/README.md
+    cat "${README}"
+}
+
+# Shows a summary of the current program status, namely the working task and the
+# total hours spent so far.
+function status() {
+    echo -e "Currently Working on:"
+    info_current_task
+    echo -e "\nTime worked since last reset: "
+    info_total_time "${1}"
+}
+
+# Opens an issue in the browser for consultation.
+function show () {
+    if [[ -n ${1} ]]
+    then 
+        xdg-open "https://issues.feedzai.com/browse/${1}" 2> /dev/null
+    else
+        xdg-open "https://issues.feedzai.com/browse/$(cut -f 1 "${CURRENT_TASK}")" 2> /dev/null
+    fi
+}
+
+# Opens one of the internal state files in an editor for fixing mistakes, or manual additions.
+function open() {
+    xdg-open "${SCRIPTPATH}"/"${1}" 2> /dev/null
+}
+
+# Parse arguments.
 case ${1} in
-    add)
-        add "${@:2}"
+    # Functions with arguments (require autcomplete tweaks)
+    add|remove|start|show|open|info|change|status)
+        "${1}" "${@:2}"
     ;;
-    remove)
-        remove "${@:2}"
-    ;;
-    start)
-        start "${@:2}"
-    ;;
-    stop)
-        stop
-    ;;
-    reset)
-        reset
-    ;;
-    clear)
-        clear
-    ;;
-    submit)
-        submit
-    ;;
-    show)
-        shift
-        case ${1} in
-            total_time)
-                show_total_time
-            ;;
-            current_task)
-                show_current_task
-            ;;
-        esac
+    # Functions without arguments
+    stop|reset|submit|sprint|clear|help)
+        "${1}"
     ;;
 esac
